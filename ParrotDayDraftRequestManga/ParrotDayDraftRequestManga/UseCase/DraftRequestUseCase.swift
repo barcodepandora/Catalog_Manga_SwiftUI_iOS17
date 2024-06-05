@@ -9,11 +9,26 @@ import Foundation
 
 protocol DraftRequestUseCaseProtocol {
     func doIt()
+    
+    func readManga() async throws
 }
 
 class DraftRequestUseCase: DraftRequestUseCaseProtocol {
     func doIt() {
         Clerk().greet(idol: IdolOfLeague(name: "Elena"))
+        Task {
+            try await readManga()
+        }
+    }
+    
+    func readManga() async throws {
+        let (data, response) = try await URLSession.shared.data(from: URL(string: "https://mymanga-acacademy-5607149ebe3d.herokuapp.com/list/mangas")!)
+        guard let httpResponse = response as? HTTPURLResponse else {
+            return
+        }
+        let decoder = JSONDecoder()
+        let a = try decoder.decode(Manga.self, from: data)
+        print(a)
     }
 }
 
