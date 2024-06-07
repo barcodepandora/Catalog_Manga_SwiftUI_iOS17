@@ -127,6 +127,21 @@
                   endingLineNumber = "31"
                   offsetFromSymbolStart = "794">
                </Location>
+               <Location
+                  uuid = "BFED41E1-9D3A-4F35-B2C0-B7C95A7ABFE2 - ae3be444049d9509"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.readManga() async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "830">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

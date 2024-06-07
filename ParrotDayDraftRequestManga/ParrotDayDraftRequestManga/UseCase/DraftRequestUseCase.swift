@@ -22,7 +22,7 @@ class DraftRequestUseCase: DraftRequestUseCaseProtocol {
     }
     
     func readManga() async throws {
-        let (data, response) = try await URLSession.shared.data(from: URL(string: "https://mymanga-acacademy-5607149ebe3d.herokuapp.com/list/mangas")!)
+        let (data, response) = try await URLSession.shared.data(for: APIRouter.get().urlRequest)
         guard let httpResponse = response as? HTTPURLResponse else {
             return
         }

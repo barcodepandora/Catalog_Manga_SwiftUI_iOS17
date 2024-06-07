@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5659FAB32C110C8500B62BBF /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659FAB22C110C8500B62BBF /* Manga.swift */; };
+		56AF4E682C127AF600C1FBE8 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF4E672C127AF600C1FBE8 /* APIRouter.swift */; };
 		56E940372C0E07DB0087A90C /* ParrotDayDraftRequestMangaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E940362C0E07DB0087A90C /* ParrotDayDraftRequestMangaApp.swift */; };
 		56E940392C0E07DB0087A90C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E940382C0E07DB0087A90C /* ContentView.swift */; };
 		56E9403B2C0E07E00087A90C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E9403A2C0E07E00087A90C /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		5659FAB22C110C8500B62BBF /* Manga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
+		56AF4E672C127AF600C1FBE8 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		56E940332C0E07DB0087A90C /* ParrotDayDraftRequestManga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParrotDayDraftRequestManga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E940362C0E07DB0087A90C /* ParrotDayDraftRequestMangaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotDayDraftRequestMangaApp.swift; sourceTree = "<group>"; };
 		56E940382C0E07DB0087A90C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		56AF4E662C127ACD00C1FBE8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				56AF4E672C127AF600C1FBE8 /* APIRouter.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		56E9402A2C0E07DB0087A90C = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +118,7 @@
 		56E940352C0E07DB0087A90C /* ParrotDayDraftRequestManga */ = {
 			isa = PBXGroup;
 			children = (
+				56AF4E662C127ACD00C1FBE8 /* Networking */,
 				5659FAB12C110C7500B62BBF /* Model */,
 				56E940632C0E17B40087A90C /* UseCase */,
 				56E940602C0E17250087A90C /* ViewModel */,
@@ -291,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E940392C0E07DB0087A90C /* ContentView.swift in Sources */,
+				56AF4E682C127AF600C1FBE8 /* APIRouter.swift in Sources */,
 				56E940372C0E07DB0087A90C /* ParrotDayDraftRequestMangaApp.swift in Sources */,
 				5659FAB32C110C8500B62BBF /* Manga.swift in Sources */,
 				56E940622C0E17550087A90C /* DraftRequestViewModel.swift in Sources */,
