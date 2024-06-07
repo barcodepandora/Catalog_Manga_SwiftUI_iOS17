@@ -32,10 +32,10 @@ struct MangaInfo {
 extension MangaInfo: Decodable {}
 
 struct Item {
-    var name: String?
+    var title: String?
     
-    init(name: String? = nil) {
-        self.name = name
+    init(title: String? = nil) {
+        self.title = title
     }
 }
 

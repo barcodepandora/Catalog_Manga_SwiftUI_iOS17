@@ -9,25 +9,32 @@ import Foundation
 
 protocol DraftRequestUseCaseProtocol {
     func doIt()
-    
-    func readManga() async throws
+    func list(page: Int, per: Int) async throws
+    func search(page: Int, per: Int, text: String) async throws
 }
 
 class DraftRequestUseCase: DraftRequestUseCaseProtocol {
     func doIt() {
         Clerk().greet(idol: IdolOfLeague(name: "Elena"))
-        Task {
-            try await readManga()
-        }
     }
     
-    func readManga() async throws {
-        let (data, response) = try await URLSession.shared.data(for: APIRouter.get().urlRequest)
+    func list(page: Int, per: Int) async throws {
+        let (data, response) = try await URLSession.shared.data(for: APIRouter.get(page: page, per: per).urlRequest)
         guard let httpResponse = response as? HTTPURLResponse else {
             return
         }
         let decoder = JSONDecoder()
         let a = try decoder.decode(Manga.self, from: data)
+        print(a)
+    }
+    
+    func search(page: Int, per: Int, text: String) async throws {
+        let (data, response) = try await URLSession.shared.data(for: APIRouter.search(page: page, per: per, text: text).urlRequest)
+        guard let httpResponse = response as? HTTPURLResponse else {
+            return
+        }
+        let decoder = JSONDecoder()
+        let a = try decoder.decode([Item].self, from: data)
         print(a)
     }
 }

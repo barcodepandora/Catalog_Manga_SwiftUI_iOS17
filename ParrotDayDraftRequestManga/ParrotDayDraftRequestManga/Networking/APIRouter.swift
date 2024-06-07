@@ -12,10 +12,12 @@ class APIConstant {
     
     let URLMangaAPI = "https://mymanga-acacademy-5607149ebe3d.herokuapp.com"
     let StringForList = "/list/mangas"
+    let StringForSearchBegins = "/search/mangasBeginsWith/"
 }
 
 enum APIRouter {
     case get(page: Int? = 1, per: Int? = 20)
+    case search(page: Int? = 1, per: Int? = 20, text: String? = "dragon")
     case post
     
     var url: URL {
@@ -27,6 +29,14 @@ enum APIRouter {
                 URLQueryItem(name: "per", value: String(per!))
             ]
             return (parameters?.url!)!
+        case .search(let page, let per, let text):
+            var parameters = URLComponents(string: APIConstant.shared.URLMangaAPI + APIConstant.shared.StringForSearchBegins + text!)
+            parameters?.queryItems = [
+                URLQueryItem(name: "page", value: String(page!)),
+                URLQueryItem(name: "per", value: String(per!))
+            ]
+            return (parameters?.url!)!
+
         case .post:
             return URL(string: APIConstant.shared.URLMangaAPI + APIConstant.shared.StringForList)!
         }
@@ -34,7 +44,7 @@ enum APIRouter {
 
     var method: String {
        switch self {
-       case .get(_, _):
+       case .get(_, _), .search(_, _, _):
            return "GET"
        case .post:
            return "POST"
