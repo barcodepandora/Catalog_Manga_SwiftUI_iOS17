@@ -19,18 +19,14 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Este es el protecto final de AC SDP 2024")
-            Button("Paginar") {
-                page += 1
-                DraftRequestViewModel().passPage(page: self.page, per: self.per)
-            }
-            Button("Buscar el manga que digamos") {
-                page = 1
-                DraftRequestViewModel().search(page: self.page, per: self.per, text: self.text)
-            }
+            Pager(action: { page in
+                DraftRequestViewModel().passPage(page: page, per: self.per)
+            })
         }
         .padding()
     }
 }
+
 
 #Preview {
     ContentView()

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5608C7152C17B69900112D08 /* Pager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608C7142C17B69900112D08 /* Pager.swift */; };
+		5608C7172C17B87600112D08 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608C7162C17B87600112D08 /* Page.swift */; };
 		5659FAB32C110C8500B62BBF /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659FAB22C110C8500B62BBF /* Manga.swift */; };
 		56AF4E682C127AF600C1FBE8 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF4E672C127AF600C1FBE8 /* APIRouter.swift */; };
 		56E940372C0E07DB0087A90C /* ParrotDayDraftRequestMangaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E940362C0E07DB0087A90C /* ParrotDayDraftRequestMangaApp.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5608C7142C17B69900112D08 /* Pager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pager.swift; sourceTree = "<group>"; };
+		5608C7162C17B87600112D08 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		5659FAB22C110C8500B62BBF /* Manga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
 		56AF4E672C127AF600C1FBE8 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		56E940332C0E07DB0087A90C /* ParrotDayDraftRequestManga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParrotDayDraftRequestManga.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,10 +83,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5608C7132C17B67600112D08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5608C7142C17B69900112D08 /* Pager.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5659FAB12C110C7500B62BBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				5659FAB22C110C8500B62BBF /* Manga.swift */,
+				5608C7162C17B87600112D08 /* Page.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,6 +135,7 @@
 				5659FAB12C110C7500B62BBF /* Model */,
 				56E940632C0E17B40087A90C /* UseCase */,
 				56E940602C0E17250087A90C /* ViewModel */,
+				5608C7132C17B67600112D08 /* View */,
 				56E940362C0E07DB0087A90C /* ParrotDayDraftRequestMangaApp.swift */,
 				56E940382C0E07DB0087A90C /* ContentView.swift */,
 				56E9403A2C0E07E00087A90C /* Assets.xcassets */,
@@ -303,10 +317,12 @@
 			files = (
 				56E940392C0E07DB0087A90C /* ContentView.swift in Sources */,
 				56AF4E682C127AF600C1FBE8 /* APIRouter.swift in Sources */,
+				5608C7172C17B87600112D08 /* Page.swift in Sources */,
 				56E940372C0E07DB0087A90C /* ParrotDayDraftRequestMangaApp.swift in Sources */,
 				5659FAB32C110C8500B62BBF /* Manga.swift in Sources */,
 				56E940622C0E17550087A90C /* DraftRequestViewModel.swift in Sources */,
 				56E940652C0E18490087A90C /* DraftRequestUseCase.swift in Sources */,
+				5608C7152C17B69900112D08 /* Pager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
