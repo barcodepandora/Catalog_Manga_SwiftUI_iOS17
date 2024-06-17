@@ -6,26 +6,46 @@
 //
 
 import Foundation
+import SwiftUI
 
 protocol DraftRequestUseCaseProtocol {
     func doIt()
-    func list(page: Int, per: Int) async throws
+    func list(page: Int, per: Int) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws
+    func save(item: Item)
 }
 
 class DraftRequestUseCase: DraftRequestUseCaseProtocol {
+    
     func doIt() {
         Clerk().greet(idol: IdolOfLeague(name: "Elena"))
     }
     
-    func list(page: Int, per: Int) async throws {
+    func list(page: Int, per: Int) async throws -> Manga {
+        var manga: Manga = Manga()
+        
         let (data, response) = try await URLSession.shared.data(for: APIRouter.get(page: page, per: per).urlRequest)
+//        let (data, response) = try await URLSession.shared.data(from: URL(string: "https://mymanga-acacademy-5607149ebe3d.herokuapp.com/list/mangas?page=1&per=3")!)
+    
+        
         guard let httpResponse = response as? HTTPURLResponse else {
-            return
+            return Manga()
         }
         let decoder = JSONDecoder()
-        let a = try decoder.decode(Manga.self, from: data)
-        print(a)
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        do {
+            manga = try decoder.decode(MangaDTO.self, from: data).manga
+            debugPrint(data)
+            debugPrint(response)
+//            debugPrint(manga.metadata.total)
+//            debugPrint(manga)
+            return manga
+        } catch {
+            print(error)
+            return manga
+        }
+        
+        
     }
     
     func search(page: Int, per: Int, text: String) async throws {
@@ -36,6 +56,10 @@ class DraftRequestUseCase: DraftRequestUseCaseProtocol {
         let decoder = JSONDecoder()
         let a = try decoder.decode([Item].self, from: data)
         print(a)
+    }
+    
+    func save(item: Item) {
+        
     }
 }
 

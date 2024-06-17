@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @Environment(\.modelContext) private var modelContext
+
     @State private var page = 1
     @State private var per = 3
     @State private var text = "pok"
+    
+    @State var manga: Manga?
     
     var body: some View {
         VStack {
@@ -20,10 +24,17 @@ struct ContentView: View {
                 .foregroundStyle(.tint)
             Text("Este es el protecto final de AC SDP 2024")
             Pager(action: { page in
-                DraftRequestViewModel().passPage(page: page, per: self.per)
+                Task {
+                    
+                    manga = try await DraftRequestViewModel().passPage(page: page, per: self.per)
+                    modelContext.insert(manga!)
+                }
+                
+                
             })
         }
         .padding()
+        
     }
 }
 
