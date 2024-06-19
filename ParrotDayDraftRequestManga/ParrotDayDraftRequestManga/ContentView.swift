@@ -32,9 +32,20 @@ struct ContentView: View {
                 
                 
             })
+            List(manageItems()) { item in
+                Text(item.title!)
+            }
         }
         .padding()
         
+    }
+    
+    func manageItems() -> [Item] {
+        if manga != nil && !manga!.items.isEmpty {
+            return manga!.items
+        } else {
+            return [Item]()
+        }
     }
 }
 
