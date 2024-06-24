@@ -10,7 +10,7 @@ import Foundation
 protocol DraftRequestViewModelProtocol {
     func doIt()
     func passPage(page: Int, per: Int) async throws -> Manga
-    func search(page: Int, per: Int, text: String)
+    func search(page: Int, per: Int, text: String) async throws -> [Item]
     func save(item: Item)
 }
 
@@ -32,10 +32,11 @@ class DraftRequestViewModel: DraftRequestViewModelProtocol {
             return manga!
     }
     
-    func search(page: Int, per: Int, text: String) {
-        Task {
-            try await useCase?.search(page: page, per: per, text: text)
-        }
+    func search(page: Int, per: Int, text: String) async throws -> [Item] {
+        var manga = try await useCase?.search(page: page, per: per, text: text)
+        print(manga)
+        return manga!
+
     }
     
     func save(item: Item) {

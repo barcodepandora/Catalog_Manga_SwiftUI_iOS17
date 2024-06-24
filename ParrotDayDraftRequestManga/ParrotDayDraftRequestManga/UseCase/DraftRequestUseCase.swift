@@ -11,7 +11,7 @@ import SwiftUI
 protocol DraftRequestUseCaseProtocol {
     func doIt()
     func list(page: Int, per: Int) async throws -> Manga
-    func search(page: Int, per: Int, text: String) async throws
+    func search(page: Int, per: Int, text: String) async throws -> [Item]
     func save(item: Item)
 }
 
@@ -37,25 +37,22 @@ class DraftRequestUseCase: DraftRequestUseCaseProtocol {
             manga = try decoder.decode(MangaDTO.self, from: data).manga
             debugPrint(data)
             debugPrint(response)
-//            debugPrint(manga.metadata.total)
-//            debugPrint(manga)
             return manga
         } catch {
             print(error)
             return manga
         }
-        
-        
     }
     
-    func search(page: Int, per: Int, text: String) async throws {
+    func search(page: Int, per: Int, text: String) async throws -> [Item] {
         let (data, response) = try await URLSession.shared.data(for: APIRouter.search(page: page, per: per, text: text).urlRequest)
         guard let httpResponse = response as? HTTPURLResponse else {
-            return
+            return []
         }
         let decoder = JSONDecoder()
         let a = try decoder.decode([Item].self, from: data)
         print(a)
+        return a
     }
     
     func save(item: Item) {

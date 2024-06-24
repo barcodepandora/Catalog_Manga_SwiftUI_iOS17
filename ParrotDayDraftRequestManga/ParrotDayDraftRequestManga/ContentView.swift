@@ -22,7 +22,17 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Este es el protecto final de AC SDP 2024")
+            Text("AC SDP 2024")
+            TextField("Escribor", text: $text)
+                .onChange(of: text) {
+                    debugPrint("Aqui vamos a pasar \(text)")
+                    Task {
+                        
+                        manga = Manga(items: try await DraftRequestViewModel().search(page: self.page, per: self.per, text: self.text))
+                        modelContext.insert(manga!)
+                    }
+                    
+                }
             Pager(action: { page in
                 Task {
                     

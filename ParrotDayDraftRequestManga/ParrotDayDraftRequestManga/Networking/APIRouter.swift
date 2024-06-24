@@ -33,10 +33,10 @@ enum APIRouter {
             var parameters = URLComponents(string: APIConstant.shared.URLMangaAPI + APIConstant.shared.StringForSearchBegins + text!)
             parameters?.queryItems = [
                 URLQueryItem(name: "page", value: String(page!)),
-                URLQueryItem(name: "per", value: String(per!))
+                URLQueryItem(name: "per", value: String(per!)),
+                URLQueryItem(name: "text", value: String(text!))
             ]
             return (parameters?.url!)!
-
         case .post:
             return URL(string: APIConstant.shared.URLMangaAPI + APIConstant.shared.StringForList)!
         }
