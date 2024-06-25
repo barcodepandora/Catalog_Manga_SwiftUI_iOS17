@@ -13,7 +13,7 @@ protocol DraftRequestUseCaseProtocol {
     func list(page: Int, per: Int) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> [Item]
     func login() async throws -> String
-    func save(item: Item)
+    func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
 }
 
 class DraftRequestUseCase: DraftRequestUseCaseProtocol {
@@ -64,8 +64,12 @@ class DraftRequestUseCase: DraftRequestUseCaseProtocol {
          return String(data: data, encoding: .utf8)!
     }
 
-    func save(item: Item) {
-        
+    func save(manga: UserMangaCollectionRequestDTO, token: String) async throws {
+        let (data, response) = try await URLSession.shared.data(for: APIRouter.save(manga: manga, token: token).urlRequest)
+        guard let httpResponse = response as? HTTPURLResponse else {
+            return
+        }
+        print(String(data: data, encoding: .utf8)!)
     }
 }
 

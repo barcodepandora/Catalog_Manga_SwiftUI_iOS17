@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var token = ""
     
     @State var manga: Manga?
+    @State var myManga: UserMangaCollectionRequestDTO?
     
     var body: some View {
         VStack {
@@ -24,15 +25,24 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("AC SDP 2024")
+
             Button(action: {
                 Task {
                     token = try await DraftRequestViewModel().login()
                     print(token)
                 }
             }) {
-                Text("Renovar esión")
+                Text("Renovar sesión")
             }
 
+            Button(action: {
+                Task {
+                    try await DraftRequestViewModel().save(manga: UserMangaCollectionRequestDTO(manga: 240624001), token: self.token)
+                }
+            }) {
+                Text("Test collection manga")
+            }
+            
             TextField("Escribor", text: $text)
                 .onChange(of: text) {
                     debugPrint("Aqui vamos a pasar \(text)")

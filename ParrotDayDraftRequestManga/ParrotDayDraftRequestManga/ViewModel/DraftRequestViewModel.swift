@@ -20,7 +20,7 @@ protocol DraftRequestViewModelProtocol {
     func login() async throws -> String
     
     // TODO
-    func save(item: Item)
+    func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
 }
 
 class DraftRequestViewModel: DraftRequestViewModelProtocol {
@@ -53,7 +53,7 @@ class DraftRequestViewModel: DraftRequestViewModelProtocol {
         return token!
     }
     
-    func save(item: Item) {
-        
+    func save(manga: UserMangaCollectionRequestDTO, token: String) async throws {
+        try await useCase?.save(manga: manga, token: token)
     }
 }

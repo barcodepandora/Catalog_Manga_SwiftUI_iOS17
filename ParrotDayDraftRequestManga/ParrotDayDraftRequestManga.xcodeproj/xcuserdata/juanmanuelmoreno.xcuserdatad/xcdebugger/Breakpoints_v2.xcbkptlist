@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E225B33B-1DD2-4FC0-82D2-61F2CD60E082"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParrotDayDraftRequestManga/ViewModel/DraftRequestViewModel.swift"
@@ -232,6 +232,51 @@
                   endingLineNumber = "60"
                   offsetFromSymbolStart = "155">
                </Location>
+               <Location
+                  uuid = "49E98B00-5A1D-40E1-A1B1-457C4A511738 - 13592358c5a67992"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.login() async throws -&gt; Swift.String"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "87">
+               </Location>
+               <Location
+                  uuid = "49E98B00-5A1D-40E1-A1B1-457C4A511738 - b1cc0a6708959b91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.login() async throws -&gt; Swift.String"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "149">
+               </Location>
+               <Location
+                  uuid = "49E98B00-5A1D-40E1-A1B1-457C4A511738 - b1cc0a6708959b91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.login() async throws -&gt; Swift.String"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "152">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -279,6 +324,315 @@
                   startingLineNumber = "64"
                   endingLineNumber = "64"
                   offsetFromSymbolStart = "565">
+               </Location>
+               <Location
+                  uuid = "70D6B3DA-4A43-4C03-B8C2-9C726B4E655A - 13592358c5a6790e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.login() async throws -&gt; Swift.String"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "441">
+               </Location>
+               <Location
+                  uuid = "70D6B3DA-4A43-4C03-B8C2-9C726B4E655A - 13592358c5a6790e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.login() async throws -&gt; Swift.String"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "444">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "save(manga:token:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603 - 354be47787495c4a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ParrotDayDraftRequestManga.DraftRequestUseCase.save(item: ParrotDayDraftRequestManga.Item) -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "45">
+               </Location>
+               <Location
+                  uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603 - 25a1ea150197581d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "159">
+               </Location>
+               <Location
+                  uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603 - e9cb0e40cbf54237"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603 - ff073cce497f1c13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603 - 2a29e86335533e12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "45">
+               </Location>
+               <Location
+                  uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603 - 2a29e86335533e12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603 - 16b609a9c6c87aa1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO, token: Swift.String) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "206">
+               </Location>
+               <Location
+                  uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603 - d53031d23b69118"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO, token: Swift.String) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603 - abed4f00c23efe87"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO, token: Swift.String) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "139">
+               </Location>
+               <Location
+                  uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603 - 1570ec3443e420f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO, token: Swift.String) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "59">
+               </Location>
+               <Location
+                  uuid = "89097EA0-C2B1-4EA9-A725-D3CB6EC79603 - 1570ec3443e420f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO, token: Swift.String) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "194">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9EB161CD-A449-4170-A9F2-CF15293FA995"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "save(manga:token:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9EB161CD-A449-4170-A9F2-CF15293FA995 - ff073cce497f1c9f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "555">
+               </Location>
+               <Location
+                  uuid = "9EB161CD-A449-4170-A9F2-CF15293FA995 - abed4f00c23efe0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO, token: Swift.String) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "594">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A0BD0B0-A2AB-49D6-BA32-964CBC9F3329"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "save(manga:token:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6A0BD0B0-A2AB-49D6-BA32-964CBC9F3329 - ff073cce497f1c30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "283">
+               </Location>
+               <Location
+                  uuid = "6A0BD0B0-A2AB-49D6-BA32-964CBC9F3329 - abed4f00c23efea4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ParrotDayDraftRequestManga.DraftRequestUseCase.save(manga: ParrotDayDraftRequestManga.UserMangaCollectionRequestDTO, token: Swift.String) async throws -&gt; ()"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "300">
                </Location>
             </Locations>
          </BreakpointContent>

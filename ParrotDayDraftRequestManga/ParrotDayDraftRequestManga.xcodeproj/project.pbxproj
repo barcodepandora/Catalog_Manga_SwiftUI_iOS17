@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5608C7152C17B69900112D08 /* Pager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608C7142C17B69900112D08 /* Pager.swift */; };
 		5608C7172C17B87600112D08 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608C7162C17B87600112D08 /* Page.swift */; };
+		564A13632C2B44C3001E3331 /* UserMangaCollectionRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A13622C2B44C2001E3331 /* UserMangaCollectionRequestDTO.swift */; };
 		565355772C20876B00BD200E /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565355762C20876B00BD200E /* Manga.swift */; };
 		5659FAB32C110C8500B62BBF /* MangaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659FAB22C110C8500B62BBF /* MangaDTO.swift */; };
 		56AF4E682C127AF600C1FBE8 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF4E672C127AF600C1FBE8 /* APIRouter.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		5608C7142C17B69900112D08 /* Pager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pager.swift; sourceTree = "<group>"; };
 		5608C7162C17B87600112D08 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		564A13622C2B44C2001E3331 /* UserMangaCollectionRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMangaCollectionRequestDTO.swift; sourceTree = "<group>"; };
 		565355762C20876B00BD200E /* Manga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
 		5659FAB22C110C8500B62BBF /* MangaDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDTO.swift; sourceTree = "<group>"; };
 		56AF4E672C127AF600C1FBE8 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				5659FAB22C110C8500B62BBF /* MangaDTO.swift */,
 				565355762C20876B00BD200E /* Manga.swift */,
 				5608C7162C17B87600112D08 /* Page.swift */,
+				564A13622C2B44C2001E3331 /* UserMangaCollectionRequestDTO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				565355772C20876B00BD200E /* Manga.swift in Sources */,
+				564A13632C2B44C3001E3331 /* UserMangaCollectionRequestDTO.swift in Sources */,
 				56E940392C0E07DB0087A90C /* ContentView.swift in Sources */,
 				56AF4E682C127AF600C1FBE8 /* APIRouter.swift in Sources */,
 				5608C7172C17B87600112D08 /* Page.swift in Sources */,
