@@ -8,9 +8,18 @@
 import Foundation
 
 protocol DraftRequestViewModelProtocol {
+    
+    // Misc
     func doIt()
+    
+    // Catalog
     func passPage(page: Int, per: Int) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> [Item]
+    
+    // User
+    func login() async throws -> String
+    
+    // TODO
     func save(item: Item)
 }
 
@@ -37,6 +46,11 @@ class DraftRequestViewModel: DraftRequestViewModelProtocol {
         print(manga)
         return manga!
 
+    }
+    
+    func login() async throws -> String {
+        var token = try await useCase?.login()
+        return token!
     }
     
     func save(item: Item) {

@@ -10,15 +10,21 @@ import Foundation
 class APIConstant {
     static let shared = APIConstant()
     
+    // Manga
     let URLMangaAPI = "https://mymanga-acacademy-5607149ebe3d.herokuapp.com"
     let StringForList = "/list/mangas"
     let StringForSearchBegins = "/search/mangasBeginsWith/"
+    
+    // User
+    let StringForLogin = "/users/login"
 }
 
 enum APIRouter {
     case get(page: Int? = 1, per: Int? = 20)
     case search(page: Int? = 1, per: Int? = 20, text: String? = "dragon")
     case post
+    
+    case login
     
     var url: URL {
         switch self {
@@ -39,6 +45,8 @@ enum APIRouter {
             return (parameters?.url!)!
         case .post:
             return URL(string: APIConstant.shared.URLMangaAPI + APIConstant.shared.StringForList)!
+        case .login:
+            return URL(string: APIConstant.shared.URLMangaAPI + APIConstant.shared.StringForLogin)!
         }
     }
 
@@ -46,7 +54,7 @@ enum APIRouter {
        switch self {
        case .get(_, _), .search(_, _, _):
            return "GET"
-       case .post:
+       case .post, .login:
            return "POST"
        }
    }
@@ -54,6 +62,14 @@ enum APIRouter {
     var urlRequest: URLRequest {
         var urlRequest = URLRequest(url: self.url)
         urlRequest.httpMethod = self.method
+        switch self {
+        case .login:
+            urlRequest.addValue("sLGH38NhEJ0_anlIWwhsz1-LarClEohiAHQqayF0FY", forHTTPHeaderField: "App-Token")
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.addValue("Basic YmFyY29kZXBhbmRvcmFAZ21haWwuY29tOmw2YzZicjNyNmc=", forHTTPHeaderField: "Authorization")
+        default:
+            break
+        }
         return urlRequest
     }
 }

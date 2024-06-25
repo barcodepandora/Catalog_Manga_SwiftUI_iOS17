@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var page = 1
     @State private var per = 3
     @State private var text = "pok"
+    @State private var token = ""
     
     @State var manga: Manga?
     
@@ -23,6 +24,15 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("AC SDP 2024")
+            Button(action: {
+                Task {
+                    token = try await DraftRequestViewModel().login()
+                    print(token)
+                }
+            }) {
+                Text("Renovar esión")
+            }
+
             TextField("Escribor", text: $text)
                 .onChange(of: text) {
                     debugPrint("Aqui vamos a pasar \(text)")
