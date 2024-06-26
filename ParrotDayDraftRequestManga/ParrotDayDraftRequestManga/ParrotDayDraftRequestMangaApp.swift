@@ -11,9 +11,11 @@ import SwiftData
 @main
 struct ParrotDayDraftRequestMangaApp: App {
         
+    @StateObject private var vm = DraftRequestViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView().environmentObject(vm)
         }
         .modelContainer(for: Manga.self)
     }

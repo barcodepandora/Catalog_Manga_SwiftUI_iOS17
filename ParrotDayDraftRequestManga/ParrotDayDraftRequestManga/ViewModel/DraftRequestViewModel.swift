@@ -23,7 +23,7 @@ protocol DraftRequestViewModelProtocol {
     func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
 }
 
-class DraftRequestViewModel: DraftRequestViewModelProtocol {
+class DraftRequestViewModel: DraftRequestViewModelProtocol, ObservableObject {
     
     var useCase: DraftRequestUseCaseProtocol?
     
@@ -36,14 +36,12 @@ class DraftRequestViewModel: DraftRequestViewModelProtocol {
     }
     
     func passPage(page: Int, per: Int) async throws -> Manga {
-            var manga = try await useCase?.list(page: page, per: per)
-            print(manga)
-            return manga!
+        var manga = try await useCase?.list(page: page, per: per)
+        return manga!
     }
     
     func search(page: Int, per: Int, text: String) async throws -> [Item] {
         var manga = try await useCase?.search(page: page, per: per, text: text)
-        print(manga)
         return manga!
 
     }
