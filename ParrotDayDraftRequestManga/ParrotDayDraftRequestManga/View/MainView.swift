@@ -14,15 +14,18 @@ struct MainView: View {
 
     @State private var page = 1
     @State private var per = 3
-    @State private var text = "pok"
+    @State private var text = "dra"
     @State private var token = ""
     @State var manga: Manga?
     @State var myManga: UserMangaCollectionRequestDTO?
     
     var body: some View {
         VStack {
+            
+            // title
             Text("AC SDP 2024")
 
+            // login
             Button(action: {
                 Task {
                     token = try await vm.login()
@@ -32,15 +35,17 @@ struct MainView: View {
                 Text("Renovar sesión")
             }
 
+            // save manga
             Button(action: {
                 Task {
-                    try await vm.save(manga: UserMangaCollectionRequestDTO(manga: 240624001), token: self.token)
+                    try await vm.save(manga: UserMangaCollectionRequestDTO(manga: 42), token: self.token)
                 }
             }) {
                 Text("Test collection manga")
             }
             
-            TextField("Escribor", text: $text)
+            // autocomplete
+            TextField("Escribir", text: $text)
                 .onChange(of: text) {
                     debugPrint("Aqui vamos a pasar \(text)")
                     Task {
@@ -49,6 +54,7 @@ struct MainView: View {
                     }
                 }
             
+            // draft pagination
             Pager(action: { page in
                 Task {
                     manga = try await vm.passPage(page: page, per: self.per)
@@ -56,6 +62,7 @@ struct MainView: View {
                 }
             })
             
+            // list manga
             List(manageItems()) { item in
                 Text(item.title!)
             }

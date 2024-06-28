@@ -26,13 +26,7 @@ enum APIRouter {
                 URLQueryItem(name: "per", value: String(per!))
             ]
             return (parameters?.url!)!
-        case .save(let manga, let token):
-            parameters?.queryItems = [
-                URLQueryItem(name: "manga", value: String(manga.manga)),
-                URLQueryItem(name: "completeCollection", value: String(manga.completeCollection)),
-            ]
-            return (parameters?.url!)!
-        case .post, .login:
+        case .post, .login, .save:
             return URL(string: APIURL + self.path)!
         }
     }
@@ -60,17 +54,37 @@ enum APIRouter {
    }
 
     var urlRequest: URLRequest {
-        var urlRequest = URLRequest(url: self.url)
+        var urlRequest = URLRequest(url: self.url, cachePolicy:.useProtocolCachePolicy)
         urlRequest.httpMethod = self.method
         switch self {
         case .save(let manga, let token):
-            urlRequest.addValue(token, forHTTPHeaderField: "App-Token")
-            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            urlRequest.addValue("Basic YmFyY29kZXBhbmRvcmFAZ21haWwuY29tOmw2YzZicjNyNmc=", forHTTPHeaderField: "Authorization")
+            let jsonBody: [String: Any] = [
+                "manga": manga.manga,
+                "completeCollection": manga.completeCollection,
+                "volumesOwned": manga.volumesOwned,
+                "readingVolume":  manga.readingVolume
+            ]
+            let jsonData = try! JSONSerialization.data(withJSONObject: jsonBody)
+            urlRequest.httpBody = jsonData
+            urlRequest.setValue("sLGH38NhEJ0_anlIWwhsz1-LarClEohiAHQqayF0FY", forHTTPHeaderField: "App-Token")
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
         case .login:
-            urlRequest.addValue("sLGH38NhEJ0_anlIWwhsz1-LarClEohiAHQqayF0FY", forHTTPHeaderField: "App-Token")
-            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            urlRequest.addValue("Basic YmFyY29kZXBhbmRvcmFAZ21haWwuY29tOmw2YzZicjNyNmc=", forHTTPHeaderField: "Authorization")
+            let username = "barcodepandora@gmail.com"
+            let password = "l6c6br3r6g"
+            let authString = "\(username):\(password)"
+            let authData = authString.data(using:.utf8)!
+            let base64AuthString = authData.base64EncodedString()
+            let jsonBody = [
+                "email": "barcodepandora@gmail.com",
+                "password": "l6c6br3r6g"
+            ]
+            let jsonData = try! JSONSerialization.data(withJSONObject: jsonBody)
+            urlRequest.httpBody = jsonData
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("sLGH38NhEJ0_anlIWwhsz1-LarClEohiAHQqayF0FY", forHTTPHeaderField: "App-Token")
+            urlRequest.setValue("Basic \(base64AuthString)", forHTTPHeaderField: "Authorization")
         default:
             break
         }
