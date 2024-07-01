@@ -15,7 +15,6 @@ struct MainView: View {
     @State private var page = 1
     @State private var per = 3
     @State private var text = "dra"
-    @State private var token = ""
     @State var manga: Manga?
     @State var myManga: UserMangaCollectionRequestDTO?
     
@@ -29,8 +28,16 @@ struct MainView: View {
                 // login
                 Button(action: {
                     Task {
-                        token = try await vm.login()
+                        let token = try await vm.login()
                         print(token)
+                        let data = token.data(using: .utf8)
+                        let service = "com.uzupis.app"
+                        let account = "JuanTune"
+                        if KeychainButler.storeData(data: data!, forService: service, account: account) {
+                            print("Security OK")
+                        } else {
+                            print("Security KO")
+                        }
                     }
                 }) {
                     Text("Renovar sesión")
@@ -38,8 +45,16 @@ struct MainView: View {
                 
                 // save manga
                 Button(action: {
-                    Task {
-                        try await vm.save(manga: UserMangaCollectionRequestDTO(manga: 42), token: self.token)
+                    let service = "com.uzupis.app"
+                    let account = "JuanTune"
+                    if let retrieved = KeychainButler.retrieveData(forService: service, account: account) {
+                        let token = String(data: retrieved, encoding: .utf8)
+                        print(token)
+                        Task {
+                            try await vm.save(manga: UserMangaCollectionRequestDTO(manga: 42), token: token!)
+                        }
+                    } else {
+                        print("KO")
                     }
                 }) {
                     Text("Test collection manga")

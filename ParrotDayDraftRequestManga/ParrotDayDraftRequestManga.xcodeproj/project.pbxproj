@@ -24,6 +24,8 @@
 		56E940542C0E07E10087A90C /* ParrotDayDraftRequestMangaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E940532C0E07E10087A90C /* ParrotDayDraftRequestMangaUITestsLaunchTests.swift */; };
 		56E940622C0E17550087A90C /* DraftRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E940612C0E17550087A90C /* DraftRequestViewModel.swift */; };
 		56E940652C0E18490087A90C /* DraftRequestUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E940642C0E18490087A90C /* DraftRequestUseCase.swift */; };
+		56FAF11B2C33483900DC417F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FAF11A2C33483900DC417F /* Security.framework */; };
+		56FAF11E2C3349FB00DC417F /* KeychainButler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAF11D2C3349FA00DC417F /* KeychainButler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		56E940532C0E07E10087A90C /* ParrotDayDraftRequestMangaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotDayDraftRequestMangaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		56E940612C0E17550087A90C /* DraftRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRequestViewModel.swift; sourceTree = "<group>"; };
 		56E940642C0E18490087A90C /* DraftRequestUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRequestUseCase.swift; sourceTree = "<group>"; };
+		56FAF11A2C33483900DC417F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		56FAF11D2C3349FA00DC417F /* KeychainButler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainButler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FAF11B2C33483900DC417F /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +132,7 @@
 				56E940462C0E07E10087A90C /* ParrotDayDraftRequestMangaTests */,
 				56E940502C0E07E10087A90C /* ParrotDayDraftRequestMangaUITests */,
 				56E940342C0E07DB0087A90C /* Products */,
+				56FAF1192C33483800DC417F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +149,7 @@
 		56E940352C0E07DB0087A90C /* ParrotDayDraftRequestManga */ = {
 			isa = PBXGroup;
 			children = (
+				56FAF11C2C3349D900DC417F /* Infrastructure */,
 				56AF4E662C127ACD00C1FBE8 /* Networking */,
 				5659FAB12C110C7500B62BBF /* Model */,
 				56E940632C0E17B40087A90C /* UseCase */,
@@ -195,6 +202,22 @@
 				56E940642C0E18490087A90C /* DraftRequestUseCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		56FAF1192C33483800DC417F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56FAF11A2C33483900DC417F /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		56FAF11C2C3349D900DC417F /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				56FAF11D2C3349FA00DC417F /* KeychainButler.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +361,7 @@
 				56E940622C0E17550087A90C /* DraftRequestViewModel.swift in Sources */,
 				56CCB6562C3302190054389C /* MangaView.swift in Sources */,
 				56E940652C0E18490087A90C /* DraftRequestUseCase.swift in Sources */,
+				56FAF11E2C3349FB00DC417F /* KeychainButler.swift in Sources */,
 				5608C7152C17B69900112D08 /* Pager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
