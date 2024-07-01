@@ -66,23 +66,28 @@ class MangaInfo: Codable {
 @Model
 class Item: Codable {
     let title: String?
+    let mainPicture: String?
 
-    init(title: String? = nil) {
+    init(title: String? = nil, mainPicture: String? = "") {
         self.title = title
+        self.mainPicture = mainPicture
     }
 
     enum CodingKeys: String, CodingKey{
         case title
+        case mainPicture
     }
 
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         title = try values.decodeIfPresent(String.self, forKey: .title)
+        mainPicture = try values.decodeIfPresent(String.self, forKey: .mainPicture)
     }
 
     func encode(to encoder: Encoder) throws {
-      var container = encoder.container(keyedBy: CodingKeys.self)
-      try container.encode(title, forKey: .title)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(title, forKey: .title)
+        try container.encode(mainPicture, forKey: .mainPicture)
     }
 }
 

@@ -20,54 +20,61 @@ struct MainView: View {
     @State var myManga: UserMangaCollectionRequestDTO?
     
     var body: some View {
-        VStack {
-            
-            // title
-            Text("AC SDP 2024")
-
-            // login
-            Button(action: {
-                Task {
-                    token = try await vm.login()
-                    print(token)
-                }
-            }) {
-                Text("Renovar sesión")
-            }
-
-            // save manga
-            Button(action: {
-                Task {
-                    try await vm.save(manga: UserMangaCollectionRequestDTO(manga: 42), token: self.token)
-                }
-            }) {
-                Text("Test collection manga")
-            }
-            
-            // autocomplete
-            TextField("Escribir", text: $text)
-                .onChange(of: text) {
-                    debugPrint("Aqui vamos a pasar \(text)")
+        NavigationView {
+            VStack {
+                
+                // title
+                Text("AC SDP 2024")
+                
+                // login
+                Button(action: {
                     Task {
-                        manga = Manga(items: try await vm.search(page: self.page, per: self.per, text: self.text))
+                        token = try await vm.login()
+                        print(token)
+                    }
+                }) {
+                    Text("Renovar sesión")
+                }
+                
+                // save manga
+                Button(action: {
+                    Task {
+                        try await vm.save(manga: UserMangaCollectionRequestDTO(manga: 42), token: self.token)
+                    }
+                }) {
+                    Text("Test collection manga")
+                }
+                
+                // autocomplete
+                TextField("Escribir", text: $text)
+                    .onChange(of: text) {
+                        debugPrint("Aqui vamos a pasar \(text)")
+                        Task {
+                            manga = Manga(items: try await vm.search(page: self.page, per: self.per, text: self.text))
+                            modelContext.insert(manga!)
+                        }
+                    }
+                
+                // draft pagination
+                Pager(action: { page in
+                    Task {
+                        manga = try await vm.passPage(page: page, per: self.per)
                         modelContext.insert(manga!)
                     }
-                }
-            
-            // draft pagination
-            Pager(action: { page in
-                Task {
-                    manga = try await vm.passPage(page: page, per: self.per)
-                    modelContext.insert(manga!)
-                }
-            })
-            
-            // list manga
-            List(manageItems()) { item in
-                Text(item.title!)
+                })
+                
+                // list manga
+//                NavigationView {
+                    List(manageItems()) { item in
+                        NavigationLink(destination: MangaView(mangaItem: item)) {
+                            Text(item.title!)
+                        }
+                        .navigationTitle("Go")
+                    }
+//                }
             }
+            .padding()
         }
-        .padding()
         
     }
     
