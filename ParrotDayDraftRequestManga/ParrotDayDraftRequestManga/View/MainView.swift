@@ -16,8 +16,10 @@ struct MainView: View {
     @State private var per = 3
     @State private var text = "dra"
     @State var manga: Manga?
+    @State var mangaF: Manga?
     @State var myManga: UserMangaCollectionRequestDTO?
-    
+    @State private var hasSwipped = false
+      
     var body: some View {
         NavigationView {
             VStack {
@@ -75,18 +77,79 @@ struct MainView: View {
                     Task {
                         manga = try await vm.passPage(page: page, per: self.per)
                         modelContext.insert(manga!)
+                        mangaF = try await vm.passPage(page: page + 1, per: self.per)
+                        modelContext.insert(mangaF!)
+
                     }
                 })
                 
                 // list manga
-//                NavigationView {
-                    List(manageItems()) { item in
-                        NavigationLink(destination: MangaView(mangaItem: item)) {
-                            Text(item.title!)
-                        }
-                        .navigationTitle("Go")
-                    }
+//                List(manageItems()) { item in
+//                    NavigationLink(destination: MangaView(mangaItem: item)) {
+//                        Text(item.title!)
+//                    }
+//                    .navigationTitle("Go")
 //                }
+                ScrollView {
+                    LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) {
+                        ForEach(manageItems()) { item in
+                            NavigationLink(destination: MangaView(mangaItem: item)) {
+                                AsyncImage(url: URL(string: item.mainPicture!.replacingOccurrences(of: "\"", with: ""))) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 100, height: 125)
+                                } placeholder: {
+                                    ProgressView()
+                                        .controlSize(.extraLarge)
+                                } // Cuando acaba de cargar es como un Image
+                                .background {
+                                    Color(white: 0.8)
+                                }
+                            }
+                            .navigationTitle("Go")
+                        }
+                    }
+//                    .swipeActions(edge: .leading) {
+//                        print("right")
+//                    }
+//                    .swipeActions(edge: .trailing) {
+//                        print("left")
+//                    }
+                }
+                .gesture(
+                    DragGesture()
+                        .onEnded { value in
+                            Task {
+                                manga = mangaF
+//                                m = try await vm.passPage(page: 1, per: 3)
+    //                            if value.translation.width > 50 {
+    //                                print("right")
+    //                                page -= 1
+    //                            } else {
+    //                                page += 1
+    //                                print("left")
+    //                            }
+    //                            if page > 0 {
+    //                                var mangaT = try await vm.passPage(page: page, per: self.per)
+    //                                if mangaT.items.count > 0 {
+    //                                    manga = mangaT
+    //                                    modelContext.insert(manga!)
+    //                                } else {
+    //                                    page -= 1
+    //                                }
+    //                                manga = try await vm.passPage(page: page, per: self.per)
+    //                            } else {
+    //                                page = 1
+    //                            }
+    //                            self.hasSwipped = true
+                            }
+                        }
+                )
+//                .onChange(of: self.hasSwipped) { _ in
+//                    print("pasando")
+//                }
+
             }
             .padding()
         }
@@ -94,11 +157,13 @@ struct MainView: View {
     }
     
     func manageItems() -> [Item] {
-        if manga != nil && !manga!.items.isEmpty {
-            return manga!.items
-        } else {
-            return [Item]()
-        }
+            print("traeme \(manga)")
+            if manga != nil && !manga!.items.isEmpty {
+                return manga!.items
+            } else {
+                return [Item]()
+            }
+//            return [Item]()
     }
 }
 
