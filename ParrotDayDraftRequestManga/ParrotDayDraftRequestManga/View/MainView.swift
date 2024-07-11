@@ -11,7 +11,6 @@ import SwiftData
 struct MainView: View {
     
     @EnvironmentObject private var vm: DraftRequestViewModel
-    @Environment(\.modelContext) private var modelContext
 
     @State private var page = 1
     @State private var per = 3
@@ -23,7 +22,7 @@ struct MainView: View {
     @State private var hasSwipped = false
     @State private var filter: CatalogFilter?
     
-    @Query private var mangaSwiftData: [Manga]
+    @State private var mangaSwiftData: Manga?
     
     @State private var selection: Double = 0
 
@@ -79,7 +78,6 @@ struct MainView: View {
                         debugPrint("Aqui vamos a pasar \(text)")
                         Task {
                             manga = Manga(items: try await vm.search(page: self.page, per: self.per, text: self.text))
-                            modelContext.insert(manga!)
                         }
                     }
                 ZStack {
@@ -187,26 +185,23 @@ struct MainView: View {
     }
     
     func seed() {
+        self.dealManga()
         mangaB = Manga()
         Task {
             var filter = CatalogFilter.bestMangas
             manga = try await vm.passPage(page: page, per: self.per, filter: filter)
-            modelContext.insert(manga!)
             mangaF = try await vm.passPage(page: page + 1, per: self.per, filter: CatalogFilter.bestMangas)
-            modelContext.insert(mangaF!)
         }
     }
     
     func deliverForward() {
-        print(mangaSwiftData.count)
-        print(mangaSwiftData[0].items)
         if !isAtLast() {
             mangaB = manga
             manga = mangaF
             page += 1
             Task {
                 mangaF = try await vm.passPage(page: page + 1, per: self.per, filter: CatalogFilter.bestMangas)
-                modelContext.insert(mangaF!)
+//                modelContext.insert(mangaF!)
             }
         }
     }
@@ -218,7 +213,6 @@ struct MainView: View {
             page -= 1
             Task {
                 mangaB = try await vm.passPage(page: page - 1, per: self.per, filter: CatalogFilter.bestMangas)
-                modelContext.insert(mangaB!)
             }
         }
     }
@@ -231,8 +225,10 @@ struct MainView: View {
         return (mangaF?.items.isEmpty)!
     }
     
-    func dealManga()
-        
+    func dealManga() {
+        Task {
+            self.mangaSwiftData = try await self.vm.dealManga()
+        }
     }
 }
 

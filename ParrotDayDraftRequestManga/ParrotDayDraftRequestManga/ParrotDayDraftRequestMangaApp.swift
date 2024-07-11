@@ -17,6 +17,5 @@ struct ParrotDayDraftRequestMangaApp: App {
         WindowGroup {
             MainView().environmentObject(vm)
         }
-        .modelContainer(for: Manga.self)
     }
 }

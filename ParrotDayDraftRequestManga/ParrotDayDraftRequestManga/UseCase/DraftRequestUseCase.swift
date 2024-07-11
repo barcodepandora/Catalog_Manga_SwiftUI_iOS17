@@ -7,17 +7,31 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 protocol DraftRequestUseCaseProtocol {
     func doIt()
     func list(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> [Item]
-    func dealManga()
+    func dealManga() async throws -> Manga
     func login() async throws -> String
     func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
 }
 
 class DraftRequestUseCase: DraftRequestUseCaseProtocol {
+    private let modelContainer: ModelContainer
+    private let modelContext: ModelContext
+    private var mangaSwiftData: Manga
+    
+    @MainActor
+    static let shared = DraftRequestUseCase()
+    
+    @MainActor
+    init() {
+        self.modelContainer = try! ModelContainer(for: Manga.self)
+        self.modelContext = modelContainer.mainContext
+        self.mangaSwiftData = Manga()
+    }
     
     func doIt() {
     }
@@ -40,6 +54,7 @@ class DraftRequestUseCase: DraftRequestUseCaseProtocol {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         do {
             manga = try decoder.decode(MangaDTO.self, from: data).manga
+            modelContext.insert(manga)
             return manga
         } catch {
             return manga
@@ -56,8 +71,17 @@ class DraftRequestUseCase: DraftRequestUseCaseProtocol {
         return a
     }
     
-    func dealManga() {
-        
+    func dealManga() async throws -> Manga {
+        var manga = fetchManga()
+        return manga
+    }
+    
+    func fetchManga() -> Manga {
+        do {
+            return try modelContext.fetch(FetchDescriptor<Manga>())[0]
+        } catch {
+            fatalError(error.localizedDescription)
+        }
     }
     
     func login() async throws -> String {

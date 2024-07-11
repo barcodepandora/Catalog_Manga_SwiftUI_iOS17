@@ -15,7 +15,7 @@ protocol DraftRequestViewModelProtocol {
     // Catalog
     func passPage(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> [Item]
-    func dealManga()
+    func dealManga() async throws -> Manga
     
     // User
     func login() async throws -> String
@@ -24,11 +24,13 @@ protocol DraftRequestViewModelProtocol {
     func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
 }
 
+@Observable
 class DraftRequestViewModel: DraftRequestViewModelProtocol, ObservableObject {
     
+    @ObservationIgnored
     var useCase: DraftRequestUseCaseProtocol?
     
-    init(useCase: DraftRequestUseCaseProtocol = DraftRequestUseCase()) {
+    init(useCase: DraftRequestUseCaseProtocol = DraftRequestUseCase.shared) {
         self.useCase = useCase
     }
     
@@ -45,11 +47,10 @@ class DraftRequestViewModel: DraftRequestViewModelProtocol, ObservableObject {
     func search(page: Int, per: Int, text: String) async throws -> [Item] {
         var manga = try await useCase?.search(page: page, per: per, text: text)
         return manga!
-
     }
     
-    func dealManga() {
-        useCase.dealManga()
+    func dealManga() async throws -> Manga {
+        return try await useCase!.dealManga()
     }
     
     func login() async throws -> String {

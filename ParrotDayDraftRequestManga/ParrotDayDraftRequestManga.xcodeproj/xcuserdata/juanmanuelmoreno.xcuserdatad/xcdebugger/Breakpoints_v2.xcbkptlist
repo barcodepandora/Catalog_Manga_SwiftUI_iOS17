@@ -14,8 +14,8 @@
             filePath = "ParrotDayDraftRequestManga/ViewModel/DraftRequestViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "login()"
             landmarkType = "7">
             <Locations>
@@ -107,8 +107,8 @@
             filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "login()"
             landmarkType = "7">
             <Locations>
@@ -230,8 +230,8 @@
             filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "login()"
             landmarkType = "7">
             <Locations>
@@ -278,8 +278,8 @@
             filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "save(manga:token:)"
             landmarkType = "7">
             <Locations>
@@ -401,8 +401,8 @@
             filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "save(manga:token:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -417,8 +417,8 @@
             filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "save(manga:token:)"
             landmarkType = "7">
             <Locations>
@@ -465,8 +465,8 @@
             filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "search(page:per:text:)"
             landmarkType = "7">
             <Locations>
@@ -619,8 +619,8 @@
             filePath = "ParrotDayDraftRequestManga/View/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -999,8 +999,8 @@
             filePath = "ParrotDayDraftRequestManga/View/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -1047,8 +1047,8 @@
             filePath = "ParrotDayDraftRequestManga/View/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -1095,8 +1095,8 @@
             filePath = "ParrotDayDraftRequestManga/View/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -1143,8 +1143,8 @@
             filePath = "ParrotDayDraftRequestManga/ViewModel/DraftRequestViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "passPage(page:per:filter:)"
             landmarkType = "7">
             <Locations>
@@ -1191,8 +1191,8 @@
             filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "search(page:per:text:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1207,8 +1207,8 @@
             filePath = "ParrotDayDraftRequestManga/ViewModel/DraftRequestViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "passPage(page:per:filter:)"
             landmarkType = "7">
             <Locations>
@@ -1330,8 +1330,8 @@
             filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "list(page:per:filter:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1346,8 +1346,8 @@
             filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "list(page:per:filter:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1362,24 +1362,8 @@
             filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "list(page:per:filter:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6118B405-779D-498D-B223-4149BBFF03F3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "list(page:per:filter:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1394,8 +1378,8 @@
             filePath = "ParrotDayDraftRequestManga/View/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -1547,8 +1531,8 @@
             filePath = "ParrotDayDraftRequestManga/View/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "manageItems()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1595,8 +1579,8 @@
             filePath = "ParrotDayDraftRequestManga/UseCase/DraftRequestUseCase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "list(page:per:filter:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1611,8 +1595,8 @@
             filePath = "ParrotDayDraftRequestManga/View/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "seed()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1627,8 +1611,8 @@
             filePath = "ParrotDayDraftRequestManga/View/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "seed()"
             landmarkType = "7">
             <Locations>
@@ -1721,54 +1705,6 @@
                   startingLineNumber = "190"
                   endingLineNumber = "190"
                   offsetFromSymbolStart = "138">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DE52A272-7322-443B-A5FD-12CBF69711D4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ParrotDayDraftRequestManga/View/MainView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "deliverForward()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DE52A272-7322-443B-A5FD-12CBF69711D4 - 27f7af576e8a48fe"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ParrotDayDraftRequestManga.MainView.deliverForward() -&gt; ()"
-                  moduleName = "ParrotDayDraftRequestManga"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/View/MainView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "202"
-                  endingLineNumber = "202"
-                  offsetFromSymbolStart = "379">
-               </Location>
-               <Location
-                  uuid = "DE52A272-7322-443B-A5FD-12CBF69711D4 - 27f7af576e8a48d1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ParrotDayDraftRequestManga.MainView.deliverForward() -&gt; ()"
-                  moduleName = "ParrotDayDraftRequestManga"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/View/MainView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "203"
-                  endingLineNumber = "203"
-                  offsetFromSymbolStart = "729">
                </Location>
             </Locations>
          </BreakpointContent>
