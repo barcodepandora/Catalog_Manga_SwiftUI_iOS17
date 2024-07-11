@@ -17,9 +17,17 @@ struct MainView: View {
     @State private var text = "dra"
     @State var manga: Manga?
     @State var mangaF: Manga?
+    @State var mangaB: Manga?
     @State var myManga: UserMangaCollectionRequestDTO?
     @State private var hasSwipped = false
-      
+    @State private var filter: CatalogFilter?
+    
+    @State private var selection: Double = 0
+
+        let options: [String] = ["Option 1", "Option 2"]
+        let clockSize: CGFloat = 200
+        let needleLength: CGFloat = 80
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -71,25 +79,58 @@ struct MainView: View {
                             modelContext.insert(manga!)
                         }
                     }
-                
-                // draft pagination
-                Pager(action: { page in
-                    Task {
-                        manga = try await vm.passPage(page: page, per: self.per)
-                        modelContext.insert(manga!)
-                        mangaF = try await vm.passPage(page: page + 1, per: self.per)
-                        modelContext.insert(mangaF!)
+                ZStack {
+                    Circle()
+                        .stroke(Color.gray, lineWidth: 2)
+                        .frame(width: clockSize, height: clockSize)
 
-                    }
-                })
-                
-                // list manga
-//                List(manageItems()) { item in
-//                    NavigationLink(destination: MangaView(mangaItem: item)) {
-//                        Text(item.title!)
+                    // Needle
+                    Rectangle()
+                        .fill(Color.black)
+                        .frame(width: 2, height: needleLength)
+                        .rotationEffect(Angle(degrees: selection * 36))
+                        .animation(.easeInOut)
+
+                    // Center dot
+                    Circle()
+                        .fill(Color.black)
+                        .frame(width: 10, height: 10)
+
+                    // Option labels
+//                    ForEach(0..<options.count, id: \.self) { index in
+//                        Text(options[index])
+//                            .rotationEffect(Angle(degrees: Double(index) * 36))
+//                            .offset(y: clockSize / 2 - 20)
 //                    }
-//                    .navigationTitle("Go")
-//                }
+                }
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            print("\(value.translation.width), \(value.translation.height)")
+//                            let angle = atan2(value.translation.width, value.translation.height) * 180 / .pi
+                            let angle = 180
+                            if value.translation.width > 50 {
+                                filter = .all
+                            } else {
+                                filter = .bestMangas
+                            }
+                            self.seed()
+//                            let selection = (angle + 180) / 36
+//                            self.selection = selection.truncatingRemainder(dividingBy: Double(options.count))
+                        }
+                )
+            
+                // draft pagination
+//                Pager(action: { page in
+//                    Task {
+//                        manga = try await vm.passPage(page: page, per: self.per)
+//                        modelContext.insert(manga!)
+//                        mangaF = try await vm.passPage(page: page + 1, per: self.per)
+//                        modelContext.insert(mangaF!)
+//
+//                    }
+//                })
+                
                 ScrollView {
                     LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) {
                         ForEach(manageItems()) { item in
@@ -110,60 +151,79 @@ struct MainView: View {
                             .navigationTitle("Go")
                         }
                     }
-//                    .swipeActions(edge: .leading) {
-//                        print("right")
-//                    }
-//                    .swipeActions(edge: .trailing) {
-//                        print("left")
-//                    }
                 }
                 .gesture(
                     DragGesture()
                         .onEnded { value in
-                            Task {
-                                manga = mangaF
-//                                m = try await vm.passPage(page: 1, per: 3)
-    //                            if value.translation.width > 50 {
-    //                                print("right")
-    //                                page -= 1
-    //                            } else {
-    //                                page += 1
-    //                                print("left")
-    //                            }
-    //                            if page > 0 {
-    //                                var mangaT = try await vm.passPage(page: page, per: self.per)
-    //                                if mangaT.items.count > 0 {
-    //                                    manga = mangaT
-    //                                    modelContext.insert(manga!)
-    //                                } else {
-    //                                    page -= 1
-    //                                }
-    //                                manga = try await vm.passPage(page: page, per: self.per)
-    //                            } else {
-    //                                page = 1
-    //                            }
-    //                            self.hasSwipped = true
+                            if value.translation.width > 50 {
+                                deliverBack()
+                            } else {
+                                deliverForward()
                             }
+                            self.hasSwipped = true
                         }
                 )
-//                .onChange(of: self.hasSwipped) { _ in
-//                    print("pasando")
-//                }
+                .onChange(of: self.hasSwipped) { _ in
+                }
 
             }
             .padding()
+            .onAppear {
+                self.seed()
+            }
         }
         
     }
     
     func manageItems() -> [Item] {
-            print("traeme \(manga)")
-            if manga != nil && !manga!.items.isEmpty {
-                return manga!.items
-            } else {
-                return [Item]()
+        if manga != nil && !manga!.items.isEmpty {
+            return manga!.items
+        } else {
+            return [Item]()
+        }
+    }
+    
+    func seed() {
+        mangaB = Manga()
+        Task {
+            var filter = CatalogFilter.bestMangas
+            manga = try await vm.passPage(page: page, per: self.per, filter: filter)
+            modelContext.insert(manga!)
+            mangaF = try await vm.passPage(page: page + 1, per: self.per, filter: CatalogFilter.bestMangas)
+            modelContext.insert(mangaF!)
+        }
+    }
+    
+    func deliverForward() {
+        if !isAtLast() {
+            mangaB = manga
+            manga = mangaF
+            page += 1
+            Task {
+                mangaF = try await vm.passPage(page: page + 1, per: self.per, filter: CatalogFilter.bestMangas)
+                modelContext.insert(mangaF!)
             }
-//            return [Item]()
+        }
+    }
+    
+    func deliverBack() {
+        if !isAtFirst() {
+            mangaF = manga
+            manga = mangaB
+            page -= 1
+            Task {
+                mangaB = try await vm.passPage(page: page - 1, per: self.per, filter: CatalogFilter.bestMangas)
+                modelContext.insert(mangaB!)
+            }
+        }
+    }
+    
+    func isAtFirst() -> Bool {
+        return page == 1
+    }
+    
+    func isAtLast() -> Bool {
+        return (mangaF?.items.isEmpty)!
     }
 }
 

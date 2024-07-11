@@ -10,7 +10,7 @@ import SwiftUI
 
 protocol DraftRequestUseCaseProtocol {
     func doIt()
-    func list(page: Int, per: Int) async throws -> Manga
+    func list(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> [Item]
     func login() async throws -> String
     func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
@@ -21,10 +21,17 @@ class DraftRequestUseCase: DraftRequestUseCaseProtocol {
     func doIt() {
     }
     
-    func list(page: Int, per: Int) async throws -> Manga {
+    func list(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga {
         var manga: Manga = Manga()
+        var request: URLRequest
         
-        let (data, response) = try await URLSession.shared.data(for: APIRouter.get(page: page, per: per).urlRequest)    
+        switch filter {
+        case .all:
+            request = APIRouter.get(page: page, per: per).urlRequest
+        case .bestMangas:
+            request = APIRouter.bestMangas(page: page, per: per).urlRequest
+        }
+        let (data, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse else {
             return Manga()
         }
