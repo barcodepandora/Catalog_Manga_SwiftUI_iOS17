@@ -12,6 +12,7 @@ protocol DraftRequestUseCaseProtocol {
     func doIt()
     func list(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> [Item]
+    func dealManga()
     func login() async throws -> String
     func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
 }
@@ -53,6 +54,10 @@ class DraftRequestUseCase: DraftRequestUseCaseProtocol {
         let decoder = JSONDecoder()
         let a = try decoder.decode([Item].self, from: data)
         return a
+    }
+    
+    func dealManga() {
+        
     }
     
     func login() async throws -> String {

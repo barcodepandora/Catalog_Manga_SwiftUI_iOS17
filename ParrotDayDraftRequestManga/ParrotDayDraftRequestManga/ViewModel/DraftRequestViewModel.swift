@@ -15,6 +15,7 @@ protocol DraftRequestViewModelProtocol {
     // Catalog
     func passPage(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> [Item]
+    func dealManga()
     
     // User
     func login() async throws -> String
@@ -45,6 +46,10 @@ class DraftRequestViewModel: DraftRequestViewModelProtocol, ObservableObject {
         var manga = try await useCase?.search(page: page, per: per, text: text)
         return manga!
 
+    }
+    
+    func dealManga() {
+        useCase.dealManga()
     }
     
     func login() async throws -> String {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MainView: View {
     
@@ -21,6 +22,8 @@ struct MainView: View {
     @State var myManga: UserMangaCollectionRequestDTO?
     @State private var hasSwipped = false
     @State private var filter: CatalogFilter?
+    
+    @Query private var mangaSwiftData: [Manga]
     
     @State private var selection: Double = 0
 
@@ -195,6 +198,8 @@ struct MainView: View {
     }
     
     func deliverForward() {
+        print(mangaSwiftData.count)
+        print(mangaSwiftData[0].items)
         if !isAtLast() {
             mangaB = manga
             manga = mangaF
@@ -224,6 +229,10 @@ struct MainView: View {
     
     func isAtLast() -> Bool {
         return (mangaF?.items.isEmpty)!
+    }
+    
+    func dealManga()
+        
     }
 }
 
