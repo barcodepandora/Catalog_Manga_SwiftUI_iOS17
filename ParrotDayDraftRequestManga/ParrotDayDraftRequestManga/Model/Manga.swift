@@ -35,9 +35,7 @@ class Manga: Codable {
       var container = encoder.container(keyedBy: CodingKeys.self)
       try container.encode(metadata, forKey: .metadata)
       try container.encode(items, forKey: .items)
-
     }
-
 }
 
 @Model

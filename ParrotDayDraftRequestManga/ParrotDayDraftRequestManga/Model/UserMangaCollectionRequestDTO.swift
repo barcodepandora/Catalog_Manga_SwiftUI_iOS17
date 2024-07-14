@@ -18,8 +18,12 @@ struct UserMangaCollectionRequestDTO {
         self.completeCollection = completeCollection!
         self.volumesOwned = volumesOwned!
         self.readingVolume = readingVolume!
+        
     }
 }
 
 extension UserMangaCollectionRequestDTO: Decodable {
+    var userManga: UserMangaCollectionRequest {
+        UserMangaCollectionRequest(manga: self.manga, completeCollection: self.completeCollection, volumesOwned: self.volumesOwned, readingVolume: self.readingVolume)
+    }
 }

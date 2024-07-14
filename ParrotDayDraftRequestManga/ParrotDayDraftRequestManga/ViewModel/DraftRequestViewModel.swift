@@ -16,7 +16,7 @@ protocol DraftRequestViewModelProtocol {
     func passPage(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> [Item]
     func dealManga() async throws -> Manga
-    
+    func prepareMangaLocal() async throws -> [MangaLocal]
     // User
     func login() async throws -> String
     
@@ -51,6 +51,12 @@ class DraftRequestViewModel: DraftRequestViewModelProtocol, ObservableObject {
     
     func dealManga() async throws -> Manga {
         return try await useCase!.dealManga()
+    }
+    
+    func prepareMangaLocal() async throws -> [MangaLocal] {
+        var mangas = [MangaLocalDTO(title: "Ganbare Kickers", userManga: UserMangaCollectionRequestDTO(manga: 65000))]
+        var mangasLocal = try await useCase!.prepareMangaLocal(mangas: mangas)
+        return mangasLocal
     }
     
     func login() async throws -> String {

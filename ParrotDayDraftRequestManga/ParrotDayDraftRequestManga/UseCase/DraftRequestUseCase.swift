@@ -14,6 +14,9 @@ protocol DraftRequestUseCaseProtocol {
     func list(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> [Item]
     func dealManga() async throws -> Manga
+    
+    func prepareMangaLocal(mangas: [MangaLocalDTO]) async throws -> [MangaLocal]
+    
     func login() async throws -> String
     func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
 }
@@ -74,6 +77,16 @@ class DraftRequestUseCase: DraftRequestUseCaseProtocol {
     func dealManga() async throws -> Manga {
         var manga = fetchManga()
         return manga
+    }
+    
+    func prepareMangaLocal(mangas: [MangaLocalDTO]) async throws -> [MangaLocal] {
+        var mangasLocal: [MangaLocal] = []
+        for manga in mangas {
+            var mangaLocal = manga.mangaLocal
+            mangasLocal.append(mangaLocal)
+            modelContext.insert(mangaLocal)
+        }
+        return mangasLocal
     }
     
     func fetchManga() -> Manga {
