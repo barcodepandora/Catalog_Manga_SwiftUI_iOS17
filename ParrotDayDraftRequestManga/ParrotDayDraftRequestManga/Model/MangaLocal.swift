@@ -14,7 +14,7 @@ class MangaLocal: Codable {
     let title: String
     let userManga: UserMangaCollectionRequest
 
-    init(title: String? = "0", userManga: UserMangaCollectionRequest? = UserMangaCollectionRequest()) {
+    init(title: String? = "", userManga: UserMangaCollectionRequest? = UserMangaCollectionRequest()) {
         self.title = title!
         self.userManga = userManga!
         

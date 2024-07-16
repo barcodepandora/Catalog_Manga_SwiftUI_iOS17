@@ -17,6 +17,7 @@ protocol DraftRequestViewModelProtocol {
     func search(page: Int, per: Int, text: String) async throws -> [Item]
     func dealManga() async throws -> Manga
     func prepareMangaLocal() async throws -> [MangaLocal]
+    
     // User
     func login() async throws -> String
     
@@ -29,11 +30,13 @@ class DraftRequestViewModel: DraftRequestViewModelProtocol, ObservableObject {
     
     @ObservationIgnored
     var useCase: DraftRequestUseCaseProtocol?
+    var mangaLocalUseCase: MangaLocalUseCaseProtocol?
     
-    init(useCase: DraftRequestUseCaseProtocol = DraftRequestUseCase.shared) {
+    init(useCase: DraftRequestUseCaseProtocol = DraftRequestUseCase.shared, mangaLocalUseCase: MangaLocalUseCaseProtocol = MangaLocalUseCase.shared) {
         self.useCase = useCase
+        self.mangaLocalUseCase = mangaLocalUseCase
     }
-    
+
     func doIt() {
         useCase?.doIt()
     }
@@ -55,7 +58,7 @@ class DraftRequestViewModel: DraftRequestViewModelProtocol, ObservableObject {
     
     func prepareMangaLocal() async throws -> [MangaLocal] {
         var mangas = [MangaLocalDTO(title: "Ganbare Kickers", userManga: UserMangaCollectionRequestDTO(manga: 65000))]
-        var mangasLocal = try await useCase!.prepareMangaLocal(mangas: mangas)
+        var mangasLocal = try await mangaLocalUseCase!.prepareMangaLocal(mangas: mangas)
         return mangasLocal
     }
     

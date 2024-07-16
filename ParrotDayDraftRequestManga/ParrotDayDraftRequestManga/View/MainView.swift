@@ -185,7 +185,7 @@ struct MainView: View {
     }
     
     func seed() {
-        self.dealManga()
+        self.prepareMangaLocal()
         mangaB = Manga()
         Task {
             var filter = CatalogFilter.bestMangas
@@ -230,6 +230,14 @@ struct MainView: View {
             self.mangaSwiftData = try await self.vm.dealManga()
         }
     }
+    
+    func prepareMangaLocal() {
+        Task {
+            var local = try await self.vm.prepareMangaLocal()
+            print(local)
+        }
+    }
+
 }
 
 #Preview {

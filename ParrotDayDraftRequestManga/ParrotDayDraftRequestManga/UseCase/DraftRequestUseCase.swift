@@ -15,8 +15,6 @@ protocol DraftRequestUseCaseProtocol {
     func search(page: Int, per: Int, text: String) async throws -> [Item]
     func dealManga() async throws -> Manga
     
-    func prepareMangaLocal(mangas: [MangaLocalDTO]) async throws -> [MangaLocal]
-    
     func login() async throws -> String
     func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
 }
@@ -31,7 +29,7 @@ class DraftRequestUseCase: DraftRequestUseCaseProtocol {
     
     @MainActor
     init() {
-        self.modelContainer = try! ModelContainer(for: Manga.self)
+        self.modelContainer = ModelContainerForManga.modelContainer
         self.modelContext = modelContainer.mainContext
         self.mangaSwiftData = Manga()
     }
@@ -75,26 +73,16 @@ class DraftRequestUseCase: DraftRequestUseCaseProtocol {
     }
     
     func dealManga() async throws -> Manga {
-        var manga = fetchManga()
-        return manga
+        return fetchManga()
     }
-    
-    func prepareMangaLocal(mangas: [MangaLocalDTO]) async throws -> [MangaLocal] {
-        var mangasLocal: [MangaLocal] = []
-        for manga in mangas {
-            var mangaLocal = manga.mangaLocal
-            mangasLocal.append(mangaLocal)
-            modelContext.insert(mangaLocal)
-        }
-        return mangasLocal
-    }
-    
+        
     func fetchManga() -> Manga {
+        var manga: Manga?
         do {
-            return try modelContext.fetch(FetchDescriptor<Manga>())[0]
-        } catch {
-            fatalError(error.localizedDescription)
-        }
+            let mangas = try modelContext.fetch(FetchDescriptor<Manga>())
+            if !mangas.isEmpty { manga = mangas[0] }
+        } catch {}
+        return manga ?? Manga()
     }
     
     func login() async throws -> String {
