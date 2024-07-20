@@ -1,5 +1,5 @@
 //
-//  DraftRequestViewModel.swift
+//  MangaViewModel.swift
 //  ParrotDayDraftRequestManga
 //
 //  Created by Juan Manuel Moreno on 3/06/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DraftRequestViewModelProtocol {
+protocol MangaViewModelProtocol {
     
     // Misc
     func doIt()
@@ -26,13 +26,13 @@ protocol DraftRequestViewModelProtocol {
 }
 
 @Observable
-class DraftRequestViewModel: DraftRequestViewModelProtocol, ObservableObject {
+class MangaViewModel: MangaViewModelProtocol, ObservableObject {
     
     @ObservationIgnored
-    var useCase: DraftRequestUseCaseProtocol?
+    var useCase: MangaUseCaseProtocol?
     var mangaLocalUseCase: MangaLocalUseCaseProtocol?
     
-    init(useCase: DraftRequestUseCaseProtocol = DraftRequestUseCase.shared, mangaLocalUseCase: MangaLocalUseCaseProtocol = MangaLocalUseCase.shared) {
+    init(useCase: MangaUseCaseProtocol = MangaUseCase.shared, mangaLocalUseCase: MangaLocalUseCaseProtocol = MangaLocalUseCase.shared) {
         self.useCase = useCase
         self.mangaLocalUseCase = mangaLocalUseCase
     }

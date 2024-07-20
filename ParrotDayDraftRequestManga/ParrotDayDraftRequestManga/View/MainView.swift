@@ -10,7 +10,7 @@ import SwiftData
 
 struct MainView: View {
     
-    @EnvironmentObject private var vm: DraftRequestViewModel
+    @EnvironmentObject private var vm: MangaViewModel
 
     @State private var page = 1
     @State private var per = 3
@@ -21,9 +21,8 @@ struct MainView: View {
     @State var myManga: UserMangaCollectionRequestDTO?
     @State private var hasSwipped = false
     @State private var filter: CatalogFilter?
-    
     @State private var mangaSwiftData: Manga?
-    
+
     @State private var selection: Double = 0
 
         let options: [String] = ["Option 1", "Option 2"]
@@ -121,20 +120,9 @@ struct MainView: View {
                         }
                 )
             
-                // draft pagination
-//                Pager(action: { page in
-//                    Task {
-//                        manga = try await vm.passPage(page: page, per: self.per)
-//                        modelContext.insert(manga!)
-//                        mangaF = try await vm.passPage(page: page + 1, per: self.per)
-//                        modelContext.insert(mangaF!)
-//
-//                    }
-//                })
-                
                 ScrollView {
                     LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) {
-                        ForEach(manageItems()) { item in
+                        ForEach(deliverManga()) { item in
                             NavigationLink(destination: MangaView(mangaItem: item)) {
                                 AsyncImage(url: URL(string: item.mainPicture!.replacingOccurrences(of: "\"", with: ""))) { image in
                                     image
@@ -166,6 +154,11 @@ struct MainView: View {
                 )
                 .onChange(of: self.hasSwipped) { _ in
                 }
+                
+                // Manga local
+                NavigationLink(destination: MangaLocalView()) {
+                    Text("Local")
+                }
 
             }
             .padding()
@@ -173,10 +166,9 @@ struct MainView: View {
                 self.seed()
             }
         }
-        
     }
     
-    func manageItems() -> [Item] {
+    func deliverManga() -> [Item] {
         if manga != nil && !manga!.items.isEmpty {
             return manga!.items
         } else {
@@ -185,7 +177,7 @@ struct MainView: View {
     }
     
     func seed() {
-        self.prepareMangaLocal()
+//        self.prepareMangaLocal()
         mangaB = Manga()
         Task {
             var filter = CatalogFilter.bestMangas
@@ -231,13 +223,19 @@ struct MainView: View {
         }
     }
     
-    func prepareMangaLocal() {
-        Task {
-            var local = try await self.vm.prepareMangaLocal()
-            print(local)
-        }
-    }
-
+//    func prepareMangaLocal() {
+//        Task {
+//            self.mangaslocal = try await self.vm.prepareMangaLocal()
+//        }
+//    }
+//
+//    func deliverMangaLocal() -> [MangaLocal] {
+//        if mangaslocal != nil && !mangaslocal!.items.isEmpty {
+//            return mangaslocal!.items
+//        } else {
+//            return []
+//        }
+//    }
 }
 
 #Preview {

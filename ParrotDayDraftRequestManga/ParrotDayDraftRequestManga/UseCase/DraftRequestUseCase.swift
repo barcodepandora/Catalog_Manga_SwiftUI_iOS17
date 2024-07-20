@@ -1,5 +1,5 @@
 //
-//  DraftRequestUseCase.swift
+//  MangaUseCase.swift
 //  ParrotDayDraftRequestManga
 //
 //  Created by Juan Manuel Moreno on 3/06/24.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import SwiftData
 
-protocol DraftRequestUseCaseProtocol {
+protocol MangaUseCaseProtocol {
     func doIt()
     func list(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> [Item]
@@ -19,13 +19,13 @@ protocol DraftRequestUseCaseProtocol {
     func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
 }
 
-class DraftRequestUseCase: DraftRequestUseCaseProtocol {
+class MangaUseCase: MangaUseCaseProtocol {
     private let modelContainer: ModelContainer
     private let modelContext: ModelContext
     private var mangaSwiftData: Manga
     
     @MainActor
-    static let shared = DraftRequestUseCase()
+    static let shared = MangaUseCase()
     
     @MainActor
     init() {

@@ -11,7 +11,7 @@ import SwiftData
 @main
 struct ParrotDayDraftRequestMangaApp: App {
         
-    @StateObject private var vm = DraftRequestViewModel()
+    @StateObject private var vm = MangaViewModel()
     
     var body: some Scene {
         WindowGroup {
