@@ -23,11 +23,9 @@ struct MainView: View {
     @State private var filter: CatalogFilter?
     @State private var mangaSwiftData: Manga?
 
-    @State private var selection: Double = 0
-
         let options: [String] = ["Option 1", "Option 2"]
-        let clockSize: CGFloat = 200
-        let needleLength: CGFloat = 80
+//        let clockSize: CGFloat = 200
+//        let needleLength: CGFloat = 80
     
     var body: some View {
 //        if UIDevice.current.userInterfaceIdiom == .pad {
@@ -47,49 +45,15 @@ struct MainView: View {
                             manga = try await vm.search(page: self.page, per: self.per, text: result)
                         }
                     }, vm: vm)
+                    ClockView(callback: { result in
+                        if result == .happy {
+                            filter = .all
+                        } else {
+                            filter = .bestMangas
+                        }
+                        self.seed()
+                    })
 
-                    // autocomplete
-                    ZStack {
-                        Circle()
-                            .stroke(Color.gray, lineWidth: 2)
-                            .frame(width: clockSize, height: clockSize)
-
-                        // Needle
-                        Rectangle()
-                            .fill(Color.black)
-                            .frame(width: 2, height: needleLength)
-                            .rotationEffect(Angle(degrees: selection * 36))
-                            .animation(.easeInOut)
-
-                        // Center dot
-                        Circle()
-                            .fill(Color.black)
-                            .frame(width: 10, height: 10)
-
-                        // Option labels
-    //                    ForEach(0..<options.count, id: \.self) { index in
-    //                        Text(options[index])
-    //                            .rotationEffect(Angle(degrees: Double(index) * 36))
-    //                            .offset(y: clockSize / 2 - 20)
-    //                    }
-                    }
-                    .gesture(
-                        DragGesture()
-                            .onChanged { value in
-                                print("\(value.translation.width), \(value.translation.height)")
-    //                            let angle = atan2(value.translation.width, value.translation.height) * 180 / .pi
-                                let angle = 180
-                                if value.translation.width > 50 {
-                                    filter = .all
-                                } else {
-                                    filter = .bestMangas
-                                }
-                                self.seed()
-    //                            let selection = (angle + 180) / 36
-    //                            self.selection = selection.truncatingRemainder(dividingBy: Double(options.count))
-                            }
-                    )
-                
                     ScrollView {
                         LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) {
                             ForEach(deliverManga()) { item in
@@ -129,7 +93,6 @@ struct MainView: View {
                     NavigationLink(destination: MangaLocalView()) {
                         Text("Local")
                     }
-
                 }
                 .padding()
                 .onAppear {
