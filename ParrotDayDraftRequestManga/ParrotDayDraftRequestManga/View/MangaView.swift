@@ -13,12 +13,6 @@ struct MangaView: View {
     var body: some View {
         Text("Hello, Manga!")
         VStack {
-//            AsyncImage(url: URL(string: mangaItem.mainPicture!)) { image in
-//                image
-//                    .resizable()
-//                    .scaledToFill()
-//            }
-            
             AsyncImage(url: URL(string: mangaItem.mainPicture!.replacingOccurrences(of: "\"", with: ""))) { image in
                 image
                     .resizable()
@@ -31,8 +25,6 @@ struct MangaView: View {
             .background {
                 Color(white: 0.8)
             }
-//            .clipShape(Circle())
-//            .shadow(color: .black.opacity(0.4), radius: 5, x: 0, y: 5)
         }
     }
 }

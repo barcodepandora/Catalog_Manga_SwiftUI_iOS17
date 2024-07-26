@@ -30,142 +30,116 @@ struct MainView: View {
         let needleLength: CGFloat = 80
     
     var body: some View {
-        NavigationView {
-            VStack {
-                
-                // title
-                Text("AC SDP 2024")
-                
-                // login
-                Button(action: {
-                    Task {
-                        let token = try await vm.login()
-                        print(token)
-                        let data = token.data(using: .utf8)
-                        let service = "com.uzupis.app"
-                        let account = "JuanTune"
-                        if KeychainButler.storeData(data: data!, forService: service, account: account) {
-                            print("Security OK")
-                        } else {
-                            print("Security KO")
-                        }
-                    }
-                }) {
-                    Text("Renovar sesión")
-                }
-                
-                // save manga
-                Button(action: {
-                    let service = "com.uzupis.app"
-                    let account = "JuanTune"
-                    if let retrieved = KeychainButler.retrieveData(forService: service, account: account) {
-                        let token = String(data: retrieved, encoding: .utf8)
-                        print(token)
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            VStack {
+//            }
+//            .padding()
+//            .onAppear {
+//                self.seed()
+//            }
+//            .ignoresSafeArea()        } else {
+            NavigationView {
+                VStack {
+                    SessionView(vm: vm)
+                    SaveMangaLocalView(vm: vm)
+                    AutocompleteView(callback: { result in
                         Task {
-                            try await vm.save(manga: UserMangaCollectionRequestDTO(manga: 42), token: token!)
+                            manga = try await vm.search(page: self.page, per: self.per, text: result)
                         }
-                    } else {
-                        print("KO")
+                    }, vm: vm)
+
+                    // autocomplete
+                    ZStack {
+                        Circle()
+                            .stroke(Color.gray, lineWidth: 2)
+                            .frame(width: clockSize, height: clockSize)
+
+                        // Needle
+                        Rectangle()
+                            .fill(Color.black)
+                            .frame(width: 2, height: needleLength)
+                            .rotationEffect(Angle(degrees: selection * 36))
+                            .animation(.easeInOut)
+
+                        // Center dot
+                        Circle()
+                            .fill(Color.black)
+                            .frame(width: 10, height: 10)
+
+                        // Option labels
+    //                    ForEach(0..<options.count, id: \.self) { index in
+    //                        Text(options[index])
+    //                            .rotationEffect(Angle(degrees: Double(index) * 36))
+    //                            .offset(y: clockSize / 2 - 20)
+    //                    }
                     }
-                }) {
-                    Text("Test collection manga")
-                }
-                
-                // autocomplete
-                TextField("Escribir", text: $text)
-                    .onChange(of: text) {
-                        debugPrint("Aqui vamos a pasar \(text)")
-                        Task {
-                            manga = Manga(items: try await vm.search(page: self.page, per: self.per, text: self.text))
-                        }
-                    }
-                ZStack {
-                    Circle()
-                        .stroke(Color.gray, lineWidth: 2)
-                        .frame(width: clockSize, height: clockSize)
-
-                    // Needle
-                    Rectangle()
-                        .fill(Color.black)
-                        .frame(width: 2, height: needleLength)
-                        .rotationEffect(Angle(degrees: selection * 36))
-                        .animation(.easeInOut)
-
-                    // Center dot
-                    Circle()
-                        .fill(Color.black)
-                        .frame(width: 10, height: 10)
-
-                    // Option labels
-//                    ForEach(0..<options.count, id: \.self) { index in
-//                        Text(options[index])
-//                            .rotationEffect(Angle(degrees: Double(index) * 36))
-//                            .offset(y: clockSize / 2 - 20)
-//                    }
-                }
-                .gesture(
-                    DragGesture()
-                        .onChanged { value in
-                            print("\(value.translation.width), \(value.translation.height)")
-//                            let angle = atan2(value.translation.width, value.translation.height) * 180 / .pi
-                            let angle = 180
-                            if value.translation.width > 50 {
-                                filter = .all
-                            } else {
-                                filter = .bestMangas
-                            }
-                            self.seed()
-//                            let selection = (angle + 180) / 36
-//                            self.selection = selection.truncatingRemainder(dividingBy: Double(options.count))
-                        }
-                )
-            
-                ScrollView {
-                    LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) {
-                        ForEach(deliverManga()) { item in
-                            NavigationLink(destination: MangaView(mangaItem: item)) {
-                                AsyncImage(url: URL(string: item.mainPicture!.replacingOccurrences(of: "\"", with: ""))) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 100, height: 125)
-                                } placeholder: {
-                                    ProgressView()
-                                        .controlSize(.extraLarge)
-                                } // Cuando acaba de cargar es como un Image
-                                .background {
-                                    Color(white: 0.8)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
+                                print("\(value.translation.width), \(value.translation.height)")
+    //                            let angle = atan2(value.translation.width, value.translation.height) * 180 / .pi
+                                let angle = 180
+                                if value.translation.width > 50 {
+                                    filter = .all
+                                } else {
+                                    filter = .bestMangas
                                 }
+                                self.seed()
+    //                            let selection = (angle + 180) / 36
+    //                            self.selection = selection.truncatingRemainder(dividingBy: Double(options.count))
                             }
-                            .navigationTitle("Go")
+                    )
+                
+                    ScrollView {
+                        LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) {
+                            ForEach(deliverManga()) { item in
+                                NavigationLink(destination: MangaView(mangaItem: item)) {
+                                    AsyncImage(url: URL(string: item.mainPicture!.replacingOccurrences(of: "\"", with: ""))) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 100, height: 125)
+                                    } placeholder: {
+                                        ProgressView()
+                                            .controlSize(.extraLarge)
+                                    } // Cuando acaba de cargar es como un Image
+                                    .background {
+                                        Color(white: 0.8)
+                                    }
+                                }
+                                .navigationTitle("Go")
+                            }
                         }
                     }
-                }
-                .gesture(
-                    DragGesture()
-                        .onEnded { value in
-                            if value.translation.width > 50 {
-                                deliverBack()
-                            } else {
-                                deliverForward()
+                    .gesture(
+                        DragGesture()
+                            .onEnded { value in
+                                if value.translation.width > 50 {
+                                    deliverBack()
+                                } else {
+                                    deliverForward()
+                                }
+                                self.hasSwipped = true
                             }
-                            self.hasSwipped = true
-                        }
-                )
-                .onChange(of: self.hasSwipped) { _ in
-                }
-                
-                // Manga local
-                NavigationLink(destination: MangaLocalView()) {
-                    Text("Local")
-                }
+                    )
+                    .onChange(of: self.hasSwipped) { _ in
+                    }
+                    
+                    // Manga local
+                    NavigationLink(destination: MangaLocalView()) {
+                        Text("Local")
+                    }
 
+                }
+                .padding()
+                .onAppear {
+                    self.seed()
+                }
+    //            .ignoresSafeArea()
             }
-            .padding()
-            .onAppear {
-                self.seed()
-            }
-        }
+            .navigationViewStyle(StackNavigationViewStyle())
+    //        .edgesIgnoringSafeArea(.all)        }
+
     }
     
     func deliverManga() -> [Item] {
@@ -177,7 +151,6 @@ struct MainView: View {
     }
     
     func seed() {
-//        self.prepareMangaLocal()
         mangaB = Manga()
         Task {
             var filter = CatalogFilter.bestMangas
@@ -222,20 +195,6 @@ struct MainView: View {
             self.mangaSwiftData = try await self.vm.dealManga()
         }
     }
-    
-//    func prepareMangaLocal() {
-//        Task {
-//            self.mangaslocal = try await self.vm.prepareMangaLocal()
-//        }
-//    }
-//
-//    func deliverMangaLocal() -> [MangaLocal] {
-//        if mangaslocal != nil && !mangaslocal!.items.isEmpty {
-//            return mangaslocal!.items
-//        } else {
-//            return []
-//        }
-//    }
 }
 
 #Preview {

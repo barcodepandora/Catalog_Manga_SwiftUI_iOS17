@@ -12,7 +12,7 @@ import SwiftData
 protocol MangaUseCaseProtocol {
     func doIt()
     func list(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
-    func search(page: Int, per: Int, text: String) async throws -> [Item]
+    func search(page: Int, per: Int, text: String) async throws -> Manga
     func dealManga() async throws -> Manga
     
     func login() async throws -> String
@@ -62,14 +62,16 @@ class MangaUseCase: MangaUseCaseProtocol {
         }
     }
     
-    func search(page: Int, per: Int, text: String) async throws -> [Item] {
+    func search(page: Int, per: Int, text: String) async throws -> Manga {
         let (data, response) = try await URLSession.shared.data(for: APIRouter.search(page: page, per: per, text: text).urlRequest)
         guard let httpResponse = response as? HTTPURLResponse else {
-            return []
+            return Manga()
         }
         let decoder = JSONDecoder()
         let a = try decoder.decode([Item].self, from: data)
-        return a
+        var manga = Manga(metadata: MangaInfo(), items: a)
+        modelContext.insert(manga)
+        return manga
     }
     
     func dealManga() async throws -> Manga {

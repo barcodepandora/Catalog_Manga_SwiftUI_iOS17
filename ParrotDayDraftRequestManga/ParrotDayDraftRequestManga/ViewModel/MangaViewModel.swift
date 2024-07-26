@@ -8,13 +8,12 @@
 import Foundation
 
 protocol MangaViewModelProtocol {
-    
     // Misc
     func doIt()
     
     // Catalog
     func passPage(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
-    func search(page: Int, per: Int, text: String) async throws -> [Item]
+    func search(page: Int, per: Int, text: String) async throws -> Manga
     func dealManga() async throws -> Manga
     func prepareMangaLocal() async throws -> [MangaLocal]
     
@@ -31,8 +30,8 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
     @ObservationIgnored
     var useCase: MangaUseCaseProtocol?
     var mangaLocalUseCase: MangaLocalUseCaseProtocol?
-    
-    init(useCase: MangaUseCaseProtocol = MangaUseCase.shared, mangaLocalUseCase: MangaLocalUseCaseProtocol = MangaLocalUseCase.shared) {
+
+    init(useCase: MangaUseCaseProtocol = MangaUseCase.shared, mangaLocalUseCase: MangaLocalUseCaseProtocol = MangaLocalUseCase.shared, manga: Manga? = Manga()) {
         self.useCase = useCase
         self.mangaLocalUseCase = mangaLocalUseCase
     }
@@ -47,7 +46,7 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
         return manga!
     }
     
-    func search(page: Int, per: Int, text: String) async throws -> [Item] {
+    func search(page: Int, per: Int, text: String) async throws -> Manga {
         var manga = try await useCase?.search(page: page, per: per, text: text)
         return manga!
     }
