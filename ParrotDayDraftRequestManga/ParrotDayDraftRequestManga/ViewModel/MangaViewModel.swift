@@ -8,12 +8,15 @@
 import Foundation
 
 protocol MangaViewModelProtocol {
-    // Misc
-    func doIt()
     
     // Catalog
     func passPage(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> Manga
+    func seed() async throws -> Manga
+    func deliverForward() -> Manga
+    func deliverBack() -> Manga
+    
+    // Local
     func dealManga() async throws -> Manga
     func prepareMangaLocal() async throws -> [MangaLocal]
     
@@ -27,6 +30,13 @@ protocol MangaViewModelProtocol {
 @Observable
 class MangaViewModel: MangaViewModelProtocol, ObservableObject {
     
+    private var page = 1
+    private var per = 3
+    private var text = "dra"
+    var manga: Manga?
+    var mangaF: Manga?
+    var mangaB: Manga?
+
     @ObservationIgnored
     var useCase: MangaUseCaseProtocol?
     var mangaLocalUseCase: MangaLocalUseCaseProtocol?
@@ -36,10 +46,7 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
         self.mangaLocalUseCase = mangaLocalUseCase
     }
 
-    func doIt() {
-        useCase?.doIt()
-    }
-    
+    // Catalog
     func passPage(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga {
         print(filter)
         var manga = try await useCase?.list(page: page, per: per, filter: filter)
@@ -51,6 +58,47 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
         return manga!
     }
     
+    func isAtLast() -> Bool {
+        return (mangaF?.items.isEmpty)!
+    }
+
+    func isAtFirst() -> Bool {
+        return page == 1
+    }
+
+    func seed() async throws -> Manga {
+        mangaB = Manga()
+        var filter = CatalogFilter.bestMangas
+        manga = try await self.passPage(page: page, per: self.per, filter: filter)
+        mangaF = try await self.passPage(page: page + 1, per: self.per, filter: CatalogFilter.bestMangas)
+        return manga!
+    }
+
+    func deliverForward() -> Manga {
+        if !isAtLast() {
+            mangaB = manga
+            manga = mangaF
+            page += 1
+            Task {
+                mangaF = try await self.passPage(page: page + 1, per: self.per, filter: CatalogFilter.bestMangas)
+            }
+        }
+        return manga!
+    }
+    
+    func deliverBack() -> Manga {
+        if !isAtFirst() {
+            mangaF = manga
+            manga = mangaB
+            page -= 1
+            Task {
+                mangaB = try await self.passPage(page: page - 1, per: self.per, filter: CatalogFilter.bestMangas)
+            }
+        }
+        return manga!
+    }
+    
+    // Local
     func dealManga() async throws -> Manga {
         return try await useCase!.dealManga()
     }
@@ -61,6 +109,7 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
         return mangasLocal
     }
     
+    // User
     func login() async throws -> String {
         var token = try await useCase?.login()
         return token!

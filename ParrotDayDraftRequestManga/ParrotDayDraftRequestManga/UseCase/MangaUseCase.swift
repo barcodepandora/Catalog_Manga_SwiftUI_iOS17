@@ -10,7 +10,6 @@ import SwiftUI
 import SwiftData
 
 protocol MangaUseCaseProtocol {
-    func doIt()
     func list(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> Manga
     func dealManga() async throws -> Manga
@@ -32,9 +31,6 @@ class MangaUseCase: MangaUseCaseProtocol {
         self.modelContainer = ModelContainerForManga.modelContainer
         self.modelContext = modelContainer.mainContext
         self.mangaSwiftData = Manga()
-    }
-    
-    func doIt() {
     }
     
     func list(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga {

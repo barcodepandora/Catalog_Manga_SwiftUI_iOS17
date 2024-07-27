@@ -13,6 +13,7 @@
 		564A13632C2B44C3001E3331 /* UserMangaCollectionRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A13622C2B44C2001E3331 /* UserMangaCollectionRequestDTO.swift */; };
 		565355772C20876B00BD200E /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565355762C20876B00BD200E /* Manga.swift */; };
 		5653591E2C5442520050A9C7 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5653591D2C5442520050A9C7 /* ClockView.swift */; };
+		565359202C546CFF0050A9C7 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5653591F2C546CFF0050A9C7 /* CatalogView.swift */; };
 		5659FAB32C110C8500B62BBF /* MangaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659FAB22C110C8500B62BBF /* MangaDTO.swift */; };
 		5669E3212C448DD2001450A9 /* MangaLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669E3202C448DD2001450A9 /* MangaLocal.swift */; };
 		5669E3232C448E52001450A9 /* UserMangaCollectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669E3222C448E52001450A9 /* UserMangaCollectionRequest.swift */; };
@@ -63,6 +64,7 @@
 		564A13622C2B44C2001E3331 /* UserMangaCollectionRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMangaCollectionRequestDTO.swift; sourceTree = "<group>"; };
 		565355762C20876B00BD200E /* Manga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
 		5653591D2C5442520050A9C7 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		5653591F2C546CFF0050A9C7 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
 		5659FAB22C110C8500B62BBF /* MangaDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDTO.swift; sourceTree = "<group>"; };
 		5669E3202C448DD2001450A9 /* MangaLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLocal.swift; sourceTree = "<group>"; };
 		5669E3222C448E52001450A9 /* UserMangaCollectionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMangaCollectionRequest.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				56A46B942C53E617003B9B68 /* SaveMangaLocalView.swift */,
 				56A46B962C53E70C003B9B68 /* AutocompleteView.swift */,
 				5653591D2C5442520050A9C7 /* ClockView.swift */,
+				5653591F2C546CFF0050A9C7 /* CatalogView.swift */,
 				56CCB6552C3302190054389C /* MangaView.swift */,
 				56A704432C4C18AB0063480F /* MangaLocalView.swift */,
 			);
@@ -400,6 +403,7 @@
 				5608C7172C17B87600112D08 /* Page.swift in Sources */,
 				56A46B952C53E617003B9B68 /* SaveMangaLocalView.swift in Sources */,
 				56E585082C46DC6700E4181F /* ModelContainerForManga.swift in Sources */,
+				565359202C546CFF0050A9C7 /* CatalogView.swift in Sources */,
 				56A46B932C53E570003B9B68 /* SessionView.swift in Sources */,
 				56E940372C0E07DB0087A90C /* ParrotDayDraftRequestMangaApp.swift in Sources */,
 				5669E3232C448E52001450A9 /* UserMangaCollectionRequest.swift in Sources */,
