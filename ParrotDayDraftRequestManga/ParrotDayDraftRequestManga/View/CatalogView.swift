@@ -44,10 +44,8 @@ struct CatalogView: View {
                     let direction: Direction
                     if value.translation.width > 50 {
                         direction = .back
-                        //                        manga = vm.deliverBack()
                     } else {
                         direction = .forward
-                        //                        manga = vm.deliverForward()
                     }
                     callback(direction)
                 }
