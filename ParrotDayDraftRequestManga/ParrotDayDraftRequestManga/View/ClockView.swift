@@ -13,11 +13,10 @@ enum Nail {
 }
 
 struct ClockView: View {
-    @State var selection: Double = 0
-    @State var isCallbackCalled = false
+    @State var selection: Int = 0
     let callback: (Nail) -> Void
     let clockSize: CGFloat = 200
-    let needleLength: CGFloat = 80
+    let needle: CGFloat = 64
     var options = ["Milena", "Luce", "Wendy", "Lizzie", "Yumi"]
 
     var body: some View {
@@ -29,8 +28,8 @@ struct ClockView: View {
             // Needle
             Rectangle()
                 .fill(Color.cyan)
-                .frame(width: 2, height: needleLength)
-                .rotationEffect(Angle(degrees: -180 / Double(options.count) * selection))
+                .frame(width: 2, height: needle)
+                .rotationEffect(Angle(degrees: MathButler.shared.calculateAngleInDegrees(numberOfAngles: options.count, indexOfAngle: selection)))
                 .animation(.easeInOut)
             
             // Center dot
@@ -39,39 +38,25 @@ struct ClockView: View {
                 .frame(width: 10, height: 10)
             
             // Hours
-            let offset4Clock: Double = 78
+            let offset4Needle: Double = 78
             ForEach(0..<options.count, id: \.self) { index in
                 Text(options[index])
-                    .offset(x: sin(Double(index) * 2 * Double.pi / Double(options.count)) * offset4Clock, y: -cos(Double(index) * 2 * Double.pi / Double(options.count)) * offset4Clock)
+                    .offset(x: MathButler.shared.doSin(numberOfAngles: options.count, indexOfAngle: index) * offset4Needle, y: -MathButler.shared.doCos(numberOfAngles: options.count, indexOfAngle: index) * offset4Needle)
             }
         }
         .gesture(
             DragGesture()
-                .onChanged { value in
+                .onEnded() { value in
                     print("\(value.translation.width), \(value.translation.height)")
-                    if isCallbackCalled {
-                        isCallbackCalled = false
-                    } else {
-                        let nail: Nail
-                        if value.translation.width > 50 {
-                            if selection == 0 {
-                                selection = Double(options.count - 1)
-                            } else {
-                                selection -= 1
-                            }
-                            self.selection -= 1
-                            nail = .happy
-                            callback(nail)
-                        } else if value.translation.width < -50 {
-                            if selection == Double(options.count - 1) {
-                                selection = 0
-                            } else {
-                                self.selection += 1
-                            }
-                            nail = .sad
-                            callback(nail)
-                        }
-                        isCallbackCalled = true
+                    let nail: Nail
+                    if value.translation.width > 20 {
+                        selection -= 1
+                        nail = .happy
+                        callback(nail)
+                    } else if value.translation.width < -20 {
+                        selection += 1
+                        nail = .sad
+                        callback(nail)
                     }
                 }
         )
