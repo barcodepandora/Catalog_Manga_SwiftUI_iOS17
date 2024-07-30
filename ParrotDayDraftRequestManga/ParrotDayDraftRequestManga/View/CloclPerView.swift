@@ -1,20 +1,16 @@
 //
-//  ClockView.swift
+//  CloclPerView.swift
 //  ParrotDayDraftRequestManga
 //
-//  Created by Juan Manuel Moreno on 26/07/24.
+//  Created by Juan Manuel Moreno on 30/07/24.
 //
 
 import SwiftUI
 
-enum Nail {
-    case happy
-    case sad
-}
-
-struct ClockView: View {
-    @State var selection: Int = 0
-    let callback: (Nail) -> Void
+struct ClockPerView: View {
+    
+    @State var selection: Int = 3
+    let callback: (Int) -> Void
     let clockSize: CGFloat = 149
     let needle: CGFloat = 64
     var options = ["Milena", "Luce", "Wendy", "Lizzie", "Yumi"]
@@ -51,12 +47,10 @@ struct ClockView: View {
                     let nail: Nail
                     if value.translation.width > 20 {
                         selection -= 1
-                        nail = .happy
-                        callback(nail)
+                        callback(selection)
                     } else if value.translation.width < -20 {
                         selection += 1
-                        nail = .sad
-                        callback(nail)
+                        callback(selection)
                     }
                 }
         )

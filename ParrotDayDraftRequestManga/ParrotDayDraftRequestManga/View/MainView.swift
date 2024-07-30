@@ -13,7 +13,6 @@ struct MainView: View {
     @EnvironmentObject private var vm: MangaViewModel
     @State var manga: Manga?
     @State var myManga: UserMangaCollectionRequestDTO?
-    @State private var filter: CatalogFilter?
     @State private var mangaSwiftData: Manga?
     
     var body: some View {
@@ -34,16 +33,20 @@ struct MainView: View {
                             manga = try await vm.search(page: 1, per: 3, text: result)
                         }
                     }, vm: vm)
-                    ClockView(callback: { result in
-                        if result == .happy {
-                            filter = .all
-                        } else {
-                            filter = .bestMangas
-                        }
-                        Task {
-                            manga = try await vm.seed()
-                        }
-                    })
+                    HStack {
+                        ClockPerView(callback: { result in
+                            var per = result
+                            Task {
+                                manga = try await vm.seed(per: per, filter: vm.filter)
+                            }
+                        })
+                        ClockView(callback: { result in
+                            var filter: CatalogFilter = result == .happy ? .all : .bestMangas
+                            Task {
+                                manga = try await vm.seed(per: vm.per, filter: filter)
+                            }
+                        })
+                    }
                     CatalogView(callback: { result in
                         if result == .forward {
                             manga = vm.deliverForward()
@@ -60,7 +63,7 @@ struct MainView: View {
                 .padding()
                 .onAppear {
                     Task {
-                        manga = try await vm.seed()
+                        manga = try await vm.seed(per: 4, filter: .all)
                     }
                 }
     //            .ignoresSafeArea()

@@ -13,6 +13,7 @@ protocol MangaViewModelProtocol {
     func passPage(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> Manga
     func seed() async throws -> Manga
+    func seed(per: Int, filter: CatalogFilter) async throws -> Manga
     func deliverForward() -> Manga
     func deliverBack() -> Manga
     
@@ -31,8 +32,9 @@ protocol MangaViewModelProtocol {
 class MangaViewModel: MangaViewModelProtocol, ObservableObject {
     
     private var page = 1
-    private var per = 3
+    var per = 3
     private var text = "dra"
+    var filter: CatalogFilter = .all
     var manga: Manga?
     var mangaF: Manga?
     var mangaB: Manga?
@@ -68,19 +70,29 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
 
     func seed() async throws -> Manga {
         mangaB = Manga()
-        var filter = CatalogFilter.bestMangas
+        page = 1
         manga = try await self.passPage(page: page, per: self.per, filter: filter)
-        mangaF = try await self.passPage(page: page + 1, per: self.per, filter: CatalogFilter.bestMangas)
+        mangaF = try await self.passPage(page: page + 1, per: self.per, filter: filter)
         return manga!
     }
 
+    func seed(per: Int, filter: CatalogFilter) async throws -> Manga {
+        mangaB = Manga()
+        page = 1
+        self.per = per
+        self.filter = filter
+        manga = try await self.passPage(page: page, per: self.per, filter: self.filter)
+        mangaF = try await self.passPage(page: page + 1, per: self.per, filter: self.filter)
+        return manga!
+    }
+    
     func deliverForward() -> Manga {
         if !isAtLast() {
             mangaB = manga
             manga = mangaF
             page += 1
             Task {
-                mangaF = try await self.passPage(page: page + 1, per: self.per, filter: CatalogFilter.bestMangas)
+                mangaF = try await self.passPage(page: page + 1, per: self.per, filter: self.filter)
             }
         }
         return manga!
@@ -92,7 +104,7 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
             manga = mangaB
             page -= 1
             Task {
-                mangaB = try await self.passPage(page: page - 1, per: self.per, filter: CatalogFilter.bestMangas)
+                mangaB = try await self.passPage(page: page - 1, per: self.per, filter: self.filter)
             }
         }
         return manga!
