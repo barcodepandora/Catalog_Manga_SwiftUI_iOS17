@@ -10,4 +10,5 @@ import Foundation
 enum CatalogFilter {
     case all
     case bestMangas
+    case byGenre
 }

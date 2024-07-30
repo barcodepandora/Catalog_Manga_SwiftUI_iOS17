@@ -26,27 +26,56 @@ struct MainView: View {
 //            .ignoresSafeArea()        } else {
             NavigationView {
                 VStack {
-                    SessionView(vm: vm)
-                    SaveMangaLocalView(vm: vm)
-                    AutocompleteView(callback: { result in
-                        Task {
-                            manga = try await vm.search(page: 1, per: 3, text: result)
+//                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(alignment: .center, spacing: 13) {
+                            ClockPerView(callback: { result in
+                                var per = result
+                                Task {
+                                    manga = try await vm.seed(per: per, filter: vm.filter)
+                                }
+                            })
+                            ClockPerView(callback: { result in
+                                var per = result
+                                Task {
+                                    manga = try await vm.seed(per: per, filter: vm.filter)
+                                }
+                            })
+                            ClockView(callback: { result in
+                                var filter: CatalogFilter = .all
+                                switch result {
+                                case 0:
+                                    filter = .all
+                                case 1:
+                                    filter = .bestMangas
+                                case 2:
+                                    filter = .byGenre
+                                default:
+                                    break
+                                }
+                                Task {
+                                    manga = try await vm.seed(per: vm.per, filter: filter)
+                                }
+                            })
                         }
-                    }, vm: vm)
+//                    }
+//                    .padding(.horizontal)
+
+//                    SessionView(vm: vm)
+//                    SaveMangaLocalView(vm: vm)
+
                     HStack {
-                        ClockPerView(callback: { result in
-                            var per = result
+                        AutocompleteView(callback: { result in
                             Task {
-                                manga = try await vm.seed(per: per, filter: vm.filter)
+                                manga = try await vm.passPage(page: 1, per: vm.per, filter: vm.filter, content: result)
                             }
-                        })
-                        ClockView(callback: { result in
-                            var filter: CatalogFilter = result == .happy ? .all : .bestMangas
+                        }, vm: vm, placeholder: "Escribir categoria")
+                        AutocompleteView(callback: { result in
                             Task {
-                                manga = try await vm.seed(per: vm.per, filter: filter)
+                                manga = try await vm.search(page: 1, per: vm.per, text: result)
                             }
-                        })
+                        }, vm: vm, placeholder: "Escribir titulo")
                     }
+
                     CatalogView(callback: { result in
                         if result == .forward {
                             manga = vm.deliverForward()

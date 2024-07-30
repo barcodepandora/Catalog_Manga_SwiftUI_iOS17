@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftData
 
 protocol MangaUseCaseProtocol {
-    func list(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga
+    func list(page: Int, per: Int, filter: CatalogFilter, content: String) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> Manga
     func dealManga() async throws -> Manga
     
@@ -33,7 +33,7 @@ class MangaUseCase: MangaUseCaseProtocol {
         self.mangaSwiftData = Manga()
     }
     
-    func list(page: Int, per: Int, filter: CatalogFilter) async throws -> Manga {
+    func list(page: Int, per: Int, filter: CatalogFilter, content: String) async throws -> Manga {
         var manga: Manga = Manga()
         var request: URLRequest
         
@@ -42,9 +42,15 @@ class MangaUseCase: MangaUseCaseProtocol {
             request = APIRouter.get(page: page, per: per).urlRequest
         case .bestMangas:
             request = APIRouter.bestMangas(page: page, per: per).urlRequest
+        case .byGenre:
+            request = APIRouter.byGenre(page: page, per: per, content: content).urlRequest
         }
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse else {
+            return Manga()
+        }
+        guard (200..<300) ~= httpResponse.statusCode else {
+            print("HTTP status code: \(httpResponse.statusCode)")
             return Manga()
         }
         let decoder = JSONDecoder()
