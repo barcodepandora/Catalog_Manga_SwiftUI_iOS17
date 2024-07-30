@@ -12,6 +12,7 @@ struct MainView: View {
     
     @EnvironmentObject private var vm: MangaViewModel
     @State var manga: Manga?
+    @State var authors: [Author]?
     @State var myManga: UserMangaCollectionRequestDTO?
     @State private var mangaSwiftData: Manga?
     
@@ -28,18 +29,12 @@ struct MainView: View {
                 VStack {
 //                    ScrollView(.horizontal, showsIndicators: false) {
                         HStack(alignment: .center, spacing: 13) {
-                            ClockPerView(callback: { result in
+                            ClockView(callback: { result in
                                 var per = result
                                 Task {
                                     manga = try await vm.seed(per: per, filter: vm.filter)
                                 }
-                            })
-                            ClockPerView(callback: { result in
-                                var per = result
-                                Task {
-                                    manga = try await vm.seed(per: per, filter: vm.filter)
-                                }
-                            })
+                            }, options: ["1", "2", "3", "4", "5", "6"])
                             ClockView(callback: { result in
                                 var filter: CatalogFilter = .all
                                 switch result {
@@ -53,9 +48,10 @@ struct MainView: View {
                                     break
                                 }
                                 Task {
+                                    authors = try await vm.dealAuthors(filter: vm.filter)
                                     manga = try await vm.seed(per: vm.per, filter: filter)
                                 }
-                            })
+                            }, options: ["All", "Best", "Genre"])
                         }
 //                    }
 //                    .padding(.horizontal)

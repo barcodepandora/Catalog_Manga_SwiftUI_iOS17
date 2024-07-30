@@ -18,6 +18,8 @@ enum APIRouter {
     case post
     case login
     
+    case authors
+    
 
     var url: URL {
         var parameters = URLComponents(string: APIURL + self.path)
@@ -28,7 +30,7 @@ enum APIRouter {
                 URLQueryItem(name: "per", value: String(per!))
             ]
             return (parameters?.url!)!
-        case .post, .login, .save:
+        case .authors, .post, .login, .save:
             return URL(string: APIURL + self.path)!
         }
     }
@@ -41,6 +43,8 @@ enum APIRouter {
            return "/list/bestMangas"
        case .byGenre(let page, let per, let content):
            return "/list/mangaByGenre/" + content!
+       case .authors:
+           return "/list/authors"
        case .search(let page, let per, let text):
            return "/search/mangasBeginsWith/" + text!
        case .login:
@@ -52,7 +56,7 @@ enum APIRouter {
     
     var method: String {
        switch self {
-       case .get(_, _), .bestMangas(_, _), .byGenre(_, _, _), .search(_, _, _):
+       case .get(_, _), .bestMangas(_, _), .byGenre(_, _, _), .authors, .search(_, _, _):
            return "GET"
        case .post, .save(_, _), .login:
            return "POST"

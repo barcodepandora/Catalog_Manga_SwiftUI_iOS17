@@ -12,7 +12,7 @@ struct ClockView: View {
     let callback: (Int) -> Void
     let clockSize: CGFloat = 108
     let needle: CGFloat = 49
-    var options = ["All", "Best", "Genre"]
+    var options: [String] = []
 
     var body: some View {
         ZStack {

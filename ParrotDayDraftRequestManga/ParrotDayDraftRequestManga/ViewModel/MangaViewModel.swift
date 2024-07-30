@@ -17,6 +17,9 @@ protocol MangaViewModelProtocol {
     func deliverForward() -> Manga
     func deliverBack() -> Manga
     
+    // Authors
+    func dealAuthors(filter: CatalogFilter) async throws -> [Author]
+    
     // Local
     func dealManga() async throws -> Manga
     func prepareMangaLocal() async throws -> [MangaLocal]
@@ -108,6 +111,12 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
             }
         }
         return manga!
+    }
+    
+    // Authors
+    func dealAuthors(filter: CatalogFilter) async throws -> [Author] {
+        var authors = try await useCase!.dealAuthors(filter: filter)
+        return authors
     }
     
     // Local

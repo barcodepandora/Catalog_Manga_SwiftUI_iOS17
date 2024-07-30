@@ -18,7 +18,7 @@
 		5669E3212C448DD2001450A9 /* MangaLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669E3202C448DD2001450A9 /* MangaLocal.swift */; };
 		5669E3232C448E52001450A9 /* UserMangaCollectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669E3222C448E52001450A9 /* UserMangaCollectionRequest.swift */; };
 		5669E3252C448EB3001450A9 /* MangaLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669E3242C448EB3001450A9 /* MangaLocalDTO.swift */; };
-		568F49C62C592AD500056623 /* CloclPerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F49C52C592AD500056623 /* CloclPerView.swift */; };
+		568F49C82C5963D700056623 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F49C72C5963D700056623 /* Author.swift */; };
 		56A46B932C53E570003B9B68 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A46B922C53E570003B9B68 /* SessionView.swift */; };
 		56A46B952C53E617003B9B68 /* SaveMangaLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A46B942C53E617003B9B68 /* SaveMangaLocalView.swift */; };
 		56A46B972C53E70D003B9B68 /* AutocompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A46B962C53E70C003B9B68 /* AutocompleteView.swift */; };
@@ -71,7 +71,7 @@
 		5669E3202C448DD2001450A9 /* MangaLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLocal.swift; sourceTree = "<group>"; };
 		5669E3222C448E52001450A9 /* UserMangaCollectionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMangaCollectionRequest.swift; sourceTree = "<group>"; };
 		5669E3242C448EB3001450A9 /* MangaLocalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLocalDTO.swift; sourceTree = "<group>"; };
-		568F49C52C592AD500056623 /* CloclPerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloclPerView.swift; sourceTree = "<group>"; };
+		568F49C72C5963D700056623 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		56A46B922C53E570003B9B68 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		56A46B942C53E617003B9B68 /* SaveMangaLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMangaLocalView.swift; sourceTree = "<group>"; };
 		56A46B962C53E70C003B9B68 /* AutocompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteView.swift; sourceTree = "<group>"; };
@@ -132,7 +132,6 @@
 				56A46B922C53E570003B9B68 /* SessionView.swift */,
 				56A46B942C53E617003B9B68 /* SaveMangaLocalView.swift */,
 				56A46B962C53E70C003B9B68 /* AutocompleteView.swift */,
-				568F49C52C592AD500056623 /* CloclPerView.swift */,
 				5653591D2C5442520050A9C7 /* ClockView.swift */,
 				5653591F2C546CFF0050A9C7 /* CatalogView.swift */,
 				56CCB6552C3302190054389C /* MangaView.swift */,
@@ -151,6 +150,7 @@
 				5669E3222C448E52001450A9 /* UserMangaCollectionRequest.swift */,
 				5669E3242C448EB3001450A9 /* MangaLocalDTO.swift */,
 				5669E3202C448DD2001450A9 /* MangaLocal.swift */,
+				568F49C72C5963D700056623 /* Author.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -402,7 +402,6 @@
 			files = (
 				565355772C20876B00BD200E /* Manga.swift in Sources */,
 				5653591E2C5442520050A9C7 /* ClockView.swift in Sources */,
-				568F49C62C592AD500056623 /* CloclPerView.swift in Sources */,
 				564A13632C2B44C3001E3331 /* UserMangaCollectionRequestDTO.swift in Sources */,
 				5669E3252C448EB3001450A9 /* MangaLocalDTO.swift in Sources */,
 				56E940392C0E07DB0087A90C /* ContentView.swift in Sources */,
@@ -426,6 +425,7 @@
 				56E585062C46BA7800E4181F /* MangaLocalUseCase.swift in Sources */,
 				5608C7152C17B69900112D08 /* Pager.swift in Sources */,
 				5669E3212C448DD2001450A9 /* MangaLocal.swift in Sources */,
+				568F49C82C5963D700056623 /* Author.swift in Sources */,
 				56BDC5302C3F026A004770EB /* CatalogFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ClockPerView: View {
-    
     @State var selection: Int = 3
     let callback: (Int) -> Void
     let clockSize: CGFloat = 108

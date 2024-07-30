@@ -14,6 +14,8 @@ protocol MangaUseCaseProtocol {
     func search(page: Int, per: Int, text: String) async throws -> Manga
     func dealManga() async throws -> Manga
     
+    func dealAuthors(filter: CatalogFilter) async throws -> [Author]
+    
     func login() async throws -> String
     func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
 }
@@ -22,7 +24,8 @@ class MangaUseCase: MangaUseCaseProtocol {
     private let modelContainer: ModelContainer
     private let modelContext: ModelContext
     private var mangaSwiftData: Manga
-    
+    let decoder = JSONDecoder()
+
     @MainActor
     static let shared = MangaUseCase()
     
@@ -31,6 +34,7 @@ class MangaUseCase: MangaUseCaseProtocol {
         self.modelContainer = ModelContainerForManga.modelContainer
         self.modelContext = modelContainer.mainContext
         self.mangaSwiftData = Manga()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
     func list(page: Int, per: Int, filter: CatalogFilter, content: String) async throws -> Manga {
@@ -53,8 +57,8 @@ class MangaUseCase: MangaUseCaseProtocol {
             print("HTTP status code: \(httpResponse.statusCode)")
             return Manga()
         }
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+//        let decoder = JSONDecoder()
+//        decoder.keyDecodingStrategy = .convertFromSnakeCase
         do {
             manga = try decoder.decode(MangaDTO.self, from: data).manga
             modelContext.insert(manga)
@@ -69,7 +73,7 @@ class MangaUseCase: MangaUseCaseProtocol {
         guard let httpResponse = response as? HTTPURLResponse else {
             return Manga()
         }
-        let decoder = JSONDecoder()
+//        let decoder = JSONDecoder()
         let a = try decoder.decode([Item].self, from: data)
         var manga = Manga(metadata: MangaInfo(), items: a)
         modelContext.insert(manga)
@@ -87,6 +91,33 @@ class MangaUseCase: MangaUseCaseProtocol {
             if !mangas.isEmpty { manga = mangas[0] }
         } catch {}
         return manga ?? Manga()
+    }
+    
+    func dealAuthors(filter: CatalogFilter) async throws -> [Author] {
+        var authors: [Author] = []
+        var request: URLRequest
+        
+        switch filter {
+        case .all:
+            request = APIRouter.authors.urlRequest
+        default:
+            request = APIRouter.authors.urlRequest
+        }
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let httpResponse = response as? HTTPURLResponse else {
+            return authors
+        }
+        guard (200..<300) ~= httpResponse.statusCode else {
+            print("HTTP status code: \(httpResponse.statusCode)")
+            return authors
+        }
+        do {
+            authors = try decoder.decode([Author].self, from: data)
+            return authors
+        } catch {
+            return authors
+        }
+        return authors
     }
     
     func login() async throws -> String {
