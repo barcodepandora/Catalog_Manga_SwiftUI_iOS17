@@ -13,7 +13,6 @@ struct MainView: View {
     @EnvironmentObject private var vm: MangaViewModel
     @State var manga: Manga?
     @State var options: [String]?
-    @State var authors: [Author]?
     @State var myManga: UserMangaCollectionRequestDTO?
     @State private var mangaSwiftData: Manga?
     
@@ -33,28 +32,30 @@ struct MainView: View {
                             ClockView(callback: { result in
                                 var per = result
                                 Task {
-                                    manga = try await vm.seed(per: per, filter: vm.filter)
+                                    manga = try await vm.seed(per: per, filter: vm.filter, content: vm.content)
                                 }
                             }, options: ["1", "2", "3", "4", "5", "6"])
                             ClockView(callback: { result in
                                 var filter: CatalogFilter = .all
+                                var content = ""
                                 switch result {
                                 case 0:
                                     filter = .all
                                 case 1:
                                     filter = .bestMangas
                                 case 2:
-                                    filter = .byGenre
-                                case 2:
                                     filter = .byAuthor
+                                case 3:
+                                    filter = .byGenre
                                 default:
                                     break
                                 }
                                 Task {
                                     options = try await vm.dealOptions(filter: filter)
-                                    manga = try await vm.seed(per: vm.per, filter: filter)
+                                    content = !(options!.isEmpty) ? options![0] : ""
+                                    manga = try await vm.seed(per: vm.per, filter: filter, content: content)
                                 }
-                            }, options: ["All", "Best", "Genre", "Author"])
+                            }, options: ["All", "Best", "Author", "Genre"])
                         }
 //                    }
 //                    .padding(.horizontal)
@@ -68,10 +69,10 @@ struct MainView: View {
                             if index {
                                 print(result)
                                 Task {
-                                    manga = try await vm.passPage(page: 1, per: vm.per, filter: vm.filter, content: result)
+                                    manga = try await vm.seed(per: vm.per, filter: vm.filter, content: result)
                                 }
                             }
-                        }, vm: vm, placeholder: "Escribir categoria")
+                        }, vm: vm, placeholder: "Escribir opcion por categoria")
                         AutocompleteView(callback: { result in
                             Task {
                                 manga = try await vm.search(page: 1, per: vm.per, text: result)
@@ -95,7 +96,7 @@ struct MainView: View {
                 .padding()
                 .onAppear {
                     Task {
-                        manga = try await vm.seed(per: 4, filter: .all)
+                        manga = try await vm.seed(per: 4, filter: .all, content: "")
                     }
                 }
     //            .ignoresSafeArea()
@@ -109,11 +110,6 @@ struct MainView: View {
         Task {
             self.mangaSwiftData = try await self.vm.dealManga()
         }
-    }
-    
-    func dealOptionsCache() -> [String] {
-        var res = authors != nil ? Array((authors?.prefix(19))!).map { $0.firstName } as! [String] : []
-        return res
     }
 }
 

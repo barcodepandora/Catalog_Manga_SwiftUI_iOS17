@@ -12,14 +12,12 @@ protocol MangaViewModelProtocol {
     // Catalog
     func passPage(page: Int, per: Int, filter: CatalogFilter, content: String) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> Manga
-    func seed() async throws -> Manga
-    func seed(per: Int, filter: CatalogFilter) async throws -> Manga
+    func seed(per: Int, filter: CatalogFilter, content: String) async throws -> Manga
     func deliverForward() -> Manga
     func deliverBack() -> Manga
     
-    // Options
+    // Options by category
     func dealOptions(filter: CatalogFilter) async throws -> [String]
-    
     
     // Local
     func dealManga() async throws -> Manga
@@ -39,6 +37,7 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
     var per = 3
     private var text = "dra"
     var filter: CatalogFilter = .all
+    var content: String = ""
     var manga: Manga?
     var mangaF: Manga?
     var mangaB: Manga?
@@ -72,21 +71,14 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
         return page == 1
     }
 
-    func seed() async throws -> Manga {
+    func seed(per: Int, filter: CatalogFilter, content: String) async throws -> Manga {
         mangaB = Manga()
-        page = 1
-        manga = try await self.passPage(page: page, per: self.per, filter: filter, content: "")
-        mangaF = try await self.passPage(page: page + 1, per: self.per, filter: filter, content: "")
-        return manga!
-    }
-
-    func seed(per: Int, filter: CatalogFilter) async throws -> Manga {
-        mangaB = Manga()
-        page = 1
+        self.page = 1
         self.per = per
         self.filter = filter
-        manga = try await self.passPage(page: page, per: self.per, filter: self.filter, content: "")
-        mangaF = try await self.passPage(page: page + 1, per: self.per, filter: self.filter, content: "")
+        self.content = content
+        manga = try await self.passPage(page: page, per: self.per, filter: self.filter, content: content)
+        mangaF = try await self.passPage(page: page + 1, per: self.per, filter: self.filter, content: content)
         return manga!
     }
     
@@ -114,7 +106,7 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
         return manga!
     }
     
-    // Authors
+    // Options by category
     func dealOptions(filter: CatalogFilter) async throws -> [String] {
         var options: [String] = []
         switch filter {
@@ -125,6 +117,9 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
         case .byAuthor:
             let authors = try await useCase!.dealAuthors(filter: filter)
             options = authors != nil ? authors.map { "\($0.firstName!) \($0.lastName!)" } as! [String] : []
+        case .byGenre:
+            let genres = try await useCase!.dealGenres(filter: filter)
+            options = genres
         default:
             break
         }

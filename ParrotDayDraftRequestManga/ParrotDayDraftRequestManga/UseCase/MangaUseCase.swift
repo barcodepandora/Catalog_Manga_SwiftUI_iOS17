@@ -10,12 +10,17 @@ import SwiftUI
 import SwiftData
 
 protocol MangaUseCaseProtocol {
+    
+    // Manga
     func list(page: Int, per: Int, filter: CatalogFilter, content: String) async throws -> Manga
     func search(page: Int, per: Int, text: String) async throws -> Manga
     func dealManga() async throws -> Manga
     
+    // Options by category
     func dealAuthors(filter: CatalogFilter) async throws -> [Author]
+    func dealGenres(filter: CatalogFilter) async throws -> [String]
     
+    // Admin
     func login() async throws -> String
     func save(manga: UserMangaCollectionRequestDTO, token: String) async throws
 }
@@ -37,45 +42,45 @@ class MangaUseCase: MangaUseCaseProtocol {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
+    // Data
+    func isResponseLegal(response: URLResponse) -> Bool {
+        guard let httpResponse = response as? HTTPURLResponse else {
+            return false
+        }
+        guard (200..<300) ~= httpResponse.statusCode else {
+            print("HTTP status code: \(httpResponse.statusCode)")
+            return false
+        }
+        return true
+    }
+    
+    // Manga
     func list(page: Int, per: Int, filter: CatalogFilter, content: String) async throws -> Manga {
-        var manga: Manga = Manga()
         var request: URLRequest
-        
         switch filter {
         case .all:
             request = APIRouter.get(page: page, per: per).urlRequest
         case .bestMangas:
             request = APIRouter.bestMangas(page: page, per: per).urlRequest
-        case .byGenre:
-            request = APIRouter.byGenre(page: page, per: per, content: content).urlRequest
         case .byAuthor:
+            request = APIRouter.byAuthor(page: page, per: per, content: content).urlRequest
+        case .byGenre:
             request = APIRouter.byGenre(page: page, per: per, content: content).urlRequest
         }
         let (data, response) = try await URLSession.shared.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse else {
-            return Manga()
-        }
-        guard (200..<300) ~= httpResponse.statusCode else {
-            print("HTTP status code: \(httpResponse.statusCode)")
-            return Manga()
-        }
-//        let decoder = JSONDecoder()
-//        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        if !isResponseLegal(response: response) { return Manga() }
         do {
-            manga = try decoder.decode(MangaDTO.self, from: data).manga
+            let manga = try decoder.decode(MangaDTO.self, from: data).manga
             modelContext.insert(manga)
             return manga
         } catch {
-            return manga
+            return Manga()
         }
     }
     
     func search(page: Int, per: Int, text: String) async throws -> Manga {
         let (data, response) = try await URLSession.shared.data(for: APIRouter.search(page: page, per: per, text: text).urlRequest)
-        guard let httpResponse = response as? HTTPURLResponse else {
-            return Manga()
-        }
-//        let decoder = JSONDecoder()
+        if !isResponseLegal(response: response) { return Manga() }
         let a = try decoder.decode([Item].self, from: data)
         var manga = Manga(metadata: MangaInfo(), items: a)
         modelContext.insert(manga)
@@ -95,46 +100,42 @@ class MangaUseCase: MangaUseCaseProtocol {
         return manga ?? Manga()
     }
     
+    // Options by category
     func dealAuthors(filter: CatalogFilter) async throws -> [Author] {
-        var authors: [Author] = []
         var request: URLRequest
-        
-        switch filter {
-        case .all:
-            request = APIRouter.authors.urlRequest
-        default:
-            request = APIRouter.authors.urlRequest
-        }
+        request = APIRouter.authors.urlRequest
         let (data, response) = try await URLSession.shared.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse else {
-            return authors
-        }
-        guard (200..<300) ~= httpResponse.statusCode else {
-            print("HTTP status code: \(httpResponse.statusCode)")
-            return authors
-        }
+        if !isResponseLegal(response: response) { return [] }
         do {
-            authors = try decoder.decode([Author].self, from: data)
+            let authors = try decoder.decode([Author].self, from: data)
             return authors
         } catch {
-            return authors
+            return []
         }
-        return authors
+    }
+    
+    func dealGenres(filter: CatalogFilter) async throws -> [String] {
+        var request: URLRequest
+        request = APIRouter.genres.urlRequest
+        let (data, response) = try await URLSession.shared.data(for: request)
+        if !isResponseLegal(response: response) { return [] }
+        do {
+            let genres = try decoder.decode([String].self, from: data)
+            return genres
+        } catch {
+            return []
+        }
     }
     
     func login() async throws -> String {
         let (data, response) = try await URLSession.shared.data(for: APIRouter.login.urlRequest)
-        guard let httpResponse = response as? HTTPURLResponse else {
-            return ""
-        }
+        if !isResponseLegal(response: response) { return "" }
         return String(data: data, encoding: .utf8)!
     }
 
     func save(manga: UserMangaCollectionRequestDTO, token: String) async throws {
         let (data, response) = try await URLSession.shared.data(for: APIRouter.save(manga: manga, token: token).urlRequest)
-        guard let httpResponse = response as? HTTPURLResponse else {
-            return
-        }
+        if !isResponseLegal(response: response) { return }
         print(String(data: data, encoding: .utf8)!)
     }
 }
