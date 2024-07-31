@@ -12,7 +12,7 @@ class MathButler {
     static let shared = MathButler()
     
     func calculateAngleInDegrees(numberOfAngles: Int, indexOfAngle: Int) -> Double {
-        var angleInDegrees = (360 / numberOfAngles) * indexOfAngle
+        var angleInDegrees = numberOfAngles > 0 ? (360 / numberOfAngles) * indexOfAngle : 0
         return Double(angleInDegrees)
     }
     

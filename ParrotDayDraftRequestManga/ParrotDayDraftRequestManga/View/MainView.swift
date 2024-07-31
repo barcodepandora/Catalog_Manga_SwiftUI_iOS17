@@ -12,6 +12,7 @@ struct MainView: View {
     
     @EnvironmentObject private var vm: MangaViewModel
     @State var manga: Manga?
+//    @State var options: [String]?
     @State var authors: [Author]?
     @State var myManga: UserMangaCollectionRequestDTO?
     @State private var mangaSwiftData: Manga?
@@ -52,6 +53,12 @@ struct MainView: View {
                                     manga = try await vm.seed(per: vm.per, filter: filter)
                                 }
                             }, options: ["All", "Best", "Genre"])
+                            ClockView(callback: { result in
+                                var per = result
+                                Task {
+                                    manga = try await vm.seed(per: per, filter: vm.filter)
+                                }
+                            }, options: self.dealAkira() )
                         }
 //                    }
 //                    .padding(.horizontal)
@@ -102,6 +109,11 @@ struct MainView: View {
         Task {
             self.mangaSwiftData = try await self.vm.dealManga()
         }
+    }
+    
+    func dealAkira() -> [String] {
+        var res = authors != nil ? Array((authors?.prefix(19))!).map { $0.firstName } as! [String] : []
+        return res
     }
 }
 
