@@ -48,6 +48,8 @@ class MangaUseCase: MangaUseCaseProtocol {
             request = APIRouter.bestMangas(page: page, per: per).urlRequest
         case .byGenre:
             request = APIRouter.byGenre(page: page, per: per, content: content).urlRequest
+        case .byAuthor:
+            request = APIRouter.byGenre(page: page, per: per, content: content).urlRequest
         }
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse else {

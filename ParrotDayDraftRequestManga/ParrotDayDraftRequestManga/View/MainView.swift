@@ -12,7 +12,7 @@ struct MainView: View {
     
     @EnvironmentObject private var vm: MangaViewModel
     @State var manga: Manga?
-//    @State var options: [String]?
+    @State var options: [String]?
     @State var authors: [Author]?
     @State var myManga: UserMangaCollectionRequestDTO?
     @State private var mangaSwiftData: Manga?
@@ -45,20 +45,16 @@ struct MainView: View {
                                     filter = .bestMangas
                                 case 2:
                                     filter = .byGenre
+                                case 2:
+                                    filter = .byAuthor
                                 default:
                                     break
                                 }
                                 Task {
-                                    authors = try await vm.dealAuthors(filter: vm.filter)
+                                    options = try await vm.dealOptions(filter: filter)
                                     manga = try await vm.seed(per: vm.per, filter: filter)
                                 }
-                            }, options: ["All", "Best", "Genre"])
-                            ClockView(callback: { result in
-                                var per = result
-                                Task {
-                                    manga = try await vm.seed(per: per, filter: vm.filter)
-                                }
-                            }, options: self.dealAkira() )
+                            }, options: ["All", "Best", "Genre", "Author"])
                         }
 //                    }
 //                    .padding(.horizontal)
@@ -68,8 +64,12 @@ struct MainView: View {
 
                     HStack {
                         AutocompleteView(callback: { result in
-                            Task {
-                                manga = try await vm.passPage(page: 1, per: vm.per, filter: vm.filter, content: result)
+                            let index = options!.contains { $0.contains(result) }
+                            if index {
+                                print(result)
+                                Task {
+                                    manga = try await vm.passPage(page: 1, per: vm.per, filter: vm.filter, content: result)
+                                }
                             }
                         }, vm: vm, placeholder: "Escribir categoria")
                         AutocompleteView(callback: { result in
@@ -111,7 +111,7 @@ struct MainView: View {
         }
     }
     
-    func dealAkira() -> [String] {
+    func dealOptionsCache() -> [String] {
         var res = authors != nil ? Array((authors?.prefix(19))!).map { $0.firstName } as! [String] : []
         return res
     }

@@ -11,4 +11,5 @@ enum CatalogFilter {
     case all
     case bestMangas
     case byGenre
+    case byAuthor
 }

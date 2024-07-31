@@ -17,8 +17,9 @@ protocol MangaViewModelProtocol {
     func deliverForward() -> Manga
     func deliverBack() -> Manga
     
-    // Authors
-    func dealAuthors(filter: CatalogFilter) async throws -> [Author]
+    // Options
+    func dealOptions(filter: CatalogFilter) async throws -> [String]
+    
     
     // Local
     func dealManga() async throws -> Manga
@@ -114,9 +115,20 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
     }
     
     // Authors
-    func dealAuthors(filter: CatalogFilter) async throws -> [Author] {
-        var authors = try await useCase!.dealAuthors(filter: filter)
-        return authors
+    func dealOptions(filter: CatalogFilter) async throws -> [String] {
+        var options: [String] = []
+        switch filter {
+        case .all:
+            options = []
+        case .bestMangas:
+            options = []
+        case .byAuthor:
+            let authors = try await useCase!.dealAuthors(filter: filter)
+            options = authors != nil ? authors.map { "\($0.firstName!) \($0.lastName!)" } as! [String] : []
+        default:
+            break
+        }
+        return options
     }
     
     // Local
