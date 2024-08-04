@@ -65,6 +65,7 @@ class MangaInfo: Codable {
 class Item: Codable {
     let title: String?
     let mainPicture: String?
+    var isFavorite: Bool = false
 
     init(title: String? = nil, mainPicture: String? = "") {
         self.title = title

@@ -33,6 +33,7 @@ struct CatalogView: View {
                         .background {
                             Color(white: 0.8)
                         }
+                        FavoriteView(item: item)
                     }
                     .navigationTitle("Go")
                 }

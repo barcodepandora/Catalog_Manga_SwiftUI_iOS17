@@ -15,6 +15,7 @@ struct MainView: View {
     @State var options: [String]?
     @State var myManga: UserMangaCollectionRequestDTO?
     @State private var mangaSwiftData: Manga?
+    @State private var viewDidLoad = false
     
     var body: some View {
 //        if UIDevice.current.userInterfaceIdiom == .pad {
@@ -95,8 +96,11 @@ struct MainView: View {
                 }
                 .padding()
                 .onAppear {
-                    Task {
-                        manga = try await vm.seed(per: 4, filter: .all, content: "")
+                    if !viewDidLoad {
+                        viewDidLoad = true
+                        Task {
+                            manga = try await vm.seed(per: 4, filter: .all, content: "")
+                        }
                     }
                 }
     //            .ignoresSafeArea()

@@ -25,6 +25,7 @@ struct MangaView: View {
             .background {
                 Color(white: 0.8)
             }
+            FavoriteView(item: mangaItem)
         }
     }
 }
