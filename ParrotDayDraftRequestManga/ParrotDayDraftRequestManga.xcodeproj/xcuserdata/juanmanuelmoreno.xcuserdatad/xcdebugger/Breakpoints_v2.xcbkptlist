@@ -1766,10 +1766,10 @@
             filePath = "ParrotDayDraftRequestManga/View/CatalogView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "deliverManga()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "97EE4635-361F-44DF-9125-348895FA34DC - e032a970abf9585b"
