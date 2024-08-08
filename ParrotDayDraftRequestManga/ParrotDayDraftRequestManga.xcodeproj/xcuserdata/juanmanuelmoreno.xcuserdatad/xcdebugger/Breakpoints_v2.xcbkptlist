@@ -1675,6 +1675,36 @@
                   endingLineNumber = "46"
                   offsetFromSymbolStart = "184">
                </Location>
+               <Location
+                  uuid = "86538763-A13A-4B1A-978A-D84A01E9A306 - f62fcbf3fb5061d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ParrotDayDraftRequestManga.MangaViewModel.passPage(page: Swift.Int, per: Swift.Int, filter: ParrotDayDraftRequestManga.CatalogFilter, content: Swift.String) async throws -&gt; ParrotDayDraftRequestManga.Manga"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ViewModel/MangaViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "579">
+               </Location>
+               <Location
+                  uuid = "86538763-A13A-4B1A-978A-D84A01E9A306 - a3620afcd5a93dd1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ParrotDayDraftRequestManga.MangaViewModel.passPage(page: Swift.Int, per: Swift.Int, filter: ParrotDayDraftRequestManga.CatalogFilter, content: Swift.String) async throws -&gt; ParrotDayDraftRequestManga.Manga"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ViewModel/MangaViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "228">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1800,6 +1830,21 @@
                   startingLineNumber = "58"
                   endingLineNumber = "58"
                   offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "97EE4635-361F-44DF-9125-348895FA34DC - e032a970abf95a06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ParrotDayDraftRequestManga.CatalogView.deliverManga() -&gt; Swift.Array&lt;ParrotDayDraftRequestManga.Item&gt;"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/View/CatalogView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "55">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2276,7 +2321,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "AC03F951-D01A-4BAA-B846-D0D3516B257C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParrotDayDraftRequestManga/ViewModel/MangaViewModel.swift"
@@ -3323,6 +3368,102 @@
                   offsetFromSymbolStart = "42">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "62888A71-747C-487A-8A9F-154147C209DA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ParrotDayDraftRequestManga/View/MangaView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "62888A71-747C-487A-8A9F-154147C209DA - ca5592117f01faad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, ParrotDayDraftRequestManga.FavoriteView)&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;)&gt; in ParrotDayDraftRequestManga.MangaView.body.getter : some"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/View/MangaView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "365">
+               </Location>
+               <Location
+                  uuid = "62888A71-747C-487A-8A9F-154147C209DA - ca5592117f01faad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.VStack&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, ParrotDayDraftRequestManga.FavoriteView)&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;)&gt; in ParrotDayDraftRequestManga.MangaView.body.getter : some"
+                  moduleName = "ParrotDayDraftRequestManga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanmanuelmoreno/Documents/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/ParrotDayDraftRequestManga/View/MangaView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFB02B19-4947-4BF5-A3B3-43D2A42A9DB6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ParrotDayDraftRequestManga/UseCase/MangaUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "list(page:per:filter:content:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A263455-B535-4DD2-8A97-08EE5F8BCFC2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ParrotDayDraftRequestManga/Model/MangaDTO.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "item"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51B62075-38BA-4AE7-AD1A-D57872C38197"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ParrotDayDraftRequestManga/UseCase/MangaUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "list(page:per:filter:content:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

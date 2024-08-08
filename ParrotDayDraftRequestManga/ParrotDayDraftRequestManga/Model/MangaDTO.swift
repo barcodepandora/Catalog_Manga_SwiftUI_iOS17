@@ -19,7 +19,7 @@ struct MangaDTO {
 
 extension MangaDTO: Decodable {
     var manga: Manga {
-        Manga(metadata: self.metadata?.mangaInfo, items: self.items?.compactMap { Item(title: $0.title!, mainPicture: $0.mainPicture ?? "") } ?? [])
+        Manga(metadata: self.metadata?.mangaInfo, items: self.items?.compactMap { Item(title: $0.title!, mainPicture: $0.mainPicture ?? "", background: $0.background ?? "", sypnosis: $0.sypnosis ?? "") } ?? [])
     }
 }
 
@@ -40,16 +40,20 @@ extension MangaInfoDTO: Decodable {
 struct ItemDTO {
     var title: String?
     var mainPicture: String?
+    var background: String?
+    var sypnosis: String?
 
-    init(title: String? = nil, mainPicture: String? = "") {
+    init(title: String? = nil, mainPicture: String? = "", background: String? = "", sypnosis: String? = "") {
         self.title = title
         self.mainPicture = mainPicture
+        self.background = background
+        self.sypnosis = sypnosis
     }
 }
 
 extension ItemDTO: Decodable {
     var item: Item {
-        Item(title: self.title, mainPicture: self.mainPicture)
+        Item(title: self.title, mainPicture: self.mainPicture, background: self.background, sypnosis: self.sypnosis)
     }
 }
 
