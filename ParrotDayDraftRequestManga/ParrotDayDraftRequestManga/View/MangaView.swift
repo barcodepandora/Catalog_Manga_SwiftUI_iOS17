@@ -10,6 +10,9 @@ import SwiftUI
 struct MangaView: View {
     let mangaItem: Item
     
+    @State private var scale: CGFloat = 1.0
+    @State private var offset: CGSize = .zero
+    
     var body: some View {
         HStack {
             VStack {
@@ -28,6 +31,31 @@ struct MangaView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 159, height: 198)
+                            .scaleEffect(scale)
+                            .offset(offset)
+                            .gesture(
+                                MagnificationGesture()
+                                    .onChanged { value in
+                                        self.scale = value
+                                    }
+                                    .onEnded { _ in
+                                        withAnimation {
+                                            self.scale = 1.0
+                                            self.offset = .zero
+                                        }
+                                    }
+                            )
+                            .gesture(
+                                DragGesture()
+                                    .onChanged { value in
+                                        self.offset = value.translation
+                                    }
+                                    .onEnded { _ in
+                                        withAnimation {
+                                            self.offset = .zero
+                                        }
+                                    }
+                            )
                     } placeholder: {
                         ProgressView()
                             .controlSize(.extraLarge)
