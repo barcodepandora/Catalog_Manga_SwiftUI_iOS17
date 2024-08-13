@@ -18,38 +18,46 @@ struct CatalogView: View {
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) {
+            LazyVGrid(columns: Array(repeating: GridItem(), count: 3)) {
                 ForEach(deliverManga()) { item in
                     NavigationLink(destination: MangaView(mangaItem: item)) {
-                        ZStack {
-                            AsyncImage(url: URL(string: item.mainPicture!.replacingOccurrences(of: "\"", with: ""))) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 100, height: 125)
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(Circle())
-                                    .overlay(
-                                        Circle()
-                                            .stroke(Color.white, lineWidth: 2)
-                                    )
-                                    .shadow(radius: 5)
-                            } placeholder: {
-                                ProgressView()
-                                    .controlSize(.extraLarge)
-                            } // Cuando acaba de cargar es como un Image
+                        VStack {
+                            FavoriteView(item: item)
+                            ZStack {
+                                AsyncImage(url: URL(string: item.mainPicture!.replacingOccurrences(of: "\"", with: ""))) { image in
+                                    // Display the loaded image
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 93, height: 109)
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(Circle())
+                                        .overlay(
+                                            Circle()
+                                                .stroke(Color.white, lineWidth: 2)
+                                        )
+                                        .shadow(radius: 5)
+                                } placeholder: {
+                                    Image("MacWatch")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 50, height: 50)
+                                        .animation(.easeInOut)
+
+                                } // Cuando acaba de cargar es como un Image
+                                .background {
+                                    Color(white: 1)
+                                }
+                                CircularTextView(title: item.title!, radius: 78)
+                            }
                             .background {
                                 Color(white: 1)
                             }
-                            CircularTextView(title: item.title!, radius: 78)
                         }
-                        .background {
-                            Color(white: 1)
-                        }
-
-                        FavoriteView(item: item)
                     }
-                    .navigationTitle("Go")
+                    .navigationTitle("MyManga")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .font(.custom("Arial", size: 14))
                 }
             }
         }

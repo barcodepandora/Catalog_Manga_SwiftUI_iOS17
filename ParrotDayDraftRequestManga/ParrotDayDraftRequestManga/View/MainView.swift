@@ -16,6 +16,7 @@ struct MainView: View {
     @State var myManga: UserMangaCollectionRequestDTO?
     @State private var mangaSwiftData: Manga?
     @State private var viewDidLoad = false
+    @State private var hideAuto = true
     
     var body: some View {
 //        if UIDevice.current.userInterfaceIdiom == .pad {
@@ -27,15 +28,15 @@ struct MainView: View {
 //            }
 //            .ignoresSafeArea()        } else {
             NavigationView {
-                VStack {
+                VStack(spacing: 32) {
 //                    ScrollView(.horizontal, showsIndicators: false) {
                         HStack(alignment: .center, spacing: 13) {
-                            ClockView(callback: { result in
+                            ClockView(selection: 4, callback: { result in
                                 var per = result
                                 Task {
                                     manga = try await vm.seed(per: per, filter: vm.filter, content: vm.content)
                                 }
-                            }, options: ["1", "2", "3", "4", "5", "6"])
+                            }, options: ["0pp", "1pp", "2pp", "3pp", "4pp", "5pp"])
                             ClockView(callback: { result in
                                 var filter: CatalogFilter = .all
                                 var content = ""
@@ -51,6 +52,14 @@ struct MainView: View {
                                 default:
                                     break
                                 }
+                                switch result {
+                                case 0, 1:
+                                    hideAuto = true
+                                case 2, 3:
+                                    hideAuto = false
+                                default:
+                                    break
+                                }
                                 Task {
                                     options = try await vm.dealOptions(filter: filter)
                                     content = !(options!.isEmpty) ? options![0] : ""
@@ -63,22 +72,25 @@ struct MainView: View {
 
 //                    SessionView(vm: vm)
 //                    SaveMangaLocalView(vm: vm)
-
+                    
                     HStack {
-                        AutocompleteView(callback: { result in
-                            let index = options!.contains { $0.contains(result) }
-                            if index {
-                                print(result)
-                                Task {
-                                    manga = try await vm.seed(per: vm.per, filter: vm.filter, content: result)
-                                }
-                            }
-                        }, vm: vm, placeholder: "Escribir opcion por categoria")
                         AutocompleteView(callback: { result in
                             Task {
                                 manga = try await vm.search(page: 1, per: vm.per, text: result)
                             }
                         }, vm: vm, placeholder: "Escribir titulo")
+
+                        if !(hideAuto) {
+                            AutocompleteView(callback: { result in
+                                let index = options!.contains { $0.contains(result) }
+                                if index {
+                                    print(result)
+                                    Task {
+                                        manga = try await vm.seed(per: vm.per, filter: vm.filter, content: result)
+                                    }
+                                }
+                            }, vm: vm, placeholder: "Escribir opcion por categoria")
+                        }
                     }
 
                     CatalogView(callback: { result in
