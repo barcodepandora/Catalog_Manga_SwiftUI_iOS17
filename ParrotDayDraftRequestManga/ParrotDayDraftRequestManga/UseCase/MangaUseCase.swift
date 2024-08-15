@@ -19,6 +19,8 @@ protocol MangaUseCaseProtocol {
     // Options by category
     func dealAuthors(filter: CatalogFilter) async throws -> [Author]
     func dealGenres(filter: CatalogFilter) async throws -> [String]
+    func dealDemographics(filter: CatalogFilter) async throws -> [String]
+    func dealThemes(filter: CatalogFilter) async throws -> [String]
     
     // Admin
     func login() async throws -> String
@@ -66,6 +68,10 @@ class MangaUseCase: MangaUseCaseProtocol {
             request = APIRouter.byAuthor(page: page, per: per, content: content).urlRequest
         case .byGenre:
             request = APIRouter.byGenre(page: page, per: per, content: content).urlRequest
+        case .byDemographics:
+            request = APIRouter.byDemographics(page: page, per: per, content: content).urlRequest
+        case .byTheme:
+            request = APIRouter.byTheme(page: page, per: per, content: content).urlRequest
         }
         let (data, response) = try await URLSession.shared.data(for: request)
         if !isResponseLegal(response: response) { return Manga() }
@@ -122,6 +128,32 @@ class MangaUseCase: MangaUseCaseProtocol {
         do {
             let genres = try decoder.decode([String].self, from: data)
             return genres
+        } catch {
+            return []
+        }
+    }
+    
+    func dealDemographics(filter: CatalogFilter) async throws -> [String] {
+        var request: URLRequest
+        request = APIRouter.demographics.urlRequest
+        let (data, response) = try await URLSession.shared.data(for: request)
+        if !isResponseLegal(response: response) { return [] }
+        do {
+            let demographics = try decoder.decode([String].self, from: data)
+            return demographics
+        } catch {
+            return []
+        }
+    }
+    
+    func dealThemes(filter: CatalogFilter) async throws -> [String] {
+        var request: URLRequest
+        request = APIRouter.themes.urlRequest
+        let (data, response) = try await URLSession.shared.data(for: request)
+        if !isResponseLegal(response: response) { return [] }
+        do {
+            let themes = try decoder.decode([String].self, from: data)
+            return themes
         } catch {
             return []
         }

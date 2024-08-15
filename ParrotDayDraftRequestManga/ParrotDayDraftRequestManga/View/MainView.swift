@@ -49,13 +49,17 @@ struct MainView: View {
                                     filter = .byAuthor
                                 case 3:
                                     filter = .byGenre
+                                case 4:
+                                    filter = .byDemographics
+                                case 5:
+                                    filter = .byTheme
                                 default:
                                     break
                                 }
                                 switch result {
                                 case 0, 1:
                                     hideAuto = true
-                                case 2, 3:
+                                case 2, 3, 4, 5:
                                     hideAuto = false
                                 default:
                                     break
@@ -65,7 +69,7 @@ struct MainView: View {
                                     content = !(options!.isEmpty) ? options![0] : ""
                                     manga = try await vm.seed(per: vm.per, filter: filter, content: content)
                                 }
-                            }, options: ["All", "Best", "Author", "Genre"])
+                            }, options: ["All", "Best", "Author", "Genre", "Dmgrphc", "Theme"])
                         }
 //                    }
 //                    .padding(.horizontal)

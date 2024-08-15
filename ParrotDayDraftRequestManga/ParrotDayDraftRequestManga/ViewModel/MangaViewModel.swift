@@ -120,6 +120,12 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
         case .byGenre:
             let genres = try await useCase!.dealGenres(filter: filter)
             options = genres
+        case .byDemographics:
+            let demographics = try await useCase!.dealDemographics(filter: filter)
+            options = demographics
+        case .byTheme:
+            let themes = try await useCase!.dealThemes(filter: filter)
+            options = themes
         default:
             break
         }

@@ -12,8 +12,10 @@ let APIURL = "https://mymanga-acacademy-5607149ebe3d.herokuapp.com"
 enum APIRouter {
     case get(page: Int? = 1, per: Int? = 20)
     case bestMangas(page: Int? = 1, per: Int? = 20)
-    case byGenre(page: Int? = 1, per: Int? = 20, content: String? = "")
     case byAuthor(page: Int? = 1, per: Int? = 20, content: String? = "")
+    case byGenre(page: Int? = 1, per: Int? = 20, content: String? = "")
+    case byDemographics(page: Int? = 1, per: Int? = 20, content: String? = "")
+    case byTheme(page: Int? = 1, per: Int? = 20, content: String? = "")
     case search(page: Int? = 1, per: Int? = 20, text: String? = "dragon")
     case save(manga: UserMangaCollectionRequestDTO, token: String)
     case post
@@ -21,18 +23,19 @@ enum APIRouter {
     
     case authors
     case genres
-    
+    case demographics
+    case themes
 
     var url: URL {
         var parameters = URLComponents(string: APIURL + self.path)
         switch self {
-        case .get(let page, let per), .bestMangas(let page, let per), .byGenre(let page, let per, _), .byAuthor(let page, let per, _), .search(let page, let per, _):
+        case .get(let page, let per), .bestMangas(let page, let per), .byAuthor(let page, let per, _), .byGenre(let page, let per, _), .byDemographics(let page, let per, _), .byTheme(let page, let per, _), .search(let page, let per, _):
             parameters?.queryItems = [
                 URLQueryItem(name: "page", value: String(page!)),
                 URLQueryItem(name: "per", value: String(per!))
             ]
             return (parameters?.url!)!
-        case .authors, .genres, .post, .login, .save:
+        case .authors, .genres, .demographics, .themes, .post, .login, .save:
             return URL(string: APIURL + self.path)!
         }
     }
@@ -43,10 +46,14 @@ enum APIRouter {
            return "/list/mangas"
        case .bestMangas(_, _):
            return "/list/bestMangas"
-       case .byGenre(let page, let per, let content):
-           return "/list/mangaByGenre/" + content!
        case .byAuthor(let page, let per, let content):
            return "/list/mangaByAuthor/" + content!
+       case .byGenre(let page, let per, let content):
+           return "/list/mangaByGenre/" + content!
+       case .byDemographics(let page, let per, let content):
+           return "/list/mangaByDemographic/" + content!
+       case .byTheme(let page, let per, let content):
+           return "/list/mangaByTheme/" + content!
        case .search(let page, let per, let text):
            return "/search/mangasBeginsWith/" + text!
        case .login:
@@ -57,12 +64,16 @@ enum APIRouter {
            return "/list/authors"
        case .genres:
            return "/list/genres"
+       case .demographics:
+           return "/list/demographics"
+       case .themes:
+           return "/list/themes"
        }
    }
     
     var method: String {
        switch self {
-       case .get(_, _), .bestMangas(_, _), .byGenre(_, _, _), .byAuthor(_, _, _), .authors, .genres, .search(_, _, _):
+       case .get(_, _), .bestMangas(_, _), .byAuthor(_, _, _), .byGenre(_, _, _), .byDemographics(_, _, _), .byTheme(_, _, _), .authors, .genres, .demographics, .themes, .search(_, _, _):
            return "GET"
        case .post, .save(_, _), .login:
            return "POST"
