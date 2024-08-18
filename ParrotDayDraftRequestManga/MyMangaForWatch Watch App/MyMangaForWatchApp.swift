@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct MyMangaForWatch_Watch_AppApp: App {
+    @StateObject private var vm = MangaViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView().environmentObject(vm)
         }
     }
+
+//    var body: some Scene {
+//        WindowGroup {
+//            ContentView()
+//        }
+//    }
 }
