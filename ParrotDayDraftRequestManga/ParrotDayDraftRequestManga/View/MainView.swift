@@ -20,16 +20,8 @@ struct MainView: View {
     
     var body: some View {
 //        if UIDevice.current.userInterfaceIdiom == .pad {
-//            VStack {
-//            }
-//            .padding()
-//            .onAppear {
-//                self.seed()
-//            }
-//            .ignoresSafeArea()        } else {
             NavigationView {
                 VStack(spacing: 32) {
-//                    ScrollView(.horizontal, showsIndicators: false) {
                         HStack(alignment: .center, spacing: 13) {
                             ClockView(selection: 4, callback: { result in
                                 var per = result
@@ -106,8 +98,12 @@ struct MainView: View {
                     }, manga: $manga)
                     
                     // Manga local
-                    NavigationLink(destination: MangaLocalView()) {
-                        Text("Local")
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        MangaLocalView()
+                    } else {
+                        NavigationLink(destination: MangaLocalView()) {
+                            Text("Local")
+                        }
                     }
                 }
                 .padding()
@@ -119,11 +115,8 @@ struct MainView: View {
                         }
                     }
                 }
-    //            .ignoresSafeArea()
             }
             .navigationViewStyle(StackNavigationViewStyle())
-    //        .edgesIgnoringSafeArea(.all)        }
-
     }
         
     func dealManga() {

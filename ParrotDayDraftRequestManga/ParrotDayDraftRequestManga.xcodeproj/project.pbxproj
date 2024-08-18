@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5608C7152C17B69900112D08 /* Pager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608C7142C17B69900112D08 /* Pager.swift */; };
 		5608C7172C17B87600112D08 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608C7162C17B87600112D08 /* Page.swift */; };
 		5644D1D92C2C6B3100B07408 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644D1D82C2C6B3100B07408 /* MainView.swift */; };
 		564A13632C2B44C3001E3331 /* UserMangaCollectionRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A13622C2B44C2001E3331 /* UserMangaCollectionRequestDTO.swift */; };
@@ -61,7 +60,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5608C7142C17B69900112D08 /* Pager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pager.swift; sourceTree = "<group>"; };
 		5608C7162C17B87600112D08 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		5644D1D82C2C6B3100B07408 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		564A13622C2B44C2001E3331 /* UserMangaCollectionRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMangaCollectionRequestDTO.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 		5608C7132C17B67600112D08 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5608C7142C17B69900112D08 /* Pager.swift */,
 				5644D1D82C2C6B3100B07408 /* MainView.swift */,
 				56A46B922C53E570003B9B68 /* SessionView.swift */,
 				56A46B942C53E617003B9B68 /* SaveMangaLocalView.swift */,
@@ -426,7 +423,6 @@
 				56FAF11E2C3349FB00DC417F /* KeychainButler.swift in Sources */,
 				56B07AE62C56B144005FBC96 /* Butler.swift in Sources */,
 				56E585062C46BA7800E4181F /* MangaLocalUseCase.swift in Sources */,
-				5608C7152C17B69900112D08 /* Pager.swift in Sources */,
 				5669E3212C448DD2001450A9 /* MangaLocal.swift in Sources */,
 				568F49C82C5963D700056623 /* Author.swift in Sources */,
 				56E90CE42C5FF09800234041 /* FavoriteView.swift in Sources */,
