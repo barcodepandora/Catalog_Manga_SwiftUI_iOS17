@@ -17,6 +17,14 @@
 		5669E3212C448DD2001450A9 /* MangaLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669E3202C448DD2001450A9 /* MangaLocal.swift */; };
 		5669E3232C448E52001450A9 /* UserMangaCollectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669E3222C448E52001450A9 /* UserMangaCollectionRequest.swift */; };
 		5669E3252C448EB3001450A9 /* MangaLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669E3242C448EB3001450A9 /* MangaLocalDTO.swift */; };
+		5683D9822C72833700BB1446 /* MyMangaForWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5683D9812C72833700BB1446 /* MyMangaForWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5683D9872C72833800BB1446 /* MyMangaForWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683D9862C72833800BB1446 /* MyMangaForWatchApp.swift */; };
+		5683D9892C72833800BB1446 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683D9882C72833800BB1446 /* ContentView.swift */; };
+		5683D98B2C72833C00BB1446 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683D98A2C72833C00BB1446 /* Assets.xcassets */; };
+		5683D98E2C72833C00BB1446 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683D98D2C72833C00BB1446 /* Preview Assets.xcassets */; };
+		5683D9982C72833E00BB1446 /* MyMangaForWatch_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683D9972C72833E00BB1446 /* MyMangaForWatch_Watch_AppTests.swift */; };
+		5683D9A22C72834000BB1446 /* MyMangaForWatch_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683D9A12C72834000BB1446 /* MyMangaForWatch_Watch_AppUITests.swift */; };
+		5683D9A42C72834000BB1446 /* MyMangaForWatch_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683D9A32C72834000BB1446 /* MyMangaForWatch_Watch_AppUITestsLaunchTests.swift */; };
 		568F49C82C5963D700056623 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F49C72C5963D700056623 /* Author.swift */; };
 		56A46B932C53E570003B9B68 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A46B922C53E570003B9B68 /* SessionView.swift */; };
 		56A46B952C53E617003B9B68 /* SaveMangaLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A46B942C53E617003B9B68 /* SaveMangaLocalView.swift */; };
@@ -43,6 +51,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5683D9832C72833700BB1446 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56E9402B2C0E07DB0087A90C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5683D9802C72833700BB1446;
+			remoteInfo = "MyMangaForWatch Watch App";
+		};
+		5683D9942C72833D00BB1446 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56E9402B2C0E07DB0087A90C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5683D9802C72833700BB1446;
+			remoteInfo = "MyMangaForWatch Watch App";
+		};
+		5683D99E2C72833F00BB1446 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56E9402B2C0E07DB0087A90C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5683D9802C72833700BB1446;
+			remoteInfo = "MyMangaForWatch Watch App";
+		};
 		56E940442C0E07E10087A90C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56E9402B2C0E07DB0087A90C /* Project object */;
@@ -59,6 +88,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5683D9A72C72834000BB1446 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5683D9822C72833700BB1446 /* MyMangaForWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5608C7162C17B87600112D08 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		5644D1D82C2C6B3100B07408 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -70,6 +113,17 @@
 		5669E3202C448DD2001450A9 /* MangaLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLocal.swift; sourceTree = "<group>"; };
 		5669E3222C448E52001450A9 /* UserMangaCollectionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMangaCollectionRequest.swift; sourceTree = "<group>"; };
 		5669E3242C448EB3001450A9 /* MangaLocalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLocalDTO.swift; sourceTree = "<group>"; };
+		5683D97C2C72833600BB1446 /* MyMangaForWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMangaForWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5683D9812C72833700BB1446 /* MyMangaForWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyMangaForWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5683D9862C72833800BB1446 /* MyMangaForWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMangaForWatchApp.swift; sourceTree = "<group>"; };
+		5683D9882C72833800BB1446 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5683D98A2C72833C00BB1446 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5683D98D2C72833C00BB1446 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5683D9932C72833D00BB1446 /* MyMangaForWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyMangaForWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5683D9972C72833E00BB1446 /* MyMangaForWatch_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMangaForWatch_Watch_AppTests.swift; sourceTree = "<group>"; };
+		5683D99D2C72833F00BB1446 /* MyMangaForWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyMangaForWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5683D9A12C72834000BB1446 /* MyMangaForWatch_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMangaForWatch_Watch_AppUITests.swift; sourceTree = "<group>"; };
+		5683D9A32C72834000BB1446 /* MyMangaForWatch_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMangaForWatch_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		568F49C72C5963D700056623 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		56A46B922C53E570003B9B68 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		56A46B942C53E617003B9B68 /* SaveMangaLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMangaLocalView.swift; sourceTree = "<group>"; };
@@ -99,6 +153,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5683D97E2C72833700BB1446 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5683D9902C72833D00BB1446 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5683D99A2C72833F00BB1446 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56E940302C0E07DB0087A90C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -155,6 +230,42 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5683D9852C72833800BB1446 /* MyMangaForWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				5683D9862C72833800BB1446 /* MyMangaForWatchApp.swift */,
+				5683D9882C72833800BB1446 /* ContentView.swift */,
+				5683D98A2C72833C00BB1446 /* Assets.xcassets */,
+				5683D98C2C72833C00BB1446 /* Preview Content */,
+			);
+			path = "MyMangaForWatch Watch App";
+			sourceTree = "<group>";
+		};
+		5683D98C2C72833C00BB1446 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5683D98D2C72833C00BB1446 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5683D9962C72833E00BB1446 /* MyMangaForWatch Watch AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				5683D9972C72833E00BB1446 /* MyMangaForWatch_Watch_AppTests.swift */,
+			);
+			path = "MyMangaForWatch Watch AppTests";
+			sourceTree = "<group>";
+		};
+		5683D9A02C72834000BB1446 /* MyMangaForWatch Watch AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5683D9A12C72834000BB1446 /* MyMangaForWatch_Watch_AppUITests.swift */,
+				5683D9A32C72834000BB1446 /* MyMangaForWatch_Watch_AppUITestsLaunchTests.swift */,
+			);
+			path = "MyMangaForWatch Watch AppUITests";
+			sourceTree = "<group>";
+		};
 		56AF4E662C127ACD00C1FBE8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +289,9 @@
 				56E940352C0E07DB0087A90C /* ParrotDayDraftRequestManga */,
 				56E940462C0E07E10087A90C /* ParrotDayDraftRequestMangaTests */,
 				56E940502C0E07E10087A90C /* ParrotDayDraftRequestMangaUITests */,
+				5683D9852C72833800BB1446 /* MyMangaForWatch Watch App */,
+				5683D9962C72833E00BB1446 /* MyMangaForWatch Watch AppTests */,
+				5683D9A02C72834000BB1446 /* MyMangaForWatch Watch AppUITests */,
 				56E940342C0E07DB0087A90C /* Products */,
 				56FAF1192C33483800DC417F /* Frameworks */,
 			);
@@ -189,6 +303,10 @@
 				56E940332C0E07DB0087A90C /* ParrotDayDraftRequestManga.app */,
 				56E940432C0E07E10087A90C /* ParrotDayDraftRequestMangaTests.xctest */,
 				56E9404D2C0E07E10087A90C /* ParrotDayDraftRequestMangaUITests.xctest */,
+				5683D97C2C72833600BB1446 /* MyMangaForWatch.app */,
+				5683D9812C72833700BB1446 /* MyMangaForWatch Watch App.app */,
+				5683D9932C72833D00BB1446 /* MyMangaForWatch Watch AppTests.xctest */,
+				5683D99D2C72833F00BB1446 /* MyMangaForWatch Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -273,6 +391,76 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5683D97B2C72833600BB1446 /* MyMangaForWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5683D9AF2C72834000BB1446 /* Build configuration list for PBXNativeTarget "MyMangaForWatch" */;
+			buildPhases = (
+				5683D97A2C72833600BB1446 /* Resources */,
+				5683D9A72C72834000BB1446 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5683D9842C72833700BB1446 /* PBXTargetDependency */,
+			);
+			name = MyMangaForWatch;
+			productName = MyMangaForWatch;
+			productReference = 5683D97C2C72833600BB1446 /* MyMangaForWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		5683D9802C72833700BB1446 /* MyMangaForWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5683D9AE2C72834000BB1446 /* Build configuration list for PBXNativeTarget "MyMangaForWatch Watch App" */;
+			buildPhases = (
+				5683D97D2C72833700BB1446 /* Sources */,
+				5683D97E2C72833700BB1446 /* Frameworks */,
+				5683D97F2C72833700BB1446 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MyMangaForWatch Watch App";
+			productName = "MyMangaForWatch Watch App";
+			productReference = 5683D9812C72833700BB1446 /* MyMangaForWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5683D9922C72833D00BB1446 /* MyMangaForWatch Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5683D9B02C72834000BB1446 /* Build configuration list for PBXNativeTarget "MyMangaForWatch Watch AppTests" */;
+			buildPhases = (
+				5683D98F2C72833D00BB1446 /* Sources */,
+				5683D9902C72833D00BB1446 /* Frameworks */,
+				5683D9912C72833D00BB1446 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5683D9952C72833D00BB1446 /* PBXTargetDependency */,
+			);
+			name = "MyMangaForWatch Watch AppTests";
+			productName = "MyMangaForWatch Watch AppTests";
+			productReference = 5683D9932C72833D00BB1446 /* MyMangaForWatch Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5683D99C2C72833F00BB1446 /* MyMangaForWatch Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5683D9B12C72834000BB1446 /* Build configuration list for PBXNativeTarget "MyMangaForWatch Watch AppUITests" */;
+			buildPhases = (
+				5683D9992C72833F00BB1446 /* Sources */,
+				5683D99A2C72833F00BB1446 /* Frameworks */,
+				5683D99B2C72833F00BB1446 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5683D99F2C72833F00BB1446 /* PBXTargetDependency */,
+			);
+			name = "MyMangaForWatch Watch AppUITests";
+			productName = "MyMangaForWatch Watch AppUITests";
+			productReference = 5683D99D2C72833F00BB1446 /* MyMangaForWatch Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		56E940322C0E07DB0087A90C /* ParrotDayDraftRequestManga */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56E940572C0E07E10087A90C /* Build configuration list for PBXNativeTarget "ParrotDayDraftRequestManga" */;
@@ -336,6 +524,20 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					5683D97B2C72833600BB1446 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					5683D9802C72833700BB1446 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					5683D9922C72833D00BB1446 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 5683D9802C72833700BB1446;
+					};
+					5683D99C2C72833F00BB1446 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 5683D9802C72833700BB1446;
+					};
 					56E940322C0E07DB0087A90C = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -365,11 +567,45 @@
 				56E940322C0E07DB0087A90C /* ParrotDayDraftRequestManga */,
 				56E940422C0E07E10087A90C /* ParrotDayDraftRequestMangaTests */,
 				56E9404C2C0E07E10087A90C /* ParrotDayDraftRequestMangaUITests */,
+				5683D97B2C72833600BB1446 /* MyMangaForWatch */,
+				5683D9802C72833700BB1446 /* MyMangaForWatch Watch App */,
+				5683D9922C72833D00BB1446 /* MyMangaForWatch Watch AppTests */,
+				5683D99C2C72833F00BB1446 /* MyMangaForWatch Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5683D97A2C72833600BB1446 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5683D97F2C72833700BB1446 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5683D98E2C72833C00BB1446 /* Preview Assets.xcassets in Resources */,
+				5683D98B2C72833C00BB1446 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5683D9912C72833D00BB1446 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5683D99B2C72833F00BB1446 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56E940312C0E07DB0087A90C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -396,6 +632,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5683D97D2C72833700BB1446 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5683D9892C72833800BB1446 /* ContentView.swift in Sources */,
+				5683D9872C72833800BB1446 /* MyMangaForWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5683D98F2C72833D00BB1446 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5683D9982C72833E00BB1446 /* MyMangaForWatch_Watch_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5683D9992C72833F00BB1446 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5683D9A22C72834000BB1446 /* MyMangaForWatch_Watch_AppUITests.swift in Sources */,
+				5683D9A42C72834000BB1446 /* MyMangaForWatch_Watch_AppUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56E9402F2C0E07DB0087A90C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -450,6 +712,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5683D9842C72833700BB1446 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5683D9802C72833700BB1446 /* MyMangaForWatch Watch App */;
+			targetProxy = 5683D9832C72833700BB1446 /* PBXContainerItemProxy */;
+		};
+		5683D9952C72833D00BB1446 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5683D9802C72833700BB1446 /* MyMangaForWatch Watch App */;
+			targetProxy = 5683D9942C72833D00BB1446 /* PBXContainerItemProxy */;
+		};
+		5683D99F2C72833F00BB1446 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5683D9802C72833700BB1446 /* MyMangaForWatch Watch App */;
+			targetProxy = 5683D99E2C72833F00BB1446 /* PBXContainerItemProxy */;
+		};
 		56E940452C0E07E10087A90C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 56E940322C0E07DB0087A90C /* ParrotDayDraftRequestManga */;
@@ -463,6 +740,178 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5683D9A52C72834000BB1446 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				INFOPLIST_KEY_CFBundleDisplayName = MyMangaForWatch;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.MyMangaForWatch.MyMangaForWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5683D9A62C72834000BB1446 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				INFOPLIST_KEY_CFBundleDisplayName = MyMangaForWatch;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.MyMangaForWatch.MyMangaForWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5683D9A82C72834000BB1446 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyMangaForWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MyMangaForWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.MyMangaForWatch.MyMangaForWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		5683D9A92C72834000BB1446 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyMangaForWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MyMangaForWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.MyMangaForWatch.MyMangaForWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		5683D9AA2C72834000BB1446 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uzupis.MyMangaForWatch.MyMangaForWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMangaForWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyMangaForWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		5683D9AB2C72834000BB1446 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uzupis.MyMangaForWatch.MyMangaForWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMangaForWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyMangaForWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		5683D9AC2C72834000BB1446 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uzupis.MyMangaForWatch.MyMangaForWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "MyMangaForWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		5683D9AD2C72834000BB1446 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F6KDBC2B2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uzupis.MyMangaForWatch.MyMangaForWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "MyMangaForWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
 		56E940552C0E07E10087A90C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -721,6 +1170,42 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5683D9AE2C72834000BB1446 /* Build configuration list for PBXNativeTarget "MyMangaForWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5683D9A82C72834000BB1446 /* Debug */,
+				5683D9A92C72834000BB1446 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5683D9AF2C72834000BB1446 /* Build configuration list for PBXNativeTarget "MyMangaForWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5683D9A52C72834000BB1446 /* Debug */,
+				5683D9A62C72834000BB1446 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5683D9B02C72834000BB1446 /* Build configuration list for PBXNativeTarget "MyMangaForWatch Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5683D9AA2C72834000BB1446 /* Debug */,
+				5683D9AB2C72834000BB1446 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5683D9B12C72834000BB1446 /* Build configuration list for PBXNativeTarget "MyMangaForWatch Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5683D9AC2C72834000BB1446 /* Debug */,
+				5683D9AD2C72834000BB1446 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		56E9402E2C0E07DB0087A90C /* Build configuration list for PBXProject "ParrotDayDraftRequestManga" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
