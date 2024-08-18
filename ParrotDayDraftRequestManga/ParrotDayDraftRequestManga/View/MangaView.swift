@@ -33,6 +33,8 @@ struct MangaView: View {
                             .frame(width: 159, height: 198)
                             .scaleEffect(scale)
                             .offset(offset)
+#if os(iOS)
+
                             .gesture(
                                 MagnificationGesture()
                                     .onChanged { value in
@@ -45,6 +47,7 @@ struct MangaView: View {
                                         }
                                     }
                             )
+#endif
                             .gesture(
                                 DragGesture()
                                     .onChanged { value in

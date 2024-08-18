@@ -98,6 +98,7 @@ struct MainView: View {
                     }, manga: $manga)
                     
                     // Manga local
+#if os(iOS)
                     if UIDevice.current.userInterfaceIdiom == .pad {
                         MangaLocalView()
                     } else {
@@ -105,6 +106,7 @@ struct MainView: View {
                             Text("Local")
                         }
                     }
+#endif
                 }
                 .padding()
                 .onAppear {
