@@ -10,10 +10,12 @@ import Foundation
 struct MangaLocalDTO {
     var title: String
     var userManga: UserMangaCollectionRequestDTO
+    var image: String
     
-    init(title: String? = "", userManga: UserMangaCollectionRequestDTO? = UserMangaCollectionRequestDTO()) {
+    init(title: String? = "", userManga: UserMangaCollectionRequestDTO? = UserMangaCollectionRequestDTO(), image: String? = "") {
         self.title = title!
         self.userManga = userManga!
+        self.image = image!
     }
 }
 

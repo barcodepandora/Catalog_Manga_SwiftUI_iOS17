@@ -138,7 +138,11 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
     }
     
     func prepareMangaLocal() async throws -> [MangaLocal] {
-        var mangas = [MangaLocalDTO(title: "Ganbare Kickers", userManga: UserMangaCollectionRequestDTO(manga: 65000))]
+        var mangas = [
+            MangaLocalDTO(title: "Ganbare Kickers", userManga: UserMangaCollectionRequestDTO(manga: 65001)),
+            MangaLocalDTO(title: "Gekko Kamen", userManga: UserMangaCollectionRequestDTO(manga: 65002, volumesOwned: [1, 2])),
+            MangaLocalDTO(title: "Starzinger", userManga: UserMangaCollectionRequestDTO(manga: 65003, readingVolume: 1))
+        ]
         var mangasLocal = try await mangaLocalUseCase!.prepareMangaLocal(mangas: mangas)
         return mangasLocal
     }

@@ -28,6 +28,7 @@ class MangaLocalUseCase: MangaLocalUseCaseProtocol {
     
     func prepareMangaLocal(mangas: [MangaLocalDTO]) async throws -> [MangaLocal] {
         var mangasLocal: [MangaLocal] = []
+        self.cleanMangaLocal()
         for manga in mangas {
             var mangaLocal = manga.mangaLocal
             mangasLocal.append(mangaLocal)
@@ -40,5 +41,18 @@ class MangaLocalUseCase: MangaLocalUseCaseProtocol {
             fatalError(error.localizedDescription)
         }
         return mangasLocal
+    }
+    
+    func cleanMangaLocal() {
+        do {
+            let mangasForRemove = try modelContext.fetch(FetchDescriptor<MangaLocal>())
+            if !mangasForRemove.isEmpty {
+                for manga in mangasForRemove {
+                    modelContext.delete(manga)
+                }
+            }
+        } catch {
+            fatalError(error.localizedDescription)
+        }
     }
 }

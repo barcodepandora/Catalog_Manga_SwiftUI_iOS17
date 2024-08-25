@@ -18,7 +18,6 @@ struct UserMangaCollectionRequestDTO {
         self.completeCollection = completeCollection!
         self.volumesOwned = volumesOwned!
         self.readingVolume = readingVolume!
-        
     }
 }
 

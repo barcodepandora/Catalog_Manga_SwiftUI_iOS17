@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5608C7172C17B87600112D08 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608C7162C17B87600112D08 /* Page.swift */; };
+		561879A02C7B828C00AAE7B4 /* ML65002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5618799D2C7B828800AAE7B4 /* ML65002.jpg */; };
+		561879A12C7B828C00AAE7B4 /* ML65002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5618799D2C7B828800AAE7B4 /* ML65002.jpg */; };
+		561879A22C7B828C00AAE7B4 /* ML65001.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5618799E2C7B828A00AAE7B4 /* ML65001.webp */; };
+		561879A32C7B828C00AAE7B4 /* ML65001.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5618799E2C7B828A00AAE7B4 /* ML65001.webp */; };
+		561879A42C7B828C00AAE7B4 /* ML65003.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5618799F2C7B828C00AAE7B4 /* ML65003.webp */; };
+		561879A52C7B828C00AAE7B4 /* ML65003.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5618799F2C7B828C00AAE7B4 /* ML65003.webp */; };
 		5644D1D92C2C6B3100B07408 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644D1D82C2C6B3100B07408 /* MainView.swift */; };
 		564A13632C2B44C3001E3331 /* UserMangaCollectionRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A13622C2B44C2001E3331 /* UserMangaCollectionRequestDTO.swift */; };
 		565355772C20876B00BD200E /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565355762C20876B00BD200E /* Manga.swift */; };
@@ -129,6 +135,9 @@
 
 /* Begin PBXFileReference section */
 		5608C7162C17B87600112D08 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		5618799D2C7B828800AAE7B4 /* ML65002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ML65002.jpg; sourceTree = "<group>"; };
+		5618799E2C7B828A00AAE7B4 /* ML65001.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = ML65001.webp; sourceTree = "<group>"; };
+		5618799F2C7B828C00AAE7B4 /* ML65003.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = ML65003.webp; sourceTree = "<group>"; };
 		5644D1D82C2C6B3100B07408 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		564A13622C2B44C2001E3331 /* UserMangaCollectionRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMangaCollectionRequestDTO.swift; sourceTree = "<group>"; };
 		565355762C20876B00BD200E /* Manga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
@@ -240,6 +249,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5618799C2C7B81D700AAE7B4 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				5618799E2C7B828A00AAE7B4 /* ML65001.webp */,
+				5618799D2C7B828800AAE7B4 /* ML65002.jpg */,
+				5618799F2C7B828C00AAE7B4 /* ML65003.webp */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
 		5659FAB12C110C7500B62BBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +358,7 @@
 		56E940352C0E07DB0087A90C /* ParrotDayDraftRequestManga */ = {
 			isa = PBXGroup;
 			children = (
+				5618799C2C7B81D700AAE7B4 /* Media */,
 				56BDC52E2C3F0257004770EB /* Business */,
 				56FAF11C2C3349D900DC417F /* Infrastructure */,
 				56AF4E662C127ACD00C1FBE8 /* Networking */,
@@ -613,6 +633,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5683D98E2C72833C00BB1446 /* Preview Assets.xcassets in Resources */,
+				561879A32C7B828C00AAE7B4 /* ML65001.webp in Resources */,
+				561879A12C7B828C00AAE7B4 /* ML65002.jpg in Resources */,
+				561879A52C7B828C00AAE7B4 /* ML65003.webp in Resources */,
 				5683D98B2C72833C00BB1446 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,6 +659,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E9403E2C0E07E00087A90C /* Preview Assets.xcassets in Resources */,
+				561879A22C7B828C00AAE7B4 /* ML65001.webp in Resources */,
+				561879A02C7B828C00AAE7B4 /* ML65002.jpg in Resources */,
+				561879A42C7B828C00AAE7B4 /* ML65003.webp in Resources */,
 				56E9403B2C0E07E00087A90C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
