@@ -31,7 +31,6 @@ struct AutocompleteView: View {
                         .padding(.leading, 20)
                         .foregroundColor(.black)
                         .frame(width: 20, height: 20)
-//                        .padding(.leading, -34)
                 }
             )
             .cornerRadius(10)

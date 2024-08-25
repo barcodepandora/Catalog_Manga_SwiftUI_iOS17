@@ -10,15 +10,18 @@ import SwiftUI
 struct MangaLocalView: View {
     
     @EnvironmentObject private var vm: MangaViewModel
-    @State var mangasLocal: [MangaLocal]?
+    @State private var mangasLocal: [MangaLocal]?
+    
+    init() {
+        mangasLocal = deliverMangaLocal()
+    }
     
     var body: some View {
         VStack {
             ScrollView {
-                LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) {
-                    ForEach(deliverMangaLocal()) { item in
-                        Text("\(item.title)")
-                    }
+                CatalogViewLocal(mangasLocal: $mangasLocal)
+                    .onAppear {
+                        mangasLocal = deliverMangaLocal()
                 }
             }
         }

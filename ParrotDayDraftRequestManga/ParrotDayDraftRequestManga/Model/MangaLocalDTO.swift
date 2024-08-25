@@ -21,6 +21,6 @@ struct MangaLocalDTO {
 
 extension MangaLocalDTO: Decodable {
     var mangaLocal: MangaLocal {
-        MangaLocal(title: self.title, userManga: self.userManga.userManga)
+        MangaLocal(title: self.title, userManga: self.userManga.userManga, image: self.image)
     }
 }
