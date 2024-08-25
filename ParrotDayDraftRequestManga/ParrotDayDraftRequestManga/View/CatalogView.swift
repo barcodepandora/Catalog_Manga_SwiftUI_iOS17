@@ -55,7 +55,7 @@ struct CatalogView: View {
                             }
                         }
                     }
-                    .navigationTitle("MyManga")
+                    .navigationTitle("My Manga")
                     .navigationBarTitleDisplayMode(.inline)
                     .font(.custom("Arial", size: 14))
                 }

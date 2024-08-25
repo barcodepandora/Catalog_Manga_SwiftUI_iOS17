@@ -19,6 +19,7 @@ struct MangaLocalView: View {
     var body: some View {
         VStack {
             ScrollView {
+                Text("My Manga Local")
                 CatalogViewLocal(mangasLocal: $mangasLocal)
                     .onAppear {
                         mangasLocal = deliverMangaLocal()
