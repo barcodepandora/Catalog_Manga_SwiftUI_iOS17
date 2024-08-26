@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDf5zzMWBdK_gM23-MaPIzmWuDfm_97IQc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>401362270660</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.uzupis.ParrotDayDraftRequestManga.ParrotDayDraftRequestManga</string>
+	<key>PROJECT_ID</key>
+	<string>accatalogmanga</string>
+	<key>STORAGE_BUCKET</key>
+	<string>accatalogmanga.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:401362270660:ios:4d88d93a2c24c508424c91</string>
+</dict>
+</plist>
