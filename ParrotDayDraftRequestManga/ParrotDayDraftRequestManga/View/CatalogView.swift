@@ -56,7 +56,9 @@ struct ItemForCatalog: View {
             }
         }
         .navigationTitle("My Manga")
+#if !os(watchOS) && !os(tvOS)
         .navigationBarTitleDisplayMode(.inline)
+#endif
         .font(.custom("Arial", size: 14))
     }
 }
@@ -82,6 +84,7 @@ struct CatalogView: View {
             }
 #endif
         }
+#if !os(tvOS)
         .gesture(
             DragGesture()
                 .onEnded { value in
@@ -94,8 +97,9 @@ struct CatalogView: View {
                     callback(direction)
                 }
         )
+#endif
     }
-    
+
     func deliverManga() -> [Item] {
         if manga != nil && !manga!.items.isEmpty {
             return manga!.items

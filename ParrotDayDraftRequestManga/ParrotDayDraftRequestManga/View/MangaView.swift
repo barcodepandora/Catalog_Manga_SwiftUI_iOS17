@@ -47,7 +47,7 @@ struct MangaView: View {
                                         }
                                     }
                             )
-#endif
+                        
                             .gesture(
                                 DragGesture()
                                     .onChanged { value in
@@ -59,9 +59,13 @@ struct MangaView: View {
                                         }
                                     }
                             )
+
+#endif
                     } placeholder: {
+#if !os(tvOS)
                         ProgressView()
                             .controlSize(.extraLarge)
+#endif
                     } // Cuando acaba de cargar es como un Image
                     .background {
                         Color(white: 0.8)

@@ -69,6 +69,40 @@
 		56A46B952C53E617003B9B68 /* SaveMangaLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A46B942C53E617003B9B68 /* SaveMangaLocalView.swift */; };
 		56A46B972C53E70D003B9B68 /* AutocompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A46B962C53E70C003B9B68 /* AutocompleteView.swift */; };
 		56A704442C4C18AB0063480F /* MangaLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A704432C4C18AB0063480F /* MangaLocalView.swift */; };
+		56ACA8BC2C7D2C1300ECA1B1 /* MyMangaForTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ACA8BB2C7D2C1300ECA1B1 /* MyMangaForTVApp.swift */; };
+		56ACA8BE2C7D2C1300ECA1B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ACA8BD2C7D2C1300ECA1B1 /* ContentView.swift */; };
+		56ACA8C02C7D2C1500ECA1B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56ACA8BF2C7D2C1500ECA1B1 /* Assets.xcassets */; };
+		56ACA8C32C7D2C1500ECA1B1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56ACA8C22C7D2C1500ECA1B1 /* Preview Assets.xcassets */; };
+		56ACA8CD2C7D2C1800ECA1B1 /* MyMangaForTVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ACA8CC2C7D2C1800ECA1B1 /* MyMangaForTVTests.swift */; };
+		56ACA8D72C7D2C1A00ECA1B1 /* MyMangaForTVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ACA8D62C7D2C1A00ECA1B1 /* MyMangaForTVUITests.swift */; };
+		56ACA8D92C7D2C1A00ECA1B1 /* MyMangaForTVUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ACA8D82C7D2C1A00ECA1B1 /* MyMangaForTVUITestsLaunchTests.swift */; };
+		56ACA8E32C7D32BB00ECA1B1 /* UIAtelier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561879A72C7B86E700AAE7B4 /* UIAtelier.swift */; };
+		56ACA8E42C7D32BB00ECA1B1 /* Butler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B07AE52C56B144005FBC96 /* Butler.swift */; };
+		56ACA8E52C7D32BB00ECA1B1 /* CatalogFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDC52F2C3F026A004770EB /* CatalogFilter.swift */; };
+		56ACA8E62C7D32BB00ECA1B1 /* KeychainButler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAF11D2C3349FA00DC417F /* KeychainButler.swift */; };
+		56ACA8E72C7D32BC00ECA1B1 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF4E672C127AF600C1FBE8 /* APIRouter.swift */; };
+		56ACA8E82C7D32BC00ECA1B1 /* MangaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659FAB22C110C8500B62BBF /* MangaDTO.swift */; };
+		56ACA8E92C7D32BC00ECA1B1 /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565355762C20876B00BD200E /* Manga.swift */; };
+		56ACA8EA2C7D32BC00ECA1B1 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608C7162C17B87600112D08 /* Page.swift */; };
+		56ACA8EB2C7D32BC00ECA1B1 /* UserMangaCollectionRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A13622C2B44C2001E3331 /* UserMangaCollectionRequestDTO.swift */; };
+		56ACA8EC2C7D32BC00ECA1B1 /* UserMangaCollectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669E3222C448E52001450A9 /* UserMangaCollectionRequest.swift */; };
+		56ACA8ED2C7D32BC00ECA1B1 /* MangaLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669E3242C448EB3001450A9 /* MangaLocalDTO.swift */; };
+		56ACA8EE2C7D32BC00ECA1B1 /* MangaLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5669E3202C448DD2001450A9 /* MangaLocal.swift */; };
+		56ACA8EF2C7D32BC00ECA1B1 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F49C72C5963D700056623 /* Author.swift */; };
+		56ACA8F02C7D32BC00ECA1B1 /* MangaUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E940642C0E18490087A90C /* MangaUseCase.swift */; };
+		56ACA8F12C7D32BC00ECA1B1 /* MangaLocalUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E585052C46BA7800E4181F /* MangaLocalUseCase.swift */; };
+		56ACA8F22C7D32BC00ECA1B1 /* ModelContainerForManga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E585072C46DC6700E4181F /* ModelContainerForManga.swift */; };
+		56ACA8F32C7D32BC00ECA1B1 /* MangaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E940612C0E17550087A90C /* MangaViewModel.swift */; };
+		56ACA8F42C7D32BC00ECA1B1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5644D1D82C2C6B3100B07408 /* MainView.swift */; };
+		56ACA8F52C7D32BC00ECA1B1 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A46B922C53E570003B9B68 /* SessionView.swift */; };
+		56ACA8F62C7D32BC00ECA1B1 /* SaveMangaLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A46B942C53E617003B9B68 /* SaveMangaLocalView.swift */; };
+		56ACA8F72C7D32BC00ECA1B1 /* AutocompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A46B962C53E70C003B9B68 /* AutocompleteView.swift */; };
+		56ACA8F82C7D32BC00ECA1B1 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5653591D2C5442520050A9C7 /* ClockView.swift */; };
+		56ACA8F92C7D32BC00ECA1B1 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5653591F2C546CFF0050A9C7 /* CatalogView.swift */; };
+		56ACA8FA2C7D32BC00ECA1B1 /* MangaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CCB6552C3302190054389C /* MangaView.swift */; };
+		56ACA8FB2C7D32BC00ECA1B1 /* MangaLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A704432C4C18AB0063480F /* MangaLocalView.swift */; };
+		56ACA8FC2C7D32BC00ECA1B1 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E90CE32C5FF09800234041 /* FavoriteView.swift */; };
+		56ACA8FD2C7D32BC00ECA1B1 /* CatalogViewLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561879AA2C7B879300AAE7B4 /* CatalogViewLocal.swift */; };
 		56AF4E682C127AF600C1FBE8 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF4E672C127AF600C1FBE8 /* APIRouter.swift */; };
 		56B07AE62C56B144005FBC96 /* Butler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B07AE52C56B144005FBC96 /* Butler.swift */; };
 		56BDC5302C3F026A004770EB /* CatalogFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDC52F2C3F026A004770EB /* CatalogFilter.swift */; };
@@ -110,6 +144,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5683D9802C72833700BB1446;
 			remoteInfo = "MyMangaForWatch Watch App";
+		};
+		56ACA8C92C7D2C1700ECA1B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56E9402B2C0E07DB0087A90C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56ACA8B82C7D2C1200ECA1B1;
+			remoteInfo = MyMangaForTV;
+		};
+		56ACA8D32C7D2C1900ECA1B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56E9402B2C0E07DB0087A90C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56ACA8B82C7D2C1200ECA1B1;
+			remoteInfo = MyMangaForTV;
 		};
 		56E940442C0E07E10087A90C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -185,6 +233,16 @@
 		56A46B942C53E617003B9B68 /* SaveMangaLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMangaLocalView.swift; sourceTree = "<group>"; };
 		56A46B962C53E70C003B9B68 /* AutocompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteView.swift; sourceTree = "<group>"; };
 		56A704432C4C18AB0063480F /* MangaLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLocalView.swift; sourceTree = "<group>"; };
+		56ACA8B92C7D2C1200ECA1B1 /* MyMangaForTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMangaForTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56ACA8BB2C7D2C1300ECA1B1 /* MyMangaForTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMangaForTVApp.swift; sourceTree = "<group>"; };
+		56ACA8BD2C7D2C1300ECA1B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		56ACA8BF2C7D2C1500ECA1B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56ACA8C22C7D2C1500ECA1B1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		56ACA8C82C7D2C1600ECA1B1 /* MyMangaForTVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMangaForTVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56ACA8CC2C7D2C1800ECA1B1 /* MyMangaForTVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMangaForTVTests.swift; sourceTree = "<group>"; };
+		56ACA8D22C7D2C1900ECA1B1 /* MyMangaForTVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMangaForTVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56ACA8D62C7D2C1A00ECA1B1 /* MyMangaForTVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMangaForTVUITests.swift; sourceTree = "<group>"; };
+		56ACA8D82C7D2C1A00ECA1B1 /* MyMangaForTVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMangaForTVUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		56AF4E672C127AF600C1FBE8 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		56B07AE52C56B144005FBC96 /* Butler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Butler.swift; sourceTree = "<group>"; };
 		56BDC52F2C3F026A004770EB /* CatalogFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogFilter.swift; sourceTree = "<group>"; };
@@ -224,6 +282,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5683D99A2C72833F00BB1446 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ACA8B62C7D2C1200ECA1B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ACA8C52C7D2C1600ECA1B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ACA8CF2C7D2C1900ECA1B1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -343,6 +422,42 @@
 			path = "MyMangaForWatch Watch AppUITests";
 			sourceTree = "<group>";
 		};
+		56ACA8BA2C7D2C1300ECA1B1 /* MyMangaForTV */ = {
+			isa = PBXGroup;
+			children = (
+				56ACA8BB2C7D2C1300ECA1B1 /* MyMangaForTVApp.swift */,
+				56ACA8BD2C7D2C1300ECA1B1 /* ContentView.swift */,
+				56ACA8BF2C7D2C1500ECA1B1 /* Assets.xcassets */,
+				56ACA8C12C7D2C1500ECA1B1 /* Preview Content */,
+			);
+			path = MyMangaForTV;
+			sourceTree = "<group>";
+		};
+		56ACA8C12C7D2C1500ECA1B1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				56ACA8C22C7D2C1500ECA1B1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		56ACA8CB2C7D2C1800ECA1B1 /* MyMangaForTVTests */ = {
+			isa = PBXGroup;
+			children = (
+				56ACA8CC2C7D2C1800ECA1B1 /* MyMangaForTVTests.swift */,
+			);
+			path = MyMangaForTVTests;
+			sourceTree = "<group>";
+		};
+		56ACA8D52C7D2C1A00ECA1B1 /* MyMangaForTVUITests */ = {
+			isa = PBXGroup;
+			children = (
+				56ACA8D62C7D2C1A00ECA1B1 /* MyMangaForTVUITests.swift */,
+				56ACA8D82C7D2C1A00ECA1B1 /* MyMangaForTVUITestsLaunchTests.swift */,
+			);
+			path = MyMangaForTVUITests;
+			sourceTree = "<group>";
+		};
 		56AF4E662C127ACD00C1FBE8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +484,9 @@
 				5683D9852C72833800BB1446 /* MyMangaForWatch Watch App */,
 				5683D9962C72833E00BB1446 /* MyMangaForWatch Watch AppTests */,
 				5683D9A02C72834000BB1446 /* MyMangaForWatch Watch AppUITests */,
+				56ACA8BA2C7D2C1300ECA1B1 /* MyMangaForTV */,
+				56ACA8CB2C7D2C1800ECA1B1 /* MyMangaForTVTests */,
+				56ACA8D52C7D2C1A00ECA1B1 /* MyMangaForTVUITests */,
 				56E940342C0E07DB0087A90C /* Products */,
 				56FAF1192C33483800DC417F /* Frameworks */,
 			);
@@ -384,6 +502,9 @@
 				5683D9812C72833700BB1446 /* MyMangaForWatch Watch App.app */,
 				5683D9932C72833D00BB1446 /* MyMangaForWatch Watch AppTests.xctest */,
 				5683D99D2C72833F00BB1446 /* MyMangaForWatch Watch AppUITests.xctest */,
+				56ACA8B92C7D2C1200ECA1B1 /* MyMangaForTV.app */,
+				56ACA8C82C7D2C1600ECA1B1 /* MyMangaForTVTests.xctest */,
+				56ACA8D22C7D2C1900ECA1B1 /* MyMangaForTVUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -542,6 +663,59 @@
 			productReference = 5683D99D2C72833F00BB1446 /* MyMangaForWatch Watch AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		56ACA8B82C7D2C1200ECA1B1 /* MyMangaForTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56ACA8E02C7D2C1A00ECA1B1 /* Build configuration list for PBXNativeTarget "MyMangaForTV" */;
+			buildPhases = (
+				56ACA8B52C7D2C1200ECA1B1 /* Sources */,
+				56ACA8B62C7D2C1200ECA1B1 /* Frameworks */,
+				56ACA8B72C7D2C1200ECA1B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyMangaForTV;
+			productName = MyMangaForTV;
+			productReference = 56ACA8B92C7D2C1200ECA1B1 /* MyMangaForTV.app */;
+			productType = "com.apple.product-type.application";
+		};
+		56ACA8C72C7D2C1600ECA1B1 /* MyMangaForTVTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56ACA8E12C7D2C1A00ECA1B1 /* Build configuration list for PBXNativeTarget "MyMangaForTVTests" */;
+			buildPhases = (
+				56ACA8C42C7D2C1600ECA1B1 /* Sources */,
+				56ACA8C52C7D2C1600ECA1B1 /* Frameworks */,
+				56ACA8C62C7D2C1600ECA1B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56ACA8CA2C7D2C1700ECA1B1 /* PBXTargetDependency */,
+			);
+			name = MyMangaForTVTests;
+			productName = MyMangaForTVTests;
+			productReference = 56ACA8C82C7D2C1600ECA1B1 /* MyMangaForTVTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		56ACA8D12C7D2C1900ECA1B1 /* MyMangaForTVUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56ACA8E22C7D2C1A00ECA1B1 /* Build configuration list for PBXNativeTarget "MyMangaForTVUITests" */;
+			buildPhases = (
+				56ACA8CE2C7D2C1900ECA1B1 /* Sources */,
+				56ACA8CF2C7D2C1900ECA1B1 /* Frameworks */,
+				56ACA8D02C7D2C1900ECA1B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56ACA8D42C7D2C1900ECA1B1 /* PBXTargetDependency */,
+			);
+			name = MyMangaForTVUITests;
+			productName = MyMangaForTVUITests;
+			productReference = 56ACA8D22C7D2C1900ECA1B1 /* MyMangaForTVUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		56E940322C0E07DB0087A90C /* ParrotDayDraftRequestManga */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56E940572C0E07E10087A90C /* Build configuration list for PBXNativeTarget "ParrotDayDraftRequestManga" */;
@@ -624,6 +798,17 @@
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = 5683D9802C72833700BB1446;
 					};
+					56ACA8B82C7D2C1200ECA1B1 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					56ACA8C72C7D2C1600ECA1B1 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 56ACA8B82C7D2C1200ECA1B1;
+					};
+					56ACA8D12C7D2C1900ECA1B1 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 56ACA8B82C7D2C1200ECA1B1;
+					};
 					56E940322C0E07DB0087A90C = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -660,6 +845,9 @@
 				5683D9802C72833700BB1446 /* MyMangaForWatch Watch App */,
 				5683D9922C72833D00BB1446 /* MyMangaForWatch Watch AppTests */,
 				5683D99C2C72833F00BB1446 /* MyMangaForWatch Watch AppUITests */,
+				56ACA8B82C7D2C1200ECA1B1 /* MyMangaForTV */,
+				56ACA8C72C7D2C1600ECA1B1 /* MyMangaForTVTests */,
+				56ACA8D12C7D2C1900ECA1B1 /* MyMangaForTVUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -693,6 +881,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5683D99B2C72833F00BB1446 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ACA8B72C7D2C1200ECA1B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56ACA8C32C7D2C1500ECA1B1 /* Preview Assets.xcassets in Resources */,
+				56ACA8C02C7D2C1500ECA1B1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ACA8C62C7D2C1600ECA1B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ACA8D02C7D2C1900ECA1B1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -782,6 +993,59 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56ACA8B52C7D2C1200ECA1B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56ACA8E32C7D32BB00ECA1B1 /* UIAtelier.swift in Sources */,
+				56ACA8E42C7D32BB00ECA1B1 /* Butler.swift in Sources */,
+				56ACA8E52C7D32BB00ECA1B1 /* CatalogFilter.swift in Sources */,
+				56ACA8E62C7D32BB00ECA1B1 /* KeychainButler.swift in Sources */,
+				56ACA8E72C7D32BC00ECA1B1 /* APIRouter.swift in Sources */,
+				56ACA8E82C7D32BC00ECA1B1 /* MangaDTO.swift in Sources */,
+				56ACA8E92C7D32BC00ECA1B1 /* Manga.swift in Sources */,
+				56ACA8EA2C7D32BC00ECA1B1 /* Page.swift in Sources */,
+				56ACA8EB2C7D32BC00ECA1B1 /* UserMangaCollectionRequestDTO.swift in Sources */,
+				56ACA8EC2C7D32BC00ECA1B1 /* UserMangaCollectionRequest.swift in Sources */,
+				56ACA8ED2C7D32BC00ECA1B1 /* MangaLocalDTO.swift in Sources */,
+				56ACA8EE2C7D32BC00ECA1B1 /* MangaLocal.swift in Sources */,
+				56ACA8EF2C7D32BC00ECA1B1 /* Author.swift in Sources */,
+				56ACA8F02C7D32BC00ECA1B1 /* MangaUseCase.swift in Sources */,
+				56ACA8F12C7D32BC00ECA1B1 /* MangaLocalUseCase.swift in Sources */,
+				56ACA8F22C7D32BC00ECA1B1 /* ModelContainerForManga.swift in Sources */,
+				56ACA8F32C7D32BC00ECA1B1 /* MangaViewModel.swift in Sources */,
+				56ACA8F42C7D32BC00ECA1B1 /* MainView.swift in Sources */,
+				56ACA8F52C7D32BC00ECA1B1 /* SessionView.swift in Sources */,
+				56ACA8F62C7D32BC00ECA1B1 /* SaveMangaLocalView.swift in Sources */,
+				56ACA8F72C7D32BC00ECA1B1 /* AutocompleteView.swift in Sources */,
+				56ACA8F82C7D32BC00ECA1B1 /* ClockView.swift in Sources */,
+				56ACA8F92C7D32BC00ECA1B1 /* CatalogView.swift in Sources */,
+				56ACA8FA2C7D32BC00ECA1B1 /* MangaView.swift in Sources */,
+				56ACA8FB2C7D32BC00ECA1B1 /* MangaLocalView.swift in Sources */,
+				56ACA8FC2C7D32BC00ECA1B1 /* FavoriteView.swift in Sources */,
+				56ACA8FD2C7D32BC00ECA1B1 /* CatalogViewLocal.swift in Sources */,
+				56ACA8BE2C7D2C1300ECA1B1 /* ContentView.swift in Sources */,
+				56ACA8BC2C7D2C1300ECA1B1 /* MyMangaForTVApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ACA8C42C7D2C1600ECA1B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56ACA8CD2C7D2C1800ECA1B1 /* MyMangaForTVTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56ACA8CE2C7D2C1900ECA1B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56ACA8D72C7D2C1A00ECA1B1 /* MyMangaForTVUITests.swift in Sources */,
+				56ACA8D92C7D2C1A00ECA1B1 /* MyMangaForTVUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56E9402F2C0E07DB0087A90C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -852,6 +1116,16 @@
 			isa = PBXTargetDependency;
 			target = 5683D9802C72833700BB1446 /* MyMangaForWatch Watch App */;
 			targetProxy = 5683D99E2C72833F00BB1446 /* PBXContainerItemProxy */;
+		};
+		56ACA8CA2C7D2C1700ECA1B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56ACA8B82C7D2C1200ECA1B1 /* MyMangaForTV */;
+			targetProxy = 56ACA8C92C7D2C1700ECA1B1 /* PBXContainerItemProxy */;
+		};
+		56ACA8D42C7D2C1900ECA1B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56ACA8B82C7D2C1200ECA1B1 /* MyMangaForTV */;
+			targetProxy = 56ACA8D32C7D2C1900ECA1B1 /* PBXContainerItemProxy */;
 		};
 		56E940452C0E07E10087A90C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1035,6 +1309,144 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_TARGET_NAME = "MyMangaForWatch Watch App";
 				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		56ACA8DA2C7D2C1A00ECA1B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyMangaForTV/Preview Content\"";
+				DEVELOPMENT_TEAM = PHL7DREDLZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.MyMangaForTV.MyMangaForTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.2;
+			};
+			name = Debug;
+		};
+		56ACA8DB2C7D2C1A00ECA1B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyMangaForTV/Preview Content\"";
+				DEVELOPMENT_TEAM = PHL7DREDLZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.MyMangaForTV.MyMangaForTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.2;
+			};
+			name = Release;
+		};
+		56ACA8DC2C7D2C1A00ECA1B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PHL7DREDLZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.MyMangaForTV.MyMangaForTVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMangaForTV.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyMangaForTV";
+				TVOS_DEPLOYMENT_TARGET = 17.2;
+			};
+			name = Debug;
+		};
+		56ACA8DD2C7D2C1A00ECA1B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PHL7DREDLZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.MyMangaForTV.MyMangaForTVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMangaForTV.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyMangaForTV";
+				TVOS_DEPLOYMENT_TARGET = 17.2;
+			};
+			name = Release;
+		};
+		56ACA8DE2C7D2C1A00ECA1B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PHL7DREDLZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.MyMangaForTV.MyMangaForTVUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = MyMangaForTV;
+				TVOS_DEPLOYMENT_TARGET = 17.2;
+			};
+			name = Debug;
+		};
+		56ACA8DF2C7D2C1A00ECA1B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PHL7DREDLZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uzupis.MyMangaForTV.MyMangaForTVUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_TARGET_NAME = MyMangaForTV;
+				TVOS_DEPLOYMENT_TARGET = 17.2;
 			};
 			name = Release;
 		};
@@ -1328,6 +1740,33 @@
 			buildConfigurations = (
 				5683D9AC2C72834000BB1446 /* Debug */,
 				5683D9AD2C72834000BB1446 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56ACA8E02C7D2C1A00ECA1B1 /* Build configuration list for PBXNativeTarget "MyMangaForTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56ACA8DA2C7D2C1A00ECA1B1 /* Debug */,
+				56ACA8DB2C7D2C1A00ECA1B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56ACA8E12C7D2C1A00ECA1B1 /* Build configuration list for PBXNativeTarget "MyMangaForTVTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56ACA8DC2C7D2C1A00ECA1B1 /* Debug */,
+				56ACA8DD2C7D2C1A00ECA1B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56ACA8E22C7D2C1A00ECA1B1 /* Build configuration list for PBXNativeTarget "MyMangaForTVUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56ACA8DE2C7D2C1A00ECA1B1 /* Debug */,
+				56ACA8DF2C7D2C1A00ECA1B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

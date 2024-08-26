@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import SwiftData
 
-#if !os(watchOS)
+#if !os(watchOS) && !os(tvOS)
 import Firebase
 import FirebaseFirestore
 #endif
@@ -76,7 +76,7 @@ class MangaLocalUseCase: MangaLocalUseCaseProtocol {
     }
     
     func insertMangaLocalInDaCloud(mangas: [MangaLocalDTO]) {
-#if !os(watchOS)
+#if !os(watchOS) && !os(tvOS)
         // Get a reference to the Firestore database
         let db = Firestore.firestore()
         

@@ -21,7 +21,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 32) {
-#if !os(watchOS)
+#if !os(watchOS) && !os(tvOS)
                     HStack(alignment: .center, spacing: 13) {
                         ClockView(selection: 4, callback: { result in
                             var per = result

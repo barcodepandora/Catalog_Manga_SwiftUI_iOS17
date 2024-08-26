@@ -41,6 +41,7 @@ struct ClockView: View {
                     .offset(x: MathButler.shared.doSin(numberOfAngles: options.count, indexOfAngle: index) * offset4Needle, y: -MathButler.shared.doCos(numberOfAngles: options.count, indexOfAngle: index) * offset4Needle)
             }
         }
+#if !os(tvOS)
         .gesture(
             DragGesture()
                 .onEnded() { value in
@@ -54,6 +55,7 @@ struct ClockView: View {
                     }
                 }
         )
+#endif
     }
 }
 
