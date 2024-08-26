@@ -128,6 +128,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		56445FE22C7D07D600736ADE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5683D9A72C72834000BB1446 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,6 +159,7 @@
 		561879A72C7B86E700AAE7B4 /* UIAtelier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAtelier.swift; sourceTree = "<group>"; };
 		561879AA2C7B879300AAE7B4 /* CatalogViewLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewLocal.swift; sourceTree = "<group>"; };
 		56445FCD2C7CCEB200736ADE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		56445FDF2C7D07D500736ADE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		5644D1D82C2C6B3100B07408 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		564A13622C2B44C2001E3331 /* UserMangaCollectionRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMangaCollectionRequestDTO.swift; sourceTree = "<group>"; };
 		565355762C20876B00BD200E /* Manga.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga.swift; sourceTree = "<group>"; };
@@ -444,6 +455,7 @@
 		56FAF1192C33483800DC417F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56445FDF2C7D07D500736ADE /* XCTest.framework */,
 				56FAF11A2C33483900DC417F /* Security.framework */,
 			);
 			name = Frameworks;
@@ -537,6 +549,7 @@
 				56E9402F2C0E07DB0087A90C /* Sources */,
 				56E940302C0E07DB0087A90C /* Frameworks */,
 				56E940312C0E07DB0087A90C /* Resources */,
+				56445FE22C7D07D600736ADE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

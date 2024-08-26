@@ -21,6 +21,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 32) {
+#if !os(watchOS)
                     HStack(alignment: .center, spacing: 13) {
                         ClockView(selection: 4, callback: { result in
                             var per = result
@@ -87,7 +88,7 @@ struct MainView: View {
                         }, vm: vm, placeholder: "Escribir opcion por categoria")
                     }
                 }
-
+#endif
                 CatalogView(callback: { result in
                     if result == .forward {
                         manga = vm.deliverForward()
@@ -112,7 +113,11 @@ struct MainView: View {
                 if !viewDidLoad {
                     viewDidLoad = true
                     Task {
-                        manga = try await vm.seed(per: 4, filter: .all, content: "")
+                        var per = 4
+#if os(watchOS)
+                        per = 1
+#endif
+                        manga = try await vm.seed(per: per, filter: .all, content: "")
                     }
                 }
             }

@@ -8,8 +8,11 @@
 import Foundation
 import SwiftUI
 import SwiftData
+
+#if !os(watchOS)
 import Firebase
 import FirebaseFirestore
+#endif
 
 protocol MangaLocalUseCaseProtocol {
     func prepareMangaLocal(mangas: [MangaLocalDTO]) async throws -> [MangaLocal]
@@ -73,6 +76,7 @@ class MangaLocalUseCase: MangaLocalUseCaseProtocol {
     }
     
     func insertMangaLocalInDaCloud(mangas: [MangaLocalDTO]) {
+#if !os(watchOS)
         // Get a reference to the Firestore database
         let db = Firestore.firestore()
         
@@ -94,5 +98,6 @@ class MangaLocalUseCase: MangaLocalUseCaseProtocol {
                 }
             }
         }
+#endif
     }
 }
