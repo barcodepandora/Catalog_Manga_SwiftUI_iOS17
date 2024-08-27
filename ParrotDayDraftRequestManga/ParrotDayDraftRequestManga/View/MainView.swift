@@ -20,7 +20,15 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 32) {
+            ZStack {
+#if os(tvOS) // Canvas +TV style
+                Image("ML65001")
+                    .resizable()
+                    .scaledToFit() // Scale to fill the entire screen, potentially cropping the image
+                    .edgesIgnoringSafeArea(.all) // Extend the imag
+#endif
+                
+                VStack(spacing: 32) {
 #if !os(watchOS) && !os(tvOS)
                     HStack(alignment: .center, spacing: 13) {
                         ClockView(selection: 4, callback: { result in
@@ -69,55 +77,59 @@ struct MainView: View {
 //                    SessionView(vm: vm)
 //                    SaveMangaLocalView(vm: vm)
                 
-                HStack {
-                    AutocompleteView(callback: { result in
-                        Task {
-                            manga = try await vm.search(page: 1, per: vm.per, text: result)
-                        }
-                    }, vm: vm, placeholder: "Escribir titulo")
-
-                    if !(hideAuto) {
+                    HStack {
                         AutocompleteView(callback: { result in
-                            let index = options!.contains { $0.contains(result) }
-                            if index {
-                                print(result)
-                                Task {
-                                    manga = try await vm.seed(per: vm.per, filter: vm.filter, content: result)
-                                }
+                            Task {
+                                manga = try await vm.search(page: 1, per: vm.per, text: result)
                             }
-                        }, vm: vm, placeholder: "Escribir opcion por categoria")
+                        }, vm: vm, placeholder: "Escribir titulo")
+
+                        if !(hideAuto) {
+                            AutocompleteView(callback: { result in
+                                let index = options!.contains { $0.contains(result) }
+                                if index {
+                                    print(result)
+                                    Task {
+                                        manga = try await vm.seed(per: vm.per, filter: vm.filter, content: result)
+                                    }
+                                }
+                            }, vm: vm, placeholder: "Escribir opcion por categoria")
+                        }
                     }
-                }
 #endif
-                CatalogView(callback: { result in
-                    if result == .forward {
-                        manga = vm.deliverForward()
-                    } else {
-                        manga = vm.deliverBack()
-                    }
-                }, manga: $manga)
-                
-                // Manga local
+                    CatalogView(callback: { result in
+                        if result == .forward {
+                            manga = vm.deliverForward()
+                        } else {
+                            manga = vm.deliverBack()
+                        }
+                    }, manga: $manga)
+                    
+                    // Manga local
 #if os(iOS)
-                if UIDevice.current.userInterfaceIdiom == .pad {
-                    MangaLocalView()
-                } else {
-                    NavigationLink(destination: MangaLocalView()) {
-                        Text("Local")
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        MangaLocalView()
+                    } else {
+                        NavigationLink(destination: MangaLocalView()) {
+                            Text("Local")
+                        }
                     }
+//#elseif os(tvOS)
+//                Spacer()
+//                MangaLocalView()
+#endif
                 }
-#endif
-            }
-            .padding()
-            .onAppear {
-                if !viewDidLoad {
-                    viewDidLoad = true
-                    Task {
-                        var per = 4
+                .padding()
+                .onAppear {
+                    if !viewDidLoad {
+                        viewDidLoad = true
+                        Task {
+                            var per = 4
 #if os(watchOS)
-                        per = 1
+                            per = 1
 #endif
-                        manga = try await vm.seed(per: per, filter: .all, content: "")
+                            manga = try await vm.seed(per: per, filter: .all, content: "")
+                        }
                     }
                 }
             }
