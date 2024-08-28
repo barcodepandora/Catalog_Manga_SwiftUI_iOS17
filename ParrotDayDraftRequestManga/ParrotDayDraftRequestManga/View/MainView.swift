@@ -114,9 +114,9 @@ struct MainView: View {
                             Text("Local")
                         }
                     }
-//#elseif os(tvOS)
-//                Spacer()
-//                MangaLocalView()
+#elseif os(tvOS)
+                Spacer()
+                MangaLocalView()
 #endif
                 }
                 .padding()
@@ -127,6 +127,8 @@ struct MainView: View {
                             var per = 4
 #if os(watchOS)
                             per = 1
+#elseif os(tvOS)
+                            per = 3
 #endif
                             manga = try await vm.seed(per: per, filter: .all, content: "")
                         }

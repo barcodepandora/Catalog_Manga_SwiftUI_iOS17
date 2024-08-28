@@ -139,7 +139,7 @@ class MangaViewModel: MangaViewModelProtocol, ObservableObject {
     
     func prepareMangaLocal() async throws -> [MangaLocal] {
         var mangas = [
-            MangaLocalDTO(title: "Ganbare Kickers", userManga: UserMangaCollectionRequestDTO(manga: 65001), image: "https://i.pinimg.com/736x/92/6f/34/926f34c0ec363240208d3d4ec246f7be.jpg"),
+            MangaLocalDTO(title: "Ganbare Kickers", userManga: UserMangaCollectionRequestDTO(manga: 65001), image: "https://i1.sndcdn.com/artworks-LtrDWjYqcdrV6iZg-FGuz4g-t500x500.jpg"),
             MangaLocalDTO(title: "Gekko Kamen", userManga: UserMangaCollectionRequestDTO(manga: 65002, volumesOwned: [1, 2]), image: "https://i.pinimg.com/736x/92/6f/34/926f34c0ec363240208d3d4ec246f7be.jpg"),
             MangaLocalDTO(title: "Starzinger", userManga: UserMangaCollectionRequestDTO(manga: 65003, readingVolume: 1), image: "https://static.wikia.nocookie.net/yatoroba/images/9/91/Starzinger.jpeg/revision/latest?cb=20230313002349&path-prefix=es")
         ]
