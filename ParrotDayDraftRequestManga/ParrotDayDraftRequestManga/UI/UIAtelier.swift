@@ -68,3 +68,36 @@ struct LetterWidthSize: View {
         }
     }
 }
+
+struct AsyncPicture: View {
+    
+    var urlImage: String
+    var pictureWidth: CGFloat
+    var pictureHeight: CGFloat
+    
+    init(urlImage: String, pictureWidth: CGFloat, pictureHeight: CGFloat) {
+        self.urlImage = urlImage
+        self.pictureWidth = pictureWidth
+        self.pictureHeight = pictureHeight
+    }
+    
+    var body: some View {
+        VStack {
+            AsyncImage(url: URL(string: urlImage.replacingOccurrences(of: "\"", with: ""))) { image in
+                // Display the loaded image
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: pictureWidth, height: pictureHeight, alignment: .leading)
+                    .aspectRatio(contentMode: .fit)
+            } placeholder: {
+                Image("MacWatch")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 81, height: 81)
+                    .animation(.easeInOut)
+            }
+        }
+        .background(Color.clear)
+    }
+}

@@ -66,7 +66,9 @@ struct CatalogViewLocal: View {
         ScrollView {
             LazyVGrid(columns: Array(repeating: GridItem(), count: 3)) {
                 ForEach(Array(mangasLocal?.compactMap { $0 } ?? []), id: \.id) { item in
-                    ItemForCatalogLocal(item: item)
+                    NavigationLink(destination: MangaLocalDetailView(manga: item)) {
+                        ItemForCatalogLocal(item: item)
+                    }
                 }
             }
         }

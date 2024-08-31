@@ -119,6 +119,7 @@
 		56E940542C0E07E10087A90C /* ParrotDayDraftRequestMangaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E940532C0E07E10087A90C /* ParrotDayDraftRequestMangaUITestsLaunchTests.swift */; };
 		56E940622C0E17550087A90C /* MangaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E940612C0E17550087A90C /* MangaViewModel.swift */; };
 		56E940652C0E18490087A90C /* MangaUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E940642C0E18490087A90C /* MangaUseCase.swift */; };
+		56F79F9C2C82243100D303E9 /* MangaLocalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F79F9B2C82243100D303E9 /* MangaLocalDetailView.swift */; };
 		56FAF11B2C33483900DC417F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FAF11A2C33483900DC417F /* Security.framework */; };
 		56FAF11E2C3349FB00DC417F /* KeychainButler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FAF11D2C3349FA00DC417F /* KeychainButler.swift */; };
 /* End PBXBuildFile section */
@@ -262,6 +263,7 @@
 		56E940532C0E07E10087A90C /* ParrotDayDraftRequestMangaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotDayDraftRequestMangaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		56E940612C0E17550087A90C /* MangaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaViewModel.swift; sourceTree = "<group>"; };
 		56E940642C0E18490087A90C /* MangaUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaUseCase.swift; sourceTree = "<group>"; };
+		56F79F9B2C82243100D303E9 /* MangaLocalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaLocalDetailView.swift; sourceTree = "<group>"; };
 		56FAF11A2C33483900DC417F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		56FAF11D2C3349FA00DC417F /* KeychainButler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainButler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -349,6 +351,7 @@
 				56A704432C4C18AB0063480F /* MangaLocalView.swift */,
 				56E90CE32C5FF09800234041 /* FavoriteView.swift */,
 				561879AA2C7B879300AAE7B4 /* CatalogViewLocal.swift */,
+				56F79F9B2C82243100D303E9 /* MangaLocalDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1076,6 +1079,7 @@
 				56B07AE62C56B144005FBC96 /* Butler.swift in Sources */,
 				56E585062C46BA7800E4181F /* MangaLocalUseCase.swift in Sources */,
 				5669E3212C448DD2001450A9 /* MangaLocal.swift in Sources */,
+				56F79F9C2C82243100D303E9 /* MangaLocalDetailView.swift in Sources */,
 				568F49C82C5963D700056623 /* Author.swift in Sources */,
 				56E90CE42C5FF09800234041 /* FavoriteView.swift in Sources */,
 				56BDC5302C3F026A004770EB /* CatalogFilter.swift in Sources */,

@@ -18,7 +18,7 @@ protocol MangaLocalUseCaseProtocol {
     func prepareMangaLocal(mangas: [MangaLocalDTO]) async throws -> [MangaLocal]
     func insertMangaLocalIntoCache(mangas: [MangaLocalDTO])
     func fetchMangaLocalFromCache(mangas: [MangaLocalDTO]) -> [MangaLocal]
-    func insertMangaLocalInDaCloud(mangas: [MangaLocalDTO])
+    func dealMangaLocalInTheCloud(mangas: [MangaLocalDTO]) async -> [MangaLocal]
 }
 
 class MangaLocalUseCase: MangaLocalUseCaseProtocol {
@@ -38,8 +38,7 @@ class MangaLocalUseCase: MangaLocalUseCaseProtocol {
     func prepareMangaLocal(mangas: [MangaLocalDTO]) async throws -> [MangaLocal] {
         self.cleanMangaLocal()
         self.insertMangaLocalIntoCache(mangas: mangas)
-        self.mangasLocal = self.fetchMangaLocalFromCache(mangas: mangas)
-        self.insertMangaLocalInDaCloud(mangas: mangas)
+        self.mangasLocal = await self.dealMangaLocalInTheCloud(mangas: mangas)
         return self.mangasLocal
     }
     
@@ -75,27 +74,63 @@ class MangaLocalUseCase: MangaLocalUseCaseProtocol {
         return mangasLocal
     }
     
-    func insertMangaLocalInDaCloud(mangas: [MangaLocalDTO]) {
+    func dealMangaLocalInTheCloud(mangas: [MangaLocalDTO]) async  -> [MangaLocal]{
+
 #if !os(watchOS) && !os(tvOS)
-        // Get a reference to the Firestore database
         let db = Firestore.firestore()
-        
-        // You can also use db.collection("users").document("someUserId") if you want to specify the document ID
-        // Here, we're letting Firestore auto-generate the document ID
-        var ref: DocumentReference? = nil
-        for manga in mangas {
-            ref = db.collection("mangas").addDocument(data: [
-                "title": manga.title,
-                "image": manga.image,
-                "completeCollection": manga.userManga.completeCollection,
-                "volumesOwned": manga.userManga.volumesOwned,
-                "readingVolume": manga.userManga.readingVolume
-            ]) { err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                } else {
-                    print("Document added with ID: \(ref!.documentID)")
+        let ref = db.collection("mangas")
+        return await withCheckedContinuation { continuation in
+            ref.getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    print("Error document: \(error)")
                 }
+                
+                guard let documents = querySnapshot?.documents else { return }
+                documents.forEach { document in
+                    document.reference.delete { (error) in
+                        if let error = error {
+                            print("Error deleting document: \(error)")
+                        } else {
+                            print("Document deleted: \(document.documentID)")
+                        }
+                    }
+                }
+
+                if querySnapshot!.documents.isEmpty {
+                    self.mangasLocal = self.fetchMangaLocalFromCache(mangas: mangas)
+                    for manga in self.mangasLocal {
+                        ref.document("manga").setData([
+                            "title": manga.title,
+                            "image": manga.image,
+                            "completeCollection": manga.userManga.completeCollection,
+                            "volumesOwned": manga.userManga.volumesOwned,
+                            "readingVolume": manga.userManga.readingVolume
+                        ]) { error in
+                            if let error = error {
+                                print("Error adding document: \(error)")
+                            } 
+                        }
+                    }
+                } else {
+                    var index = 65001
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                        
+                        self.mangasLocal.append(
+                            MangaLocal(
+                                title: document.get("title") as! String,
+                                userManga: UserMangaCollectionRequest(
+                                    manga: document.get("manga") != nil ? document.get("manga") as! Int: index,
+                                    completeCollection: document.get("completeCollection") as! Bool,
+                                    volumesOwned: document.get("volumesOwned") as! [Int]
+                                ),
+                                image: document.get("image") as! String
+                            )
+                        )
+                        index += 1
+                    }
+                }
+                continuation.resume(returning: self.mangasLocal)
             }
         }
 #endif

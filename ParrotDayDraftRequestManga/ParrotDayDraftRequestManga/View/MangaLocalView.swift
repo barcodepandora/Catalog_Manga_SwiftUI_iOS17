@@ -11,6 +11,7 @@ struct MangaLocalView: View {
     
     @EnvironmentObject private var vm: MangaViewModel
     @State private var mangasLocal: [MangaLocal]?
+    @State private var viewDidLoad = false
     
     init() {
         mangasLocal = deliverMangaLocal()
@@ -20,14 +21,26 @@ struct MangaLocalView: View {
         VStack {
             ScrollView {
                 Text("My Manga Local")
-                CatalogViewLocal(mangasLocal: $mangasLocal)
-                    .onAppear {
-                        mangasLocal = deliverMangaLocal()
+                if (mangasLocal != nil && !mangasLocal!.isEmpty) {
+                    CatalogViewLocal(mangasLocal: $mangasLocal)
+                        .onAppear {
+                            mangasLocal = deliverMangaLocal()
+                    }
+                } else {
+                    Image("MacWatch")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 164, height: 164)
+                        .animation(.easeInOut)
+                    Text("Requesting from Cloud Firestore, A few delaying but so light and simple...")
                 }
             }
         }
         .onAppear {
-            prepareMangaLocal()
+            if !viewDidLoad {
+                viewDidLoad = true
+                prepareMangaLocal()
+            }  
         }
         
     }
